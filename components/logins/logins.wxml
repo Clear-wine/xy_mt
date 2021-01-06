@@ -1,0 +1,26 @@
+<!-- 登录弹窗 -->
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <view class="zan-dialog__mask" bindtap="toggleDialogss" />
+  <view class="zan-dialog__container">
+    <view class="nei">
+      <image src="/images/denglu.png"></image>
+      <!-- <view class="nei-yi">壹叁新消费</view>
+      <view class="nei-er">此小程序为美通集团旗下电商平台，需要绑定手机号码才能提供更好的服务!</view> -->
+      <button class='bindstyle' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信快捷绑定</button>
+      <view class="nei-san" bindtap="handlePhone">手机号码登录/注册</view>
+    </view>
+  </view>
+</view>
+<!-- 授权信息弹框 -->
+<view class="zan-dialog {{ showDialogs ? 'zan-dialog--show' : '' }}">
+  <view class="zan-dialog__mask" bindtap="toggleDialogss" />
+  <view class="zan-dialog__container">
+    <view class="nei">
+      <image src="/images/denglu.png"></image>
+      <!-- <view class="nei-yi">壹叁新消费</view>
+      <view class="nei-er">此小程序为美通集团旗下电商平台，进入小程序 将使用您的公开信息（名称，头像等）请确认。</view> -->
+      <button class='bindstyle' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权我的信息</button>
+      <!-- <view class="nei-san" bindtap="handlePhone">手机号码登录/注册</view> -->
+    </view>
+  </view>
+</view>

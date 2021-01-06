@@ -1,0 +1,78 @@
+<!--pages/child/pages/order-pay/order-pay.wxml-->
+<view class='pay'>
+  <view class='vip-img pay-left'>
+    <image src='{{imgPath}}'></image>
+
+    <view class='img-text'>
+      <view class='img-title'>
+        <image src='../images/ic-vip.png'></image>
+        <text>{{gradeText}}</text>
+      </view>
+      <view class='img-msg'>
+        <view>{{directRemark}}</view>
+        <view>{{indirectRemark}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='pay-right'>
+    <view class='pay-sum'>￥{{price}}</view>
+    <view class='pay-sum-li'>
+      <view>{{gradeText}}</view>
+      <view>平台服务费</view>
+    </view>
+  </view>
+</view>
+
+
+<view class='choose-pay'>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <!--<view class='choose-li'>
+      <view class='list-img'>
+        <image src='../images/pay-li3.png'></image>
+      </view>
+      <view class='list-text'>
+        <view class='list-title'>支付宝付款</view>
+        <view class='list-msg'>推荐已安装支付宝APP的朋友使用</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{items}}">
+            <radio value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
+          </label>
+        </radio-group>
+
+      </view>
+
+
+    </view>-->
+    <view class='choose-li'>
+      <view class='list-img'>
+        <image src='../images/payment-wechat.png'></image>
+      </view>
+      <view class='list-text'>
+        <view class='list-title'>微信支付</view>
+        <view class='list-msg'>微信支付方便快捷,大家都在使用</view>
+        <radio class="radio" value="{{payState}}" checked="true" />
+      </view>
+    </view>
+    <!-- <view class='choose-li'>
+      <view class='list-img'>
+        <image src='../images/pay-li1.png'></image>
+      </view>
+      <view class='list-text'>
+        <view class='list-title'>银联支付</view>
+        <view class='list-msg'>银行最多,无需开通网银也能支付</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{items}}">
+            <radio value="{{item.name}}" checked="{{item.checked}}" /> 
+          </label>
+        </radio-group>
+      </view>
+
+
+    </view>-->
+  </radio-group>
+</view>
+
+<view class='pay-b'>
+  <button bindtap='handlePay' class='pay-btn'>确认支付 ￥{{price}}</button>
+</view>

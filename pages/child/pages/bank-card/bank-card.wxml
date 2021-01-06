@@ -1,0 +1,19 @@
+<view class='card' wx:for="{{bankList}}" wx:if="{{bankList.length != 0}}" wx:key="{{index}}" catchtap="handleSelCard" data-bankName="{{item.bankName}}" data-bankNo="{{item.bankNo}}" data-id="{{item.id}}" data-type="1">
+  <!-- <navigator url='/pages/child/pages/banl-details/banl-details'> -->
+    <view class='card-text'>
+      <text class='card-title'>{{item.bankName}}</text>
+      <text class='card-c'>储蓄卡</text>
+      <text class='card-n'>{{item.bankNo}}</text>
+    </view>
+  <!-- </navigator> -->
+</view>
+<view class='add-card' bindtap='addCard'>
+  <image mode="aspectFit" src="../images/add_bankcard.png"></image>
+  <view class="add-card-title">添加银行卡</view>
+  <view class="add-card-msg">享受更多支付优惠</view>
+</view>
+
+<view class='card gowx' catchtap="handleSelCard" data-type="2" data-bankName="微信提现" data-id="1">
+  <image src="../images/wxzhifu.png"></image>
+  提现至微信
+</view>

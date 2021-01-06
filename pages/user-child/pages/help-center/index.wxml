@@ -1,0 +1,58 @@
+<view class="yi">
+  <view class="yi-top">
+    自助服务
+  </view>
+  <view class="yi-tubiao">
+    <view bindtap="dingdanchaxun">
+    <image src="../images/dingdancx.png"></image>
+    <view>订单查询</view>
+  </view>
+  <view bindtap="tuikuanshouhou">
+    <image src="../images/tuikuansh.png"></image>
+    <view>退款/售后</view>
+  </view>
+  <view bindtap="woyaocuidan">
+    <image src="../images/woyaocuidan.png"></image>
+    <view>我要催单</view>
+  </view>
+  <view bindtap="wodezijin">
+    <image src="../images/wodezijn.png"></image>
+    <view>我的资金</view>
+  </view>
+  <view>
+    <image src="../images/jiaoyimima.png"></image>
+    <view>交易密码</view>
+  </view>
+  <view bindtap="yinghangka">
+    <image src="../images/yinghangka.png"></image>
+    <view>银行卡</view>
+  </view>
+  <view bindtap="woyaotixian">
+    <image src="../images/woyaotixian.png"></image>
+    <view>我要提现</view>
+  </view>
+  </view>
+</view>
+<view class="er">
+  <view class="er-top">
+    <view class="item {{currentTab==index ? 'er-top-yi' : 'er-top-er'}}" wx:for="{{dataListX}}" data-idx="{{index}}" data-value='{{item.value}}' bindtap="navbarTap">{{item.text}}</view>
+  </view>
+  <swiper current="{{currentTab}}" duration="200" bindchange="swiperChange">
+    <swiper-item wx:for="{{dataListX}}">
+      <view class="etsView" wx:for="{{dataListY}}" bindtap="junpDetails" data-index = '{{index}}'>
+        <text>{{item.title}}</text>
+        <image src="../images/agent_enter.png"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="san">
+  <button class="san-bt" open-type="contact" bindcontact="kefu">
+    <image src="../images/kefu.png"></image>
+    <view>联系客服</view>
+  </button>
+  <button class="san-bt" bindtap="yijian">
+    <image src="../images/yijian.png"></image>
+    <view>意见反馈</view>
+  </button>
+</view>

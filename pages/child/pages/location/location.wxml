@@ -1,0 +1,20 @@
+<!--pages/child/pages/location/location.wxml-->
+<view class='location'>
+  <view class='location-list' wx:for="{{address}}" catchtap='selectSite' data-item='{{item}}'>
+    <view class='list-head'>
+      <text class="list-head-yi">{{item.persion}}</text>
+      <text>{{item.phone}}</text>
+      <text class="label {{item.lable === '' ? 'none' : ''}}">{{item.lable != '' ?item.lable : '' }}</text>
+      <text class="isDefault {{item.isDefault == 0 ? 'noneDefault' : ''}}">{{item.isDefault ==1  ?  '默认': ''}}</text>
+    </view>
+    <view class='list-title'>{{item.province}}{{item.city}}{{item.area}}{{item.address}}</view>
+    <image src='../images/edit.png' data-item="{{item}}" catchtap='handleAmend'></image>
+  </view>
+</view>
+<view class="button">
+  <view bindtap="getWxaddress">
+    <image src="../images/weixin2.png"></image>
+    <view>微信导入</view>
+  </view>
+  <navigator class='add' url='../add-location/add-location?item=0'>添加收货地址</navigator>
+</view>

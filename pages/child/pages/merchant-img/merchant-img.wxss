@@ -1,0 +1,11 @@
+/* pages/child/pages/merchant-img/merchant-img.wxss */
+.img-wrap{
+  width: 100%;
+  min-height: 100vh;
+  height: 100%
+}
+.img-wrap image{
+  width: 100%;
+  height: 100vh;
+  display: block
+}

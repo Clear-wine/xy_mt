@@ -1,0 +1,11 @@
+<!--pages/agent-child//pages/modification-traderspassword/index.wxml-->
+<view class="haoma">
+  <text>手机号码:</text>
+  <text>{{userPhone}}</text>
+</view>
+<view class="yanzhen">
+  <view class="yanzhen-yi">验证码:</view>
+  <input class="yanzhen-input" placeholder="请输入验证码" type='number' bindinput="getvalue"></input>
+  <view class="fasong" bindtap="huoqu">{{codename}}</view>
+</view>
+<view class="btn" bindtap="xiayibu">下一步</view>

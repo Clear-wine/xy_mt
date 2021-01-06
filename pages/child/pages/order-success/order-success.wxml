@@ -1,0 +1,46 @@
+<!-- 支付订单 -->
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+<view class='wrap'>
+  <view class='order-sucess'>
+    <view class='suc-img'>
+      <image src='../images/succeed_ty.png'></image>
+    </view>
+    <view class='suc-title'>{{activityType == 1 ? '底价已支付!' : '订单支付成功'}}</view>
+    <view class='suc-price'>￥
+      <text>{{payPrice}}</text>
+    </view>
+    <view class='suc-shopName'>{{shopName}}</view>
+  </view>
+  <view class='btn-wrap' wx:if="{{activityType}}">
+    <view class='order-list btn' bindtap='toActivity'>查看活动单</view>
+    <button class='order-share btn' open-type='share' hover-class='none'>分享好友{{activityTypeName}}</button>
+  </view>
+  <view class='btn-wrap' wx:else>
+    <view class='order-list btn' bindtap='toOrder'>查看订单</view>
+    <view class='order-share btn' bindtap='toHome'>返回首页</view>
+  </view>
+</view>
+<!---推荐 猜你喜欢-->
+<view class='recommend'>
+  <view class='recommend-title'>
+    <image class='icon-border icon-left' src='../images/shoppingcar_icon3.png'></image>
+    <view class='icon-img'>
+      <image src='../images/like_help.png'></image>
+    </view>
+    <view>猜你喜欢</view>
+    <image class='icon-border' src='../images/shoppingcar_icon3.png'></image>
+  </view>
+  <view class='rec-ul'>
+    <block wx:for="{{likedata}}" wx:key='index'>
+      <view class='rec-li' bindtap='toGoodsDetails' data-goodsNo='{{item.goodsNo}}'>
+        <view class='help-li-img'>
+          <image src='{{item.imgPath}}'></image>
+        </view>
+        <view class='rec-li-tit'>{{item.goodsName}}</view>
+        <view class='rec-money'>￥{{filters.toFix(item.price - item.profit * vipRate)}}</view>
+        <view class='rec-nomoney'>￥{{item.price}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

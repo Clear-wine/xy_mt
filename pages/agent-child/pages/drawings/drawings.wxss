@@ -1,0 +1,356 @@
+/* pages/agent-child/pages/drawings/drawings.wxss */
+
+.topup-list {
+  width: 95%;
+  background-color: #fff;
+  margin: 4% auto;
+  overflow: hidden;
+  border-radius: 10rpx;
+  padding: 3% 2%;
+}
+
+.toup-sum {
+  font-size: 28rpx;
+  font-weight: 400;
+}
+
+.topup-inp {
+  width: 100%;
+  margin-top: 4%;
+  border-bottom: 1px solid #f4f4f4;
+  padding-bottom: 4%;
+  position: relative;
+}
+
+.topup-inp text {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.topup-inp input {
+  text-align: left;
+  padding: 0 0%;
+  padding-top: 0%;
+  display: initial;
+  height: auto;
+  color: #000;
+  font-size: 18px;
+}
+
+.toup-title {
+  /* color: #444; *//* margin-top: 12rpx;
+  padding: 3%; *//* width: 60%; */
+  margin-right: 6%;
+  color: #999;
+}
+
+.intheorder-ul {
+  background-color: #fff;
+  width: 94%;
+  margin: 3%;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+
+.li-title {
+  overflow: hidden;
+  padding: 3%;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.intheorder-li {
+  /* width: 100%; */
+  overflow: hidden;
+  line-height: 22px;
+  /* border-bottom: 1px solid #f4f4f4; */
+  padding: 3%;
+}
+
+.intheorder-span {
+  /* display: inline-block; */
+  color: #9999;
+  padding: 4% 0;
+}
+
+.ischooseCar {
+  font-family: PingFang-SC-Medium;
+  font-size: 30rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #353b56;
+}
+
+.intheorder-span>input {
+  display: initial;
+  font-size: 2rem;
+}
+
+.span-input {
+  margin-left: 2%;
+  display: flex;
+  color: #000;
+  border-bottom: 1rpx solid #f4f4f4;
+  box-sizing: border-box;
+}
+
+.span-input>text {
+  font-size: 52rpx;
+  margin-right: 5%;
+  height: 2.2rem;
+  line-height: 2.2rem;
+}
+
+.li-title-span {
+  width: 50%;
+  color: #999;
+}
+
+.li-title-span {
+  float: left;
+}
+
+.li-title-span:nth-child(2) {
+  text-align: right;
+  color: #34abff;
+  width: 30%;
+  float: right;
+}
+
+.toup-title text {
+  font-size: 26rpx;
+  color: #ff2828;
+}
+
+.registered-nav-b {
+  color: #999;
+  width: 96% !important;
+  margin-left: 4%;
+  font-size: 24rpx;
+}
+
+.radio-group {
+  display: inline;
+}
+
+radio .wx-radio-input {
+  border-radius: 50%;
+  width: 28rpx;
+  height: 28rpx;
+}
+radio{
+  width: 28rpx
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 38rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 38rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 38rpx;
+  text-align: center;
+  font-size: 26rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  background: #ff9736;
+   border-color: #ff9736;
+
+}
+
+.title-i {
+  color: #69c1fe;
+}
+
+.toup-btn {
+  margin-top: 6%;
+}
+
+.toup-btn button {
+  background-color: #ff9736;
+  color: #fff;
+  width: 88%;
+  border-radius: 50rpx;
+}
+
+.col-all {
+  width: 30%;
+  color: #48a6e8;
+}
+
+.all-view {
+  display: flex;
+  padding: 3%;
+  margin-top: 12rpx;
+}
+
+.protocol-view {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+  font-size: 28rpx;
+}
+
+.check-box {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  width: 100%;
+  /* overflow: hidden; */
+}
+
+.read-title{
+  margin-left: 4%;
+  font-size: 28rpx;
+}
+.read-title text {
+  color: #ff9736;
+}
+
+input {
+  cursor: auto;
+  height: 2.2rem;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: UICTFontTextStyleBody;
+  height: 2.2rem;
+}
+
+
+
+.content{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 54rpx;
+  width: 90%;
+  margin-left: 5%;
+}
+.iptbox{
+  width: 70rpx;
+  height: 70rpx;
+  border:1rpx solid #ddd;
+  border-radius: 4rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.ipt{
+  width: 0;
+  height: 0;
+}
+.btn-area{
+  width: 170rpx;
+  height: 70rpx;
+  background:rgba(239,239,239,1);
+  color:white;
+  border-radius:36rpx;
+  font-size:28rpx;
+  color:rgba(102,102,102,1);
+}
+.btn-area::after{
+  border: none;
+}
+.zan-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);/*设置阴影半透明背景如： background: rgba(0, 0, 0, 0.4);*/
+  display: none;
+}
+
+.zan-dialog__container {
+  position: absolute;
+  top: 235rpx;
+  left: 107rpx;
+  width: 550rpx;/*弹窗布局宽*/
+  height: 400rpx;/*弹窗布局高，与下面弹出距离transform有关*/
+  background: #f8f8f8;
+  transform: translateY(-200%);/*弹框弹出距离，与弹框布局高度有关，如300%表示弹起距离为3倍弹窗高度*/
+  transition: all 0.4s ease;
+  z-index: 12;
+  border-radius: 10rpx;
+  /* box-shadow: 0px 3px 3px 2px gainsboro;弹框的悬浮阴影效果，如不需要可注释该行 */
+}
+
+.zan-dialog--show .zan-dialog__container {
+  transform: translateY(0);
+}
+
+.zan-dialog--show .zan-dialog__mask {
+  display: block;
+}
+.biaoti{
+  width: 100%;
+  text-align: center;
+  padding-top: 54rpx;
+  font-size:36rpx;
+  color:rgba(102,102,102,1);
+}
+.checkPay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+.checkPay image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+.cp{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: #fff;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
+.showCp{
+  animation: viewlinear 0.2s ease-out 1;
+}
+@keyframes viewlinear {
+  from {
+    bottom: -600rpx;
+  }
+  to {
+    bottom: 0;
+  }
+}
+.cpTit{
+  font-size: 38rpx;
+  text-indent: 4vw;
+  line-height: 100rpx;
+  font-weight: bold;
+}
+.cpUl{
+  width: 92vw;
+  height: 500rpx;
+  margin: 0 auto;
+  overflow: auto;
+}
+.cpLi{
+  display: flex;
+  align-items: center;
+  border-top: 2rpx solid #eee;
+  line-height: 90rpx;
+}
+.cpLi:last-child{
+  border-bottom: 2rpx solid #eee;
+}
+.cpLi text{
+  margin-left: 30rpx;
+}

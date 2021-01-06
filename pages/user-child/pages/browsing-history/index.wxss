@@ -1,0 +1,254 @@
+/* pages/user-child/pages/browsing-history/index.wxss */
+
+.container {
+  padding: 0;
+  margin: 0;
+}
+
+.no-container {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  height: 100%;
+  background-color: #fff;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.view-btn {
+  /* display: flex; */
+  background-color: #fff;
+  margin-bottom: 2%;
+  text-align: right;
+  overflow: hidden;
+  font-size: 26rpx;
+}
+
+.item-btn {
+  display: inline-block;
+  width: 12%;
+  text-align: center;
+  padding: 2% 0;
+}
+
+.logging-module {
+  background-color: #fff;
+  width: 100%;
+  font-size: 28rpx;
+  margin-bottom: 2%;
+  overflow: hidden
+}
+.checkModule{
+  margin-bottom: 150rpx;
+}
+.module-date {
+  font-size: 32rpx;
+  padding-left: 2%;
+  padding-top: 2%;
+  font-weight: 580;
+}
+
+.hot-checked {
+  width: 100%;
+  padding: 24rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list-view {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 2% 2%;
+  overflow: hidden;
+}
+
+.Hot-div-img {
+  width: 22%;
+  height: 157rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+
+.Hot-div-shop {
+  width: 64%;
+  height: 160rpx;
+  padding: 12rpx 0rpx;
+  position: relative;
+}
+
+.hot-price-title {
+  font-size: 22rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.order-red-price {
+  font-size: 28rpx;
+  color: #ff6300;
+  position: absolute;
+  bottom: 20rpx;
+}
+
+.cart-img {
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.cart-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.no-img-title {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  left: 13%;
+}
+
+.no-img-title-left {
+  left: 4%;
+}
+
+.no-gray {
+  font-size: 22rpx;
+  color: #ccc;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.no-gray-price {
+  color: #ccc;
+  font-size: 28rpx;
+  position: absolute;
+  bottom: 20rpx;
+}
+
+/***************多选按钮**************/
+
+/******checkbox 未选中******/
+
+checkbox .wx-checkbox-input {
+  border-radius: 50rpx;
+  width: 26rpx;
+  height: 26rpx;
+}
+
+/*********CheckBox 选中***************/
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background-color: #ffb62a;
+  border: 1px solid #ffb62a;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 26rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 26rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 26rpx;
+  text-align: center;
+  font-size: 30rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+/* 暂无浏览记录  */
+
+.no-view-img {
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  left: 31%;
+}
+
+.no-view-img image {
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.no-title {
+  font-size: 28rpx;
+  color: #ccc;
+  padding-top: 2%;
+}
+
+/* 底部模块 */
+
+.botton-view {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.left-view {
+  display: flex;
+  margin-left: 3%;
+}
+
+.shop-check-text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.shop-check-right {
+  width: 78%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.shop-check-he {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.shop-check-he text {
+  color: #ff4500;
+  font-size: 28rpx;
+}
+
+.shop-check-he .nohe {
+  color: #999;
+  font-size: 22rpx;
+}
+
+.shop-check-jie {
+  width: 180rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff !important;
+  background: #f80;
+}
+.placeholder-view {
+  width: 100%;
+  height: 150rpx;
+}

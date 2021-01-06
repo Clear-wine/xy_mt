@@ -1,0 +1,61 @@
+<!--pages/child/pages/merchant-details/merchant-details.wxml-->
+ <view class='restaurantPage-header'>
+    <view class='header-top'>
+      <view class='top-left'>
+        <image mode="aspectFill" src='{{shopObj.headImg}}'></image>
+      </view>
+      <view class='top-center'>
+        <view class='top-center-title'>{{shopObj.shopName}}</view>
+        <view class='top-center-star' wx:for="{{one_1}}">
+          <image src='../images/star3.png'></image>
+        </view>
+          <view class='top-center-star' wx:for="{{tow_1}}">
+          <image src='../images/star4.png'></image>
+        </view>
+      </view>
+      <view class='top-right'>
+        <view class='top-right-num'>{{shopNum.allAvg}}</view>
+        <view class='top-right-title'>综合评分</view>
+      </view>
+    </view>
+    <view class='header-bot'>
+      <view class='header-bot-li'>
+        <view class='bot-li-num'>{{shopNum.descScoreAvg}}</view>
+        <view class='bot-li-title'>描述相符</view>
+      </view>
+      <view class='header-bot-li'>
+        <view class='bot-li-num'>{{shopNum.serviceScoreAvg}}</view>
+        <view class='bot-li-title'>服务态度</view>
+      </view>
+      <view class='header-bot-li'>
+        <view class='bot-li-num'>{{shopNum.logisticScoreAvg}}</view>
+        <view class='bot-li-title'>物流服务</view>
+      </view>
+    </view>
+  </view>
+  <view class='restaurantPage-content'>
+    <view class='content-ul'>
+      <view class='content-li'>
+        <text class='textleft'>店铺品类</text>
+        <text class='textright'>{{shopObj.tradeTypeName}}</text>
+      </view>
+        <view class='content-li'>
+        <text class='textleft'>店铺简介</text>
+        <text class='textright'>{{shopObj.shopDesc}}</text>
+      </view>
+        <view class='content-li'>
+        <text class='textleft'>联系电话</text>
+        <text class='textright'>{{shopObj.phone}}</text>
+      </view>
+        <view class='content-li'>
+        <text class='textleft'>开店时间</text>
+        <text class='textright'>{{shopObj.createDate}}</text>
+      </view>
+        <view class='content-li' bindtap="businessIicense">
+     
+        <text class='textleft'>营业执照</text>
+        
+      <image class='textright textimg' mode='aspectFit' src='../images/shangjia_zhengjia.png'></image>
+      </view>
+    </view>
+  </view>

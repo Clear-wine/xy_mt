@@ -1,0 +1,57 @@
+<scroll-view scroll-y="true">
+<!-- 退款进度 -->
+  <!-- 发起退款 -->
+  <view class="top" wx:if="{{auditType==1||auditType==2}}">
+    <image src="../../images/shijian.png"></image>
+    <view class="top-right">
+      <view class="top-right-yi">{{auditType==2&&logistics==null?'请尽快填写物流信息':'成功发起退款，请等待商家处理'}}</view>
+      <view class="top-right-er">{{handleSubTimes}}</view>
+    </view>
+  </view>
+  <!-- 退款取消 -->
+  <view class="top top2" wx:if="{{auditType==5}}">
+    <image src="../../images/tkquxiao.png"></image>
+    <view class="top-right right2">
+      <view class="top-right-yi yi2">退款被取消</view>
+      <view class="top-right-er er2">您已主动取消退款</view>
+    </view>
+  </view>
+  <!-- 退款拒绝 -->
+  <view class="top top2" wx:if="{{auditType==4}}">
+    <image src="../../images/tkshibai.png"></image>
+    <view class="top-right right2">
+      <view class="top-right-yi yi2">退款失败</view>
+      <view class="top-right-er er2">商家拒绝了您的请求</view>
+    </view>
+  </view>
+<!-- 物流信息 -->
+<view class="wuliu" wx:if="{{logistics}}">
+  <view class="wuliu-left">物流单号：{{logistics.orderCode}}</view>
+  <view class="wuliu-right" bindtap="gologistics">查看物流信息</view>
+</view>
+<!-- 商品详情 -->
+<view class="center" wx:for="{{goodsList}}">
+  <view class="center-yi">商品信息</view>
+  <view class="center-er">
+    <image src="{{item.img}}"></image>
+    <view class="cer-right">
+      <view class="right-yi">{{item.goodsName}}</view>
+      <!-- <view class="right-er">便携式餐椅</view> -->
+      <view class="right-san">
+        <text wx:if="{{item.specValue}}">{{item.specValue}}</text>
+      </view>
+      <view class="right-si">x{{item.num}}</view>
+    </view>
+  </view>
+</view>
+</scroll-view>
+<!-- 底部按钮 -->
+<view class="anniu" >
+  <!-- <view class="anniu-left" bindtap="goservice">
+    <image src="../../images/kefu.png"></image>
+    <view>联系客服</view>
+  </view> -->
+  <view class="anniu-right" bindtap="cancelrefund" wx:if="{{auditType==1||auditType==2}}">取消退款</view>
+  <view class="anniu-right" bindtap="goservices" wx:if="{{auditType==4}}">平台介入</view>
+  <view class="anniu-right1" bindtap="writelogistics" wx:if="{{auditType==2&&!logistics}}">填写物流信息</view>
+</view>

@@ -1,0 +1,69 @@
+<!--pages/custom_navbar/index/index.wxml-->
+<!-- <text>pages/custom_navbar/index/index.wxml</text> -->
+<!-- <include src="/zh_cjdianc/pages/commons/navbar/navbar.wxml"></include> -->
+
+
+<view class="container">
+
+  <view class="head">
+    <view class="head_nav flex-row-between-c" style="padding-top:{{globalData.navTop}}px;padding-right:97px;height:{{globalData.navHeight}}px;">
+      <view class="center" catchtap="back">
+          <image class="img_back" mode="widthFxix" src="/pages/images/fanhuib.png" ></image>
+      </view>
+      <view class="center" style="padding-right: 10rpx;" catchtap="scanCode">
+          <image class="img_saoyisao" mode="widthFxix" src="/pages/images/saoyisao.png"></image>
+      </view>
+    </view>
+    <view class="store_info flex-row-y-center">
+      <image class="img_store_logo" src="/images/default_page3.png"></image>
+      <view>
+        <view class="flex-row-y-center" catchtap="">
+          <text>长沙雨花区木林森旗舰店</text> 
+          <image class="img_arrow_right" src="/pages/images/near_activity_enter.png"></image>
+        </view>
+        <view class="store_xj flex-row-y-center">
+          <text>店铺星级</text>
+          <view class='store-star'>
+            <block wx:for="{{one_1}}" wx:key='item'>
+              <image src='/pages/images/star_1.png'></image>
+            </block>
+            <block wx:for="{{tow_1}}" wx:key='item'>
+              <image src='/pages/images/star_2.png'></image>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 首页导航  四类 -->
+    <view class="nav_4 flex-row-between-c">
+      <block wx:for="{{nav_4}}" wx:for-item="li">
+        <view class="nav_li center {{li.id == this_nav_id? 'nav_4_act':''}}" catchtap="change_nav" data-id="{{li.id}}">
+          {{li.name}}
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="content">
+    <!-- 精选 -->
+    <view wx:if="{{this_nav_id==0}}">
+      123456
+    </view>
+    <!-- 商品 -->
+    <view wx:if="{{this_nav_id==1}}">
+      
+    </view>
+    <!-- 活动 -->
+    <view wx:if="{{this_nav_id==2}}">
+      
+    </view>
+    <!-- 上新 -->
+    <view wx:if="{{this_nav_id==3}}">
+      
+    </view>
+
+  </view>
+
+  
+
+</view>

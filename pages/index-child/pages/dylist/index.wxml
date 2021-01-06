@@ -1,0 +1,39 @@
+<scroll-view scroll-y="true" bindscrolltolower="xiala" style="background-image: url({{tupian.backgroundImg}})">
+<image src="{{tupian.bannerPath}}" class="bj" bindtap="goplaying"></image>
+<view class="body">
+  <!-- <view class="name">
+    <image src="../images/fanhuib.png" bindtap="fanhui"></image>
+    代言购
+  </view> -->
+  <!-- <view class="biaoti"></view>
+  <view class="top" bindtap="goplaying">
+    <image src="../images/dywanfa.png"></image>
+  </view> -->
+  <image src="../images/dysp.png" class="zltu"></image>
+  <view class="list">
+    <view class="shop" wx:for="{{activityList}}" wx:key="index" bindtap="godetails" data-activityNo="{{item.activityNo}}">
+      <image src="{{item.imgPath}}"></image>
+      <view>
+        <view class="shop-yi">
+          <text class="yi-left">佣金:{{item.brokeragePrice}}元</text>
+          <text class="yi-right">{{item.name}}</text>
+        </view>
+        <view class="shop-er">
+          <text class="er-left">￥{{item.originalPrice}}起</text>
+          <!-- <text class="er-right">原价￥{{item.originalPrice}}</text> -->
+        </view>
+        <view class="shop-san">
+          <view class="san-left">
+            <text class="san-left-yi">赚</text>
+            <text class="san-left-er">{{item.differenceOfPrices}}元</text>
+          </view>
+          <view class="san-right">去购买</view> 
+        </view>
+      </view>
+    </view>
+    <view class="wanbi" wx:if="{{activityList.length==0}}">暂时没有活动哦~</view>
+    <view class="wanbi" wx:if="{{activityList.length>0}}">已经全部加载完毕~</view>
+  </view>
+</view>
+</scroll-view>
+

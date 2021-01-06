@@ -1,0 +1,126 @@
+page{
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+}
+.yi{
+  width: 100%;
+  height: 500rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.yi-top{
+  padding-top: 40rpx;
+  padding-left: 30rpx;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(53,59,86,1);
+}
+.yi-tubiao{
+  width: 100%;
+  padding-left: 31rpx;
+}
+.yi-tubiao>view{
+  width: 129rpx;
+  height: 150rpx;
+  float: left;
+  margin-right: 58rpx;
+  margin-top: 38rpx;
+}
+.yi-tubiao>view>image{
+  width: 100%;
+  height: 129rpx;
+}
+.yi-tubiao>view>view{
+  width: 100%;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  text-align: center;
+}
+.er{
+  width: 100%;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.er-top{
+  width: 100%;
+  height: 80rpx;
+}
+.er-top-yi{
+  /* width: 125rpx; */
+  height: 45rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(255,151,54,1);
+  float: left;
+  border-bottom: 6rpx solid rgba(255,151,54,1);
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+.er-top-er{
+  /* width: 125rpx; */
+  height: 45rpx;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(53,59,86,1);
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+.san{
+  width: 100%;
+  height: 98rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+}
+.san-bt{
+  width: 50%;
+  height: 100%;
+  float: left;
+  background-color: #fff;
+}
+button {
+  margin: 0;
+  padding: 0;
+}
+button::after{
+  border: none;
+}
+.san-bt>image{
+  width: 27rpx;
+  height: 27rpx;
+  float: left;
+  margin-top: 42rpx;
+  margin-left: 111rpx;
+}
+.san-bt>view{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(53,59,86,1);
+  float: left;
+  margin-top: 18rpx;
+  margin-left: 10rpx;
+}
+.etsView{
+  margin-left: 3vw;
+  width: 97vw;
+  display: flex;
+  align-items: center;
+  line-height: 54rpx;
+  border-bottom: 2rpx solid #eee;
+  color: #666;
+  font-size: 28rpx;
+}
+.etsView image{
+  width: 18rpx;
+  height: 25rpx;
+  margin-left: auto;
+  margin-right: 40rpx;
+}

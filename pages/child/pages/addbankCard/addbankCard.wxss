@@ -1,0 +1,47 @@
+/* pages/child/pages/addbankCard/addbankCard.wxss */
+.realname-title{
+  text-align: center;
+  color: #32afff;
+  margin: 5% 0;
+  font-weight: 600;
+}
+.realname {
+  background-color: #fff;
+  margin: 3%;
+  padding: 0% 3%;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  border: 1px solid #f4f4f4;
+}
+.realname-list{
+  border-bottom: 1px solid #f4f4f4;
+  padding: 4% 0;
+  color: #666;
+}
+.realname-list:last-child{
+  border: none;
+}
+.realname-list view {
+  display: inline-block;
+}
+
+.realname-list view input {
+  display: initial;
+}
+
+.realname-list view:nth-child(1) {
+  width: 20%;
+}
+.realname-list view:nth-child(2) {
+  width: 79%;
+  color: #777
+}
+.realname-btn button{
+  width: 88%;
+  margin: auto;
+  background-color: #ff9736;
+  color: #fff;
+  border: none;
+  border-radius: 50rpx;
+  margin-top: 5%;
+}

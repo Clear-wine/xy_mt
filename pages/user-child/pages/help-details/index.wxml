@@ -1,0 +1,2 @@
+<!--pages/user-child//pages/help-details/index.wxml-->
+<rich-text nodes="{{options.content}}"></rich-text>

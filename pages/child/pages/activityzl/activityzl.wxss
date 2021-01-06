@@ -1,0 +1,360 @@
+.bj{
+  width: 100%;
+  height: 454rpx;
+}
+page{
+  margin: 0;
+  padding: 0;
+  background:#FF1212;
+}
+.body{
+  width:94%;
+  position: absolute;
+  z-index: 9;
+  margin-left: 3%;
+  top: 0rpx;
+}
+
+.hdjieshao{
+  float: right;
+  font-size:30rpx;
+  color:rgba(255,255,255,1);
+  margin-top: 34rpx;
+}
+.hdjieshao>image{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+  margin-top: 6rpx;
+  margin-left: 8rpx;
+}
+.top{
+  width: 100%;
+  height:310rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10px;
+  margin-top: 100rpx;
+}
+.touxiang{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  left: 307rpx;
+  top: 37rpx;
+  border-radius: 50%;
+}
+.nicheng{
+  font-size:24rpx;
+  text-align: center;
+  color:rgba(153,153,153,1);
+  padding-top: 36rpx;
+}
+.biaoti{
+  width: 640rpx;
+  margin-left: 30rpx;
+  border-bottom: 4rpx solid #eee;
+  padding-bottom: 10rpx;
+  font-size:30rpx;
+  color:rgba(51,51,51,1);
+  text-align: center;
+}
+.shop{
+  width: 100%;
+  height: 150rpx;
+  margin-left: 44rpx;
+  margin-top: 8rpx;
+}
+.shop>image{
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+}
+.shop>view{
+  float: left;
+  margin-left: 12rpx;
+}
+.shop-name{
+  width:456rpx;
+  height:64rpx;
+  font-size:24rpx;
+  color:rgba(51,51,51,1);
+}
+.shop-jiage{
+  font-size:24rpx;
+  color:rgba(153,153,153,1);
+  margin-top: 6rpx;
+  text-decoration:line-through;
+}
+.shop-yhjiage{
+  font-size:30rpx;
+  color:rgba(255,48,0,1);
+  margin-top: 4rpx;
+}
+
+.lianjie{
+  width: 22rpx;
+  height: 84rpx;
+  position: relative;
+  left: 20rpx;
+}
+.lianjie1{
+  width: 22rpx;
+  height: 84rpx;
+  position: relative;
+  left: 640rpx;
+}
+.center{
+  width: 100%;
+  height:332rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10px;
+  margin-top: 24rpx;
+  overflow:hidden;
+}
+.center-yi{
+  width:268rpx;
+  height:36rpx;
+  background:rgba(255,48,0,1);
+  border-radius:18rpx;
+  font-size:24rpx;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  margin-top: 42rpx;
+  margin-left: 216rpx;
+}
+.tiem{
+  width: 100%;
+  height: 34rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.tiem>text{
+  display: inline-block;
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+.tiem>text:nth-child(odd){
+  color: #FF3000;
+}
+.tiem>text:nth-child(even){
+  color: #FFF;
+  width:44rpx;
+  height:34rpx;
+  background:rgba(0,0,0,1);
+  border-radius:4rpx;
+}
+.yijian{
+  height: 44rpx;
+  float: right;
+  margin-right: 30rpx;
+}
+.yijian-yi{
+  height:32rpx;
+  background:rgba(255,48,0,1);
+  border-radius:16rpx;
+  font-size:22rpx;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  padding: 0 10rpx;
+  line-height: 30rpx;
+}
+.yijian-er{
+  width:0rpx;
+  height:0rpx;
+  border: 14rpx solid;
+  border-color: red transparent transparent transparent;
+  margin-left: 35rpx;
+}
+.jingdu{
+  width:628rpx;
+  height:32rpx;
+  background:rgba(255,240,236,1);
+  border:2px solid rgba(255,48,0,1);
+  border-radius:20rpx;
+  margin-top: 46rpx;
+  margin-left: 42rpx;
+}
+.jingdu1{
+  height:32rpx;
+  background:linear-gradient(270deg,rgba(255,53,28,1) 0%,rgba(255,214,78,1) 100%);
+  border-radius:16rpx;
+}
+.bt{
+  width:628rpx;
+  height: 60rpx;
+  margin-top: 22rpx;
+  margin-left: 44rpx;
+}
+.bt1{
+  width:298rpx;
+  height:60rpx;
+  background:red;
+  border-radius:34rpx;
+  font-size:30rpx;
+  line-height:60rpx;
+  color:rgba(255,255,255,1);
+  text-align: center; 
+  float: left;
+}
+.bt2{
+  float: right;
+}
+.bt3{
+  width:298rpx;
+  height:60rpx;
+  background:red;
+  border-radius:34rpx;
+  font-size:30rpx;
+  line-height:60rpx;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  float: right;
+}
+.bt4{
+  margin-left: 155rpx;
+}
+.bangdantu{
+  width: 254rpx;
+  height: 42rpx;
+  margin-top: 44rpx;
+  margin-left: 215rpx;
+}
+.bangdan{
+  width: 588rpx;
+  margin-left: 53rpx;
+}
+.bangdan1{
+  width: 100%;
+  height: 42rpx;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content:space-between;
+}
+.bangdan1>text{
+  display: inline-block;
+  color: #FFE9E9;
+  line-height: 42rpx;
+  font-size: 24rpx;
+}
+.bangdan1>text:last-child{
+  font-size: 30rpx;
+}
+.name{
+  width: 100rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+/*弹框*/
+.zhe{
+  width: 750rpx;
+  height:100vh;
+  opacity:0.4;
+  z-index: 100;
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  background-color: #111;
+}
+.tankuang{
+  width:490rpx;
+  height:520rpx;
+  background:rgba(255,255,255,1);
+  border-radius:30rpx;
+  position: absolute;
+  top: 340rpx;
+  left: 130rpx;
+  z-index: 200;
+}
+.tankuang>image{
+  width: 349rpx;
+  height: 278rpx;
+  margin-top: 60rpx;
+  margin-left: 64rpx;
+}
+.tankuang-yi{
+  width: 100%;
+  font-size:24rpx;
+  color:rgba(102,102,102,1);
+  text-align: center;
+  margin-top: 11rpx;
+}
+.tankuang-er{
+  width: 100%;
+  font-size:30rpx;
+  color:rgba(243,83,83,1);
+  font-weight:bold;
+  text-align: center;
+}
+.tankuang-san{
+  width: 100%;
+  font-size:24rpx;
+  color:rgba(102,102,102,1);
+  text-align: center;
+}
+.tankuang-si{
+  width:210rpx;
+  height:50rpx;
+  border:1rpx solid rgba(255,48,0,1);
+  border-radius:25rpx;
+  margin-top: 22rpx;
+  margin-left: 140rpx;
+  font-size:26rpx;
+  color:rgba(255,48,0,1);
+  text-align: center;
+  line-height: 50rpx;
+}
+/*助力成功弹窗*/
+.zhe1{
+  height: 100vh;
+  z-index: 999;
+  left: 0;
+}
+.tankuang1{
+  z-index: 999;
+}
+.tankuang1>image{
+  width: 100%;
+  height: 300rpx;
+  margin: 0 !important;
+  border-radius: 30rpx 30rpx 0rpx 0rpx;
+}
+.tankuang-er1{
+  width: 100%;
+  font-size:30rpx;
+  color:rgba(93,1,18,1);
+  font-weight:bold;
+  text-align: center;
+  padding-top: 15rpx;
+}
+.tankuang-san1{
+  width: 100%;
+  font-size:30rpx;
+  color:rgba(93,1,18,1);
+  text-align: center;
+  padding-top: 15rpx;
+}
+.tankuang-si1{
+  width:210rpx;
+  height:50rpx;
+  border:1rpx solid rgba(255,48,0,1);
+  border-radius:25rpx;
+  margin-top: 22rpx;
+  margin-left: 140rpx;
+  font-size:26rpx;
+  background:linear-gradient(180deg,rgba(255,157,135,1) 0%,rgba(251,52,51,1) 56%,rgba(230,30,30,1) 100%);
+  text-align: center;
+  line-height: 48rpx;
+  color: rgba(255,255,255,1);
+}
+.guanbi{
+  width: 60rpx;
+  height: 60rpx;
+  position: relative;
+  left: 405rpx;
+  top: -464rpx;
+}
+.guanbi>image{
+  width: 60rpx;
+  height: 60rpx;
+}

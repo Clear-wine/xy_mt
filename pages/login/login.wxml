@@ -1,0 +1,10 @@
+<!--pages/login/login.wxml-->
+<view class='content'>
+  <view class='login-img'>
+    <image mode='aspectFit' src='../images/banner.png'></image>
+  </view>
+  <view class="login-btn">
+    <button class='bindstyle' bindtap='handlePhone'>手动绑定</button>
+    <button class='bindstyle self-motion' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">自动绑定</button>
+  </view>
+</view>

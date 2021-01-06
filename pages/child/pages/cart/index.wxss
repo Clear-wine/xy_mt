@@ -1,0 +1,458 @@
+/* pages/shoppingCart/shoppingCart.wxss */
+
+.carEdit {
+  width: 100%;
+  background: #fff;
+  font-size: 28rpx;
+}
+
+.editbody {
+  width: 92%;
+  height: 60rpx;
+  border-top: 1px solid #f4f4f4;
+  margin: auto;
+}
+
+.carEdit .editTitle {
+  float: left;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #999;
+}
+
+.carEdit .editBtn {
+  float: right;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.teacher-kes {
+  width: 95%;
+  margin: 3% auto;
+  background: #fff;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+}
+
+.teacher-ke {
+  width: 100%;
+  height: 80rpx;
+  padding: 12rpx 24rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 2rpx solid #f1f1f1;
+}
+
+.teacher-ke-name {
+  height: 52rpx;
+  line-height: 52rpx;
+  color: #333;
+  float: left;
+  font-size: 32rpx;
+}
+
+.hot-checked {
+  width: 100%;
+  padding: 24rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Hot-div-img {
+  width: 22%;
+  height: 157rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+
+.Hot-div-shop {
+  width: 64%;
+  height: 160rpx;
+  padding: 12rpx 0rpx;
+  position: relative;
+}
+
+.hot-price-title {
+  font-size: 22rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.shou-word {
+  font-size: 28rpx;
+  color: #ababab;
+  margin-top: 10rpx;
+}
+
+.order-red {
+  font-size: 28rpx;
+  color: #ff6300;
+  /* display: flex; */
+}
+
+/* .order-red text:last-child{
+  color: #999;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  margin-left: 2%;
+  } */
+.Hot-div-shop .order-red image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 62%;
+}
+
+.shop-check {
+  width: 90%;
+  background: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  bottom: 8rpx;
+  left: 50rpx;
+  height: 82rpx;
+  margin: auto;
+  border-radius: 35rpx;
+  z-index: 99;
+  border: 1px solid #f4f4f4;
+}
+
+.shop-check-text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.shop-check-right {
+  width: 78%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.shop-check-he {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.shop-check-he text {
+  color: #ff4500;
+  font-size: 28rpx;
+}
+
+.shop-check-he .nohe {
+  color: #999;
+  font-size: 22rpx;
+}
+
+.shop-check-jie {
+  width: 180rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  text-align: center;
+  margin: 10rpx 0rpx;
+  font-size: 28rpx;
+  color: #fff !important;
+  background: #f80;
+  margin-left: 20rpx;
+  border-radius: 0 35rpx 35rpx 0;
+}
+
+.reelect {
+  width: 30%;
+  background: #f4f4f4;
+  font-size: 22rpx;
+  text-align: center;
+  color: #999;
+  border-radius: 10rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  margin-top: 2%;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+
+.reelect image {
+  width: 27rpx;
+  height: 14rpx;
+  position: relative;
+  top: -1rpx;
+}
+
+/*主容器*/
+
+.stepper {
+  width: 92px;
+  height: 21px;
+  /*给主容器设一个边框*/
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0% auto;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  bottom: 4%;
+}
+
+/*加号和减号*/
+
+.stepper text {
+  width: 21px;
+  line-height: 21px;
+  text-align: center;
+  float: left;
+  top: 0rpx;
+}
+
+/*数值*/
+
+.stepper input {
+  width: 45px;
+  height: 21px;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  /*给中间的input设置左右边框即可*/
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+/*普通样式*/
+
+.stepper .normal {
+  color: black;
+}
+
+/*禁用样式*/
+
+.stepper .disabled {
+  color: #ccc;
+}
+
+/***********推荐*****************/
+
+.recommend {
+  margin-top: 4%;
+  padding-bottom: 20%;
+}
+
+.recommend-title {
+  text-align: center;
+  font-size: 30rpx;
+  position: relative;
+}
+
+/*.recommend-title::before {
+  content: "";
+  position: absolute;
+  width: 120rpx;
+  height: 2rpx;
+  top: 50%;
+  background-color: #999;
+  left: 20%;
+}
+
+.recommend-title::after {
+  content: "";
+  position: absolute;
+  width: 120rpx;
+  height: 2rpx;
+  top: 50%;
+  background-color: #999;
+  right: 20%;
+}*/
+
+.icon-img {
+  width: 22rpx;
+  height: 20rpx;
+  margin: 0 2%;
+}
+
+.icon-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.help-li-img {
+  width: 100%;
+  height: 300rpx;
+  margin: auto;
+}
+
+.help-li-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.recommend-title view {
+  display: inline-block;
+}
+
+.rec-ul {
+  margin-top: 4%;
+  overflow: hidden;
+}
+
+.rec-li {
+  width: 44%;
+  background: #fff;
+  padding: 2%;
+  border-radius: 20rpx;
+  margin: 1%;
+  float: left;
+}
+
+.rec-li-tit {
+  font-size: 28rpx;
+  height: 80rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.ticket-img {
+  position: relative;
+}
+
+.ticket-img image {
+  width: 82rpx;
+  height: 27rpx;
+}
+
+.ticket-money {
+  font-size: 20rpx;
+  color: #fff;
+  top: 6rpx;
+  left: 35rpx;
+  position: absolute;
+}
+
+.rec-money {
+  font-size: 28rpx;
+  color: #ff5543;
+  display: inline-block;
+}
+
+.rec-nomoney {
+  font-size: 22rpx;
+  color: #999;
+  text-decoration: line-through;
+  display: inline-block;
+  margin-left: 4%;
+}
+
+.icon-border {
+  width: 45px;
+  height: 6px;
+  margin: 0 0 0 2%;
+}
+
+.icon-left {
+  transform: rotate(180deg);
+}
+
+.shop-right {
+  right: 6%;
+  position: absolute;
+  top: -8%;
+}
+
+/***************多选按钮**************/
+
+/******checkbox 未选中******/
+
+checkbox .wx-checkbox-input {
+  border-radius: 50rpx;
+  width: 26rpx;
+  height: 26rpx;
+}
+
+/*********CheckBox 选中***************/
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background-color: #ff6300;
+  border: 1px solid #ff6300;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 26rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 26rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 26rpx;
+  text-align: center;
+  font-size: 30rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+/**************弹出层 start**********************/
+
+.mask-layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.pop-common {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+}
+
+/******************end*******************/
+.table-view{
+  width: 100%;
+  overflow: hidden;
+}
+/* 购物车无数据 */
+.no-cart{
+  text-align: center;
+  height: 458rpx;
+  margin-bottom: 12%;
+}
+.no-cart image{
+  width: 100%;
+  height: 100%;
+}
+.no-cart .no-cart-title{
+  font-size: 30rpx;
+  color: #999;
+}
+/* 购物车店铺图标 */
+.shop-img{
+width: 31rpx;
+height: 31rpx;
+margin-right: 1%;
+position: relative;
+top: 3rpx;
+
+}
+.shop-more{
+  width: 20rpx;
+  height: 22rpx;
+}

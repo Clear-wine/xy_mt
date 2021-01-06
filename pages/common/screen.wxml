@@ -1,0 +1,28 @@
+<!--附近活动  -->
+<template name="nearActivity">
+  <view class="sort-list">
+    <!-- <view class='sort' bindtap='onjingshu'>{{jingshu}}
+      <image src="/pages/images/location_choice.png" style=" width: 26rpx;height: 14rpx;"></image>
+    </view> -->
+    <view class="sort" bindtap="onOverallTag">{{allActivity}}
+      <image src="/pages/images/location_choice.png" style=" width: 26rpx;height: 14rpx;"></image>
+    </view>
+    <view class="sort" bindtap="onFilter">{{allType}}
+      <image src="/pages/images/location_choice.png" style="width:26rpx;height:14rpx;"></image>
+    </view>
+  </view>
+</template>
+<!-- 优店搜索 -->
+<template name="screen">
+  <view class="sort-list">
+    <!-- <view class='sort' bindtap='onjingshu'>{{jingshu}}
+      <image src="/pages/images/location_choice.png" style=" width: 26rpx;height: 14rpx;"></image>
+    </view> -->
+    <view class="sort" bindtap="onOverallTag">{{sortSelected}}
+      <image src="/pages/images/location_choice.png" style=" width: 26rpx;height: 14rpx;"></image>
+    </view>
+    <view class="sort" bindtap="onFilter">{{allType}}
+      <image src="/pages/images/location_choice.png" style="width:26rpx;height:14rpx;"></image>
+    </view>
+  </view>
+</template>

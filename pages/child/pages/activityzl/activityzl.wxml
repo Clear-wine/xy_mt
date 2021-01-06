@@ -1,0 +1,128 @@
+
+<image src="../images/zlxbj.png" class="bj"></image>
+<view class="body">
+  <view class="hdjieshao" bindtap="gojieshao"> 
+    活动介绍
+    <image src="../images/wenhao.png"></image>
+  </view>
+  <view class="top">
+    <image wx:if="{{helpData.userHead == null}}" src='../images/default_head_portrait.png' class="touxiang"></image>
+    <image wx:else src='{{helpData.userHead}}' class="touxiang"></image>
+    <view class="nicheng">{{helpData.nikeName}}</view>
+    <view class="biaoti">我发现了一件好货，来一起助力优惠购</view>
+    <view class="shop">
+     <image src="{{helpData.imgPath}}"></image>
+     <view>
+      <view class="shop-name">{{helpData.activityName}}</view>
+      <view class="shop-jiage">原价：￥{{helpData.originalPrice}}</view>
+      <view class="shop-yhjiage">助力价：￥{{helpData.price}}</view>
+     </view>
+    </view>
+    <image src="../images/lianjie.png" class="lianjie"></image>
+    <image src="../images/lianjie.png" class="lianjie1"></image>
+  </view>
+  <view class="center">
+    <view></view>
+    <view class="center-yi" wx:if="{{orderStatus==1}}">{{helpData.joinNum}}人助力已减：{{helpData.deductionPrice}}元</view>
+    <view class="center-yi" wx:if="{{orderStatus==2}}">恭喜你! 助力成功了!</view>
+    <view class="center-yi" wx:if="{{orderStatus==3&&faqi==2}}">助力成功已减：{{helpData.deductionPrice}}元</view>
+    <view class="center-yi" wx:if="{{orderStatus==3&&faqi==1}}">助力失败已减：{{helpData.deductionPrice}}元</view>
+    <view class="tiem" wx:if="{{status==1}}">
+      <text>剩余</text>
+      <text>{{d}}</text>
+      <text>天</text>
+      <text>{{h}}</text>
+      <text>:</text>
+      <text>{{m}}</text>
+      <text>:</text>
+      <text>{{s}}</text>
+      <text>结束</text>
+    </view>
+    <view class="yijian">
+      <view class="yijian-yi">已减{{helpData.deductionPrice}}元</view>
+      <view class="yijian-er"></view>
+    </view>
+    <view class="jingdu">
+      <view class="jingdu1" style="width:{{jdwidth}}%"></view>
+    </view>
+    <view class="bt">
+    <!-- 活动进行中,助力未成功,发起人进入页面 -->
+      <block wx:if="{{status==1&&orderStatus==1&&faqi==1}}">
+        <view class="bt1" bindtap="getchajia">补{{chajia}}元差价购买</view>
+        <button class="bt3" open-type="share">邀请好友助力</button>
+      </block>
+      <!-- 活动进行中,助力未成功,好友进入页面 -->
+       <block wx:if="{{status==1&&orderStatus==1&&faqi==2}}">
+        <view class="bt1" bindtap="gocantuan">我也要购买</view>
+        <view class="bt1 bt2" wx:if="{{join}}" bindtap="gobangtazhuli">帮TA助力</view>
+        <view class="bt1 bt2" wx:if="{{!join}}">已助力</view>
+      </block>
+      <!-- 活动进行中,助力成功,发起人进入页面 -->
+      <block wx:if="{{status==1&&orderStatus==2&&faqi==1}}">
+        <view class="bt1 bt4" bindtap="handleStatus">查看订单</view>
+      </block>
+      <!-- 活动进行中,助力成功||失败,好友进入页面 -->
+      <block wx:if="{{status==1&&orderStatus==2&&faqi==2||status==1&&orderStatus==3&&faqi==2}}">
+        <view class="bt1 bt4" bindtap="gocantuan">我也想低价拿</view>
+      </block>
+      <!-- 活动结束-好友进入 -->
+      <block wx:if="{{status==1&&orderStatus!=1&&faqi==2&&zlchenggong!=true}}">
+        <view class="zhe"></view>
+        <view class="tankuang">
+          <image src="/images/activity.png"></image>
+          <view class="tankuang-yi">你来晚了</view>
+          <view class="tankuang-er">活动已结束</view>
+          <!-- <view class="tankuang-san">去看看别的活动</view> -->
+          <view class="tankuang-si" bindtap="gocantuan">我也想低价拿</view>
+        </view>
+      </block>
+      <!-- 活动进行中，助力失败，发起人进入页面 -->
+      <block wx:if="{{status==1&&orderStatus==3&&faqi==1}}">
+        <view class="bt1 bt4" bindtap="gocantuan">重新发起活动</view>
+      </block>
+      <!-- 活动结束-好友进入 -->
+      <block wx:if="{{faqi==2&&status==2}}">
+        <view class="zhe"></view>
+        <view class="tankuang">
+          <image src="/images/activity.png"></image>
+          <!-- <view class="tankuang-yi">你来晚了</view> -->
+          <view class="tankuang-er">活动已结束</view>
+          <!-- <view class="tankuang-san">去看看别的活动</view> -->
+          <view class="tankuang-si" bindtap="gohuodong">查看别的活动</view>
+        </view>
+      </block>
+      <!-- 活动结束-发起人进入 -->
+      <block wx:if="{{faqi==1&&status==2}}">
+        <view class="zhe"></view>
+        <view class="tankuang">
+          <image src="/images/activity.png"></image>
+          <view class="tankuang-er">活动已结束</view>
+          <view class="tankuang-si" bindtap="handleStatus" wx:if="{{orderStatus==2}}">查看订单</view>
+          <view class="tankuang-si" bindtap="gohuodong" wx:if="{{orderStatus==3}}">去参加活动</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <image src="../images/bangdan.png" class="bangdantu"></image>
+  <view class="bangdan">
+    <view class="bangdan1" wx:for="{{helpData.joinList}}" wx:key="index">
+      <text class="name">{{item.userNike||"匿名用户"}}</text>
+      <text>助力</text>
+      <text>节省{{item.deductionPrice}}元</text>
+    </view>
+  </view>
+</view>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>
+<!-- 助力成功弹窗 -->
+<block wx:if="{{zlchenggong}}">
+  <view class="zhe zhe1"></view>
+  <view class="tankuang tankuang1">
+    <image src="../images/lzchenggong.png"></image>
+    <view class="tankuang-er1">你一出手就帮{{helpData.nikeName}}</view>
+    <view class="tankuang-san1">省了{{helpData.joinList[0].deductionPrice}}元</view>
+    <view class="tankuang-si1" bindtap="gocantuan">我也要参与</view>
+    <view class="guanbi" bindtap="guanbi">
+      <image src="../images/guanbi.png"></image>
+    </view>
+  </view>
+</block>

@@ -1,0 +1,28 @@
+textarea{
+  width: 94%;
+  height: 500rpx;
+  border-bottom: 2rpx solid #bbb;
+  margin-left: 3%;
+  background-color: #fff;
+  font-size: 24rpx;
+}
+input{
+  width: 94%;
+  height: 80rpx;
+  margin-left: 3%;
+  background-color: #fff;
+  font-size: 24rpx;
+}
+.tijiao{
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: #FF9736;
+  text-align: center;
+  line-height: 80rpx;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+}

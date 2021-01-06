@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "dialog": "/components/activity-status/activity-status"
+  },
+  "navigationBarTitleText": "拼团购"
+}

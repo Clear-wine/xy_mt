@@ -1,0 +1,136 @@
+/* pages/child/pages/add-loation/add-location.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.form {
+  width: 100%;
+  overflow: hidden;
+}
+
+.realname {
+  width: 90%;
+  overflow: hidden;
+  margin: auto;
+  font-size: 28rpx;
+}
+
+.realname-list {
+  border-bottom: 1px solid #f4f4f4;
+  padding: 4% 0;
+}
+
+.realname-list:last-child {
+  border: none;
+}
+
+.realname-list view {
+  display: inline-block;
+  width: 80%;
+}
+
+.realname-list view:nth-child(1) {
+  width: 20%;
+  color: #999;
+}
+
+.realname-list view input {
+  display: initial;
+}
+
+picker {
+  width: 100%;
+}
+
+.picker-title {
+  width: 100% !important;
+  color: #000 !important;
+  display: initial !important;
+  overflow: hidden;
+}
+
+.picker-title image {
+  width: 20rpx;
+  height: 30rpx;
+  /* position: absolute;
+  right: 8%;
+  top: 19%; */
+  
+}
+.wang-imghe{
+  width: 140rpx !important;
+  float: right;
+  margin-top: -34rpx;
+}
+.wang-imghe>image{
+  width: 20rpx;
+  height: 30rpx;
+  margin-left: 50rpx;
+}
+/*
+*选择标签
+*/
+.checkbox {
+  display: inline-block;
+  padding: 5rpx;
+  background: #eee;
+  margin: 0 10rpx;
+  border-radius: 10rpx;
+  width: 74rpx !important;
+  font-size: 25rpx;
+  text-align: center;
+}
+.checkedActive {
+  background: #f80;
+  color: #fff;
+}
+/* .label text {
+  border: 1px solid #f80;
+  border-radius: 20rpx;
+  background: #f80;
+  width: 75rpx;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  font-size: 24rpx;
+} */
+
+
+.realname-btn {
+  padding-top: 10%;
+}
+
+
+.realname-btn {
+  padding-top: 10%;
+}
+
+.btn {
+
+  width: 88%;
+  background-color: #f80;
+  color: #fff;
+  border: none;
+  border-radius: 50rpx;
+  margin-top: 20%;
+  font-size: 26rpx;
+  margin: 5% auto;
+}
+
+
+.remove {
+  background-color: #fff;
+  color: #f80;
+  border: 1px solid #f80;
+}
+
+.btn::after {
+  border: none;
+}
+.picker{
+  width: 90% !important;
+}
+
+
+/***************/

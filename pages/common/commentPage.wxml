@@ -1,0 +1,114 @@
+<template name="commentPage">
+  <view class='grade'>
+    <view class='grade-li'>
+      <view class='grade-num'>4.5</view>
+      <view class='grade-title'>总体评分</view>
+    </view>
+    <view class='grade-li'>
+      <view class='grade-num'>4.5</view>
+      <view class='grade-title'>总体评分</view>
+    </view>
+    <view class='grade-li'>
+      <view class='grade-num'>4.5</view>
+      <view class='grade-title'>总体评分</view>
+    </view>
+  </view>
+  <view class='commentPage-body'>
+    <view class='table'>
+      <view class='tr'>
+        <view class="th {{index==selected2?'active':''}}" wx:for="{{commentlist}}" data-index="{{index}}" catchtap="clickComment">{{item.title}}</view>
+      </view>
+    </view>
+    <!--评论内容-->
+    <swiper class='swiper' current='{{selected2}}'>
+      <block wx:for="{{commentlist}}">
+        <swiper-item class="swiper" wx:if="{{item.index == 0}}">
+          <view class='comment-ul'>
+            <view class='comment-li'>
+              <view class='comment-l'>
+                <image src='/pages/images/default_head_portrait.png'></image>
+              </view>
+              <view class='comment-r'>
+                <view class='r-name'>lalal</view>
+                <view class='r-num'>评分
+                  <image src='/pages/images/star1.png'></image>
+                  <image src='/pages/images/star1.png'></image>
+
+                  <image src='/pages/images/star1.png'></image>
+
+                </view>
+                <view class='r-title'>
+                  味道不错很好吃,很喜欢非常棒!!!!!
+                </view>
+                <view class='r-time'>2018.03.03</view>
+              </view>
+            </view>
+            <view class='comment-li'>
+              <view class='comment-l'>
+                <image src='/pages/images/default_head_portrait.png'></image>
+              </view>
+              <view class='comment-r'>
+                <view class='r-name'>lalal</view>
+                <view class='r-num'>评分
+                  <image src='/pages/images/star1.png'></image>
+                  <image src='/pages/images/star1.png'></image>
+
+                  <image src='/pages/images/star1.png'></image>
+
+                </view>
+                <view class='r-title'>
+                  味道不错很好吃,很喜欢非常棒!!!!!
+                </view>
+                <view class='r-time'>2018.03.03</view>
+              </view>
+            </view>
+          </view>
+
+        </swiper-item>
+        <swiper-item class="swiper" wx:if="{{item.index == 1}}">
+          <view class='comment-ul'>
+            <view class='comment-li'>
+              <view class='comment-l'>
+                <image src='/pages/images/default_head_portrait.png'></image>
+              </view>
+              <view class='comment-r'>
+                <view class='r-name'>bububu</view>
+                <view class='r-num'>评分
+                  <image src='/pages/images/star1.png'></image>
+                  <image src='/pages/images/star1.png'></image>
+
+                  <image src='/pages/images/star1.png'></image>
+
+                </view>
+                <view class='r-title'>
+                  味道不错很好吃,很喜欢非常棒!!!!!
+                </view>
+                <view class='r-time'>2018.03.03</view>
+              </view>
+            </view>
+            <view class='comment-li'>
+              <view class='comment-l'>
+                <image src='/pages/images/default_head_portrait.png'></image>
+              </view>
+              <view class='comment-r'>
+                <view class='r-name'>lalal</view>
+                <view class='r-num'>评分
+                  <image src='/pages/images/star1.png'></image>
+                  <image src='/pages/images/star1.png'></image>
+
+                  <image src='/pages/images/star1.png'></image>
+
+                </view>
+                <view class='r-title'>
+                  味道不错很好吃,很喜欢非常棒!!!!!
+                </view>
+                <view class='r-time'>2018.03.03</view>
+              </view>
+            </view>
+          </view>
+
+        </swiper-item>
+      </block>
+    </swiper>
+    </view>
+</template>

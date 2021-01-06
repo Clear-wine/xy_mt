@@ -1,0 +1,97 @@
+page{
+  padding: 0;
+  margin: 0;
+  background-color: #F1F1F1;
+}
+.top{
+  width: 100%;
+  height:160rpx;
+  background:rgba(255,255,255,1);
+}
+.top>image{
+  width: 84rpx;
+  height: 84rpx;
+  float: left;
+  margin-top: 38rpx;
+  margin-left: 40rpx;
+}
+.top>view{
+  float: left;
+  margin-top: 40rpx;
+  margin-left: 36rpx;
+}
+.top-name{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:800;
+  color:rgba(53,59,86,1);
+}
+.top-danhao{
+  font-size:26rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(53,59,86,1);
+  margin-top: 13rpx;
+}
+.center{
+  width: 100%;
+  height: 100%;
+  margin-top: 20rpx;
+  background:rgba(255,255,255,1);
+}
+.center-yi{
+  width: 96%;
+  height: 160rpx;
+  margin-left: 3%;
+}
+.yi-image{
+  width: 50rpx;
+  height: 50rpx;
+  position: relative;
+  top: 20rpx;
+  float: left;
+  z-index: 999;
+}
+.yi-image1{
+  width: 10rpx;
+  height: 10rpx;
+  position: relative;
+  top: 19rpx;
+  right: 686rpx;
+  z-index: 999;
+}
+.center-yi>view{
+  float: left;
+  margin-left: 16rpx;
+  margin-top: 10rpx;
+}
+.yi-yi{
+  width: 635rpx;
+  height: 66rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.yi-er{
+  font-size:22rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(153,153,153,1);
+}
+.yi-san{
+  width: 2rpx;
+  background-color: #FFB62A;
+  position: absolute;
+  left: 46rpx;
+  top: 230rpx;
+}
+.yi-aite{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}

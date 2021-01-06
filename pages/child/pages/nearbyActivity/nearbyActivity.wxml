@@ -1,0 +1,43 @@
+<!--pages/child/pages/nearbyActivity/nearbyActivity.wxml-->
+<!-- 附近活动 -->
+<import src="/pages/common/screen.wxml" />
+<!--全部活动-->
+<view class='mask' hidden='{{mask2Hidden}}' bindtap='mask2Cancel'>
+  <template is="nearActivity" data="{{allActivity,allType}}" />
+  <view class="overall-sort-list">
+    <block wx:for="{{sortList}}" wx:key="{{item.activityType}}">
+      <view class="overall-sort" data-type="{{item.activityType}}" data-index="{{index}}" bindtap="sortSelected">{{item.sort}}</view>
+    </block>
+  </view>
+</view>
+<!--综合排序-->
+<view class='mask' hidden='{{mask3Hidden}}' bindtap='mask3Cancel'>
+  <template is="nearActivity" data="{{allActivity,allType}}" />
+  <view class="overall-sort-list">
+    <block wx:for="{{allTypelist}}" wx:key="{{item.sortType}}">
+      <view class="overall-sort" data-type='{{item.sortType}}' data-index="{{index}}" bindtap="allSelected">{{item.allName}}</view>
+    </block>
+  </view>
+</view>
+<view class='commodityWrap'>
+  <template is="nearActivity" data="{{allActivity,allType}}" />
+  <view class='commodity-ul'>
+    <block wx:for="{{goodslist}}">
+      <view class='commodity-li' catchtap="handleToDetails" data-type="{{item.shopType}}" data-activityType="{{item.activityType}}" data-activityNo="{{item.activityNo}}" data-goodsNo="{{item.goodsNo}}">
+        <view class='comm-li-img'>
+          <image src='{{item.goodsImgPath}}'></image>
+        </view>
+        <view class='comm-li-content'>
+          <view class='comm-li-title'>{{item.goodsName}}</view>
+          <view class='comm-li-sum'>{{item.activityTypeName}}价:
+            <text>￥{{item.actPrice}}</text>
+          </view>
+          <view class='comm-li-nosum'>市场价:￥{{item.price}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class='no-more' wx:if="{{hasMoreData}}">加载中...</view>
+<view class='no-more' wx:else>已经到底了...</view>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

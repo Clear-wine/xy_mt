@@ -1,0 +1,103 @@
+/* pages/bindingPhone/bindingPhone.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.content {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  min-height: 100vh;
+}
+
+.login-img {
+  width: 100%;
+  height: 459rpx;
+}
+.login-img image{
+  width: 100%;
+  height: 100%;
+}
+.user-form {
+  width: 85%;
+  margin: auto;
+}
+
+.userInput {
+  overflow: hindden;
+  margin: 4% 0;
+  position: relative;
+  height: 40px;
+}
+
+.userInput .icon {
+  width: 24%;
+  float: left;
+  font-size: 26rpx;
+  position: relative;
+  top: 10px;
+}
+
+.icon image {
+  width: 25%;
+  height: 33rpx;
+  min-width: 22rpx;
+  max-width: 28rpx;
+}
+
+.icon text {
+  position: relative;
+  left: 10%;
+  top: -4px;
+  color: #353b56;
+  font-weight: 500;
+}
+
+.userInput input {
+  float: left;
+  width: 65%;
+  height: 35px;
+  border-radius: 3px;
+  padding: 0 3%;
+  background-color: #f1f1f1;
+  font-size: 26rpx;
+}
+
+.code {
+  width: 43% !important;
+}
+
+.codeBtn {
+  width: 24%;
+  display: block;
+  text-align: center;
+  position: relative;
+  background-color: #f2994a;
+  color: #fff;
+  left: 2%;
+  float: left;
+  height: 35px;
+  line-height: 32px;
+  border-radius: 4px;
+  font-size: 20rpx;
+}
+
+.codeBtn::after {
+  border: none;
+}
+
+.btn {
+  margin: 8% auto 0;
+}
+
+.suc-btn {
+  background-color: #f2994a;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+}
+
+.suc-btn::after {
+  border: none;
+}

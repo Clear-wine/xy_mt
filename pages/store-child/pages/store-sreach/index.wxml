@@ -1,0 +1,46 @@
+<view class="container">
+  <view class='search-wrap'>
+    <view class='search'>
+      <view url='/pages/search/search' class='search-input'>
+        <image src='/pages/images/magnifying_glass.png'></image>
+        <input bindinput='inputvalue' focus="{{name_focus}}" value="{{input_value}}" type='text' placeholder='输入商品、店铺、活动名称'></input>
+      </view>
+    </view>
+    <view class='search-btn' bindtap='search'>{{searchText}}</view>
+  </view>
+
+  <view class="Search_xian"></view>
+  <!--搜索记录盒子-->
+  <!-- <block wx:if="{{aslist=== null}}"> -->
+    <!-- <view class="Search_record_box" wx:if="{{listarr.length !=0}}">
+      <view class="Search_record_text">
+        <text>搜索记录</text>
+        <image bindtap='delete_list' src='/pages/images/delete_history.png'></image>
+      </view> -->
+      <!--记录词的盒子-->
+      <!-- <view class="History_box">
+        <view class="History-list">
+          <text wx:for="{{listarr}}" data-text="{{item}}" wx:key="key" bindtap='this_value' catchtap="handleSearchDetails">{{item}}</text>
+        </view>
+      </view>
+    </view> -->
+    <!--热门搜索盒子-->
+    <!-- <view class="hot_box">
+      <view class="hot_box_text">
+        <text>热门搜索</text>
+      </view> -->
+      <!--热门词的盒子-->
+      <!-- <view class="History_box">
+        <view class="History-list">
+          <text wx:for="{{hostarr}}" data-text="{{item}}" wx:key="key" bindtap='this_value' catchtap="handleSearchDetails">{{item}}</text>
+        </view>
+      </view>
+    </view> -->
+  <!-- </block> -->
+  <!-- 联想商品列表 -->
+  <view class="list">
+    <view class="li-goods" wx:if="{{aslist.length !=0}}" wx:for="{{aslist}}" wx:key catchtap="handleSearchDetails" data-text="{{item}}">{{item}}</view>
+
+  </view>
+
+</view>

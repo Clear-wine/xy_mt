@@ -1,0 +1,28 @@
+<view class='coupon '>
+  <view class='coupon-ul '>
+    <view class='coupon-li ' wx:for="{{contentlist}}">
+      <view class='coupon-img '>
+        <image src='../images/ticket_bg.png '></image>
+      </view>
+      <view class='coupon-con '>
+        <view class='con-li '>
+          <view class='coupon-money '>￥{{item.amount}}</view>
+          <view class='coupon-title '>抵用券</view>
+        </view>
+        <view class='con-li con-span '>
+          <view class='coupon-money-title '>{{item.explan}}</view>
+          <view class='coupon-day '>还剩{{item.term}}天到期</view>
+        </view>
+        <view class='con-li con-btn '>
+          <!-- <button size='mini' class='coupon-btn' wx:if="{{price >= item.useAmount}}" bindtap="handleUse" data-item="{{item}}">立即使用</button>
+          <button size='mini' class='coupon-btn no-coupon-btn' wx:else>立即使用</button> -->
+          <radio-group class="radio-group" bindchange="radioChange">
+            <radio value="{{item.id}}" bindtap="radio" data-isBind="{{item.isBind}}" data-id="{{item.id}}" data-amount="{{item.amount}}" data-item="{{item}}" checked="{{item.isBind == '1'}}" disabled="{{item.useAmount>=price}}"></radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class='coupon-request '>满{{item.useAmount}}元可用,限定最新版本客户使用</view>
+    </view>
+    <view class="wujuan" wx:if="{{contentlist.length==0}}">暂无优惠劵</view>
+  </view>
+</view>

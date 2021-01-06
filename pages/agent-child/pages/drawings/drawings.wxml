@@ -1,0 +1,74 @@
+<view class='intheorder-ul'>
+  <view class='li-title'>
+    <view class='li-title-span'>提现至</view>
+    <!-- <view class='li-title-span' wx:elif='{{ischoose==1}}'>{{bankName}}({{bankNo}})</view> -->
+    <!-- <navigator url='/pages/child/pages/bank-card/bank-card' class="li-title-span {{ischoose ==  1? 'ischooseCar':''}}">{{ischoose==1?bankName:'选择提现方式'}}</navigator> -->
+    <view class="li-title-span {{ischoose ==  1? 'ischooseCar':''}}" bindtap="showCp">{{bankName}}</view>
+    <!-- <view bindtap="handleSelectBank" class="li-title-span {{ischoose ==  1? 'ischooseCar':''}}">{{ischoose==1?bankName:'选择银行卡'}}</view> -->
+
+  </view>
+  <view class='intheorder-li'>
+    <view class='intheorder-span'>提现金额</view>
+    <view class='intheorder-span span-input'>
+      <text> ¥</text>
+      <input type='number' bindblur="inputWatch" value="{{price}}" placeholder='请输入提现金额' bindinput="getPrice"></input>
+    </view>
+  </view>
+  <view class="all-view">
+    <view class='toup-title'>
+      可提现金额:
+      <text>￥{{withdrawableAmount}}元</text>
+    </view>
+    <view class="col-all" bindtap="handleAllPrice">全部提现</view>
+  </view>
+</view>
+<!-- 协议 -->
+<!-- <view class="protocol-view">
+  <radio-group class="check-box" bindchange="radioChange">
+    <radio checked="{{ischecked}}"></radio>
+    <view class="read-title">已阅读并同意
+      <text>{{'<<'}}壹叁新消费服务协议{{'>>'}}</text> </view>
+  </radio-group>
+</view> -->
+<view class='toup-btn'>
+  <button bindtap='submitWithdraw'>确定提现</button>
+</view>
+
+
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <view class="zan-dialog__mask" bindtap="toggleDialogss" />
+  <view class="zan-dialog__container">
+      <view class="biaoti">输出交易密码</view>
+      <form bindsubmit="formSubmit">
+        <view class='content' bindtap="Tap">
+          <block wx:for="{{Length}}" wx:key="item">
+            <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}'></input>
+          </block>
+        </view>
+        <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input>
+        <view>
+          <button class="btn-area" formType="submit">取消</button>
+        </view>
+      </form>
+  </view>
+</view>
+
+<view class="checkPay" wx:if='{{showCp}}' bindtap="showCp">
+  <view class="cp {{showCp ?'showCp':''}}" catchtap='scpReturn'>
+    <view class="cpTit">选择提现方式</view>
+    <view class="cpUl">
+      <view class="cpLi" catchtap="handleSelCard" data-type="2" data-bankName="微信提现" data-id="1">
+        <image src="../images/default_head_portrait.png"></image>
+        <text>提现至微信</text>
+      </view>
+      <view class="cpLi" catchtap="" wx:for='{{bankList}}' wx:if="{{bankList.length != 0}}" wx:key="{{index}}" catchtap="handleSelCard" data-bankName="{{item.bankName}}" data-bankNo="{{item.bankNo}}" data-id="{{item.id}}" data-type="1">
+        <image src="../images/default_head_portrait.png"></image>
+        <text>{{item.bankName}}储蓄卡 ({{item.bankNo}})</text>
+      </view>
+      <view class="cpLi" catchtap="addCard">
+        <image src="../images/default_head_portrait.png"></image>
+        <text>添加银行卡</text>
+      </view>
+    </view>
+  </view>
+</view>

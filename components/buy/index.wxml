@@ -1,0 +1,53 @@
+<!--components/buy/index.wxml-->
+<!--弹出层 商品详情选择-->
+<view class='mask-layer' hidden='{{hideBuy}}' data-target="self" bindtap='hideModal'>
+<view class='pop-add-cart pop-common' animation='{{animationData}}'>
+  <view class='spinfo'>
+    <view class='spinfo-img'>
+      <image mode='scaleToFill' src='{{imglist[0].imgPath}}'></image>
+    </view>
+    <view class='spinfo-content'>
+      <view class='money'>￥{{includeGroup[0].price}}</view>
+
+      <view class='selected_size' wx:if="{{specValue}}">已选规格:{{selValue}}</view>
+      <view class='selected_size' wx:else>请选择:{{selName}}</view>
+      <view class='spnoNum'>
+        <text>库存:{{includeGroup[0].num}}</text>
+        <text>商品编码:{{imglist[0].merchantNo}}</text>
+      </view>
+    </view>
+    <view class='spinfo-delete' bindtap='hideModal' data-target="self">
+      <image mode='aspectFit' src='../images/cha.png'></image>
+    </view>
+  </view>
+  <view class='spinfo-size'>
+    <scroll-view class='' scroll-y="{{true}}">
+      <view class="commodity_attr_list">
+        <!--每组属性-->
+        <view class="attr_box" wx:for="{{specList}}" wx:for-item="attrValueObj" wx:for-index="attrIndex">
+          <!--属性名-->
+          <view class="attr_name">{{attrValueObj.specName}}</view>
+          <!--属性值-->
+          <view class="attr_value_box">
+            <!--每个属性值-->
+            <view class="attr_value {{attrIndex==firstIndex || attrValueObj.attrValueStatus[valueIndex]?(item.specValue==attrValueObj.selectedValue?'attr_value_active':''):'attr_value_disabled'}}" bindtap="selectAttrValue" data-key="{{attrValueObj.specName}}" data-index="{{attrIndex}}"
+              wx:for="{{attrValueObj.specAttrList}}" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}" data-selectedvalue="{{attrValueObj.selectedValue}}" data-value="{{item.specValue}}" wx:for-index="valueIndex">{{item.specValue}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="selectCount">
+        <view class="countname">数量</view>
+        <view class="countright">
+          <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+          <input type='number' bindchange="bindManual" value='{{num}}'></input>
+          <text class="normal" bindtap="bindPlus">+</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='showFooter toolbar'>
+    <view class="modal_cart" bindtap='addCar'>加入购物车</view>
+    <view class="modal_buy" bindtap='handleBuy'>立即购买</view>
+  </view>
+</view>
+</view>

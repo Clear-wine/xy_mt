@@ -1,0 +1,33 @@
+<view class="container">
+  <!-- 顶部模块 -->
+  <view class="top-view">
+    <view class="li-view">
+      <view class="circle"></view>
+      <view class="title">当前会员等级:{{data.gradeText}}</view>
+    </view>
+     <view class="li-view">
+      <view class="circle"></view>
+      <view class="title">当前分润额系数: {{data.rate}}</view>
+    </view>
+  </view>
+  <!-- 明细模块 -->
+  <view class="li-view-mod" wx:for="{{pageData}}" wx:key="{{index}}">
+  <!-- <view class="li-view-mod"> -->
+
+   <view class="li-img">
+    <image src="../images/share_benefit.png"></image>
+   </view>
+   <view class="list-view">
+     <view class="list-title">商品金额: {{item.orderAmount}}</view>
+     <view class="list-title">商品来自: {{item.nickName}}</view>
+     <view class="list-title org">实际到账: {{item.profitAmount}}</view>
+   </view>
+     <view class="list-view">
+     <view class="list-title">商品利率: {{item.profitRate}}</view>
+     <view class="list-title org">商品分润: {{item.rateAmount}}</view>
+     <view class="list-title day-title">{{showTitle ? '预计到账时间:' :' '}}{{item.profitDate}}</view>
+     <!-- <view class="list-title day-title">预计到账时间:{{item.profitDate}}</view> -->
+   </view>
+  </view>
+  
+</view>

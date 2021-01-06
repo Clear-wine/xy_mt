@@ -1,0 +1,97 @@
+/* pages/index-child//pages/classification/classification.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+view{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  background: #f8f8f8;
+}
+
+.head{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  background-color: #333;
+}
+.head .head_nav{
+  padding-left: 10rpx;
+}
+
+.head_nav .img_saoyisao, .head_nav .img_back{
+  width: 26px;
+  height: 26px;
+}
+
+
+.content{
+  height: 100%;
+}
+
+.content .nav_{
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: bold;
+  width: 180rpx;
+  background-color: #efefef;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.content .nav_::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.tabs_li{
+  width: 100%;
+  height: 90rpx;
+  border-left: 10rpx solid #efefef;
+}
+.tabs_act{
+  font-weight: bolder;
+  border-left-color: #ffb62a;
+  background: #f8f8f8;
+}
+
+
+.nav_content{
+  width: calc(100% - 180rpx);
+  overflow-y: scroll;
+}
+
+.content .nav_content::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.fl_title{
+  padding: 10rpx 20rpx;
+  font-size: 30rpx;
+  color: #383838;
+}
+.fl_li{
+  width: 100%;
+  padding: 0 10rpx;
+}
+.fl_li .fl_li_i{
+  width: 33.33%;
+  padding: 6rpx 10rpx;
+  float: left;
+  margin-bottom: 8rpx;
+}
+.fl_li .fl_li_i image{
+  width: 100%;
+  max-height: 300rpx;
+}

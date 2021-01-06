@@ -1,0 +1,43 @@
+<view class='realname-off'>
+  <view class='realname'>
+    <view class='realname-list'>
+      <view>持卡人</view>
+      <view>
+        <input type='text' bindinput='getUserName' placeholder='请输入持卡人姓名'></input>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>手机号</view>
+      <view>
+        <input bindinput='getPhone' type='number' placeholder='请输入银行卡预留号'></input>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>身份证号</view>
+     <view>
+        <input bindinput='getCode' type='number' placeholder='请输入正确的身份证号'></input>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>银行名称</view>
+      <view>
+        <input bindinput='getBankCardname' placeholder='请输入正确的银行名称(例:交通银行)'></input>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>银行支行</view>
+      <view>
+        <input bindinput='getBankCardzhihang' placeholder='请输入正确的银行卡办理支行'></input>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>银行卡号</view>
+      <view>
+        <input type='number' bindinput='getBankCard' placeholder='请输入正确的银行卡号'></input>
+      </view>
+    </view>
+  </view>
+  <view class='realname-btn'>
+    <button bindtap='savaBankCard'>保存</button>
+  </view>
+</view>

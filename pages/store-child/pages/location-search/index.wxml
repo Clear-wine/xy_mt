@@ -1,0 +1,81 @@
+<view class="container">
+  <!-- 城市定位 搜索 -->
+  <view class="search-bar">
+    <view class="location_city" bindtap='selectCity'>
+      <image class="location-img" src="../images/search_bar_location.png" mode=""></image>
+      {{city}}
+      <image class="location-more" src="../images/city_location_select.png"></image>
+    </view>
+    <!-- 关键字搜索 -->
+    <view class="location_input">
+      <image src="../images/index_search.png"></image>
+      <input placeholder-class="phcolor" placeholder='小区/写字楼/学校等' focus='true' bindinput="handleInput" bindtap="handleConfirm"></input>
+    </view>
+    <!-- <view class="search-btn" bindtap="handleConfirm">搜索</view> -->
+  </view>
+
+  <!-- 搜索记录 -->
+  <!-- <view class="list-history">
+    <view class="search-history">历史搜索
+      <image src="../images/delete_all.png"></image>
+      <scroll-view scrolly-y="true" class="history">
+        <view hidden="{{historyList.length !=0}}" class="no-data">
+          <view>无搜索记录</view>
+        </view>
+        <view class="history-item" wx:for="{{historyList}}" wx:key>
+          <view class="history-item-wrap" data-index="{{index}}">
+            <view class="iten-nav" catchtap="handleSelect">
+              <view class="title">{{}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view> -->
+  <!-- 搜索结果列表 -->
+  <view class="search-warp" hidden="{{!inputListShow}}">
+    <scroll-view scroll-y="true" style="height:100%">
+      <view class="item-nav" wx:for="{{searchList}}" wx:key catchtap='handleSelect' data-title="{{item.address}}" data-lat="{{item.location.lat}}" data-lng='{{item.location.lng}}'>
+        <view class="title">{{item.title}}</view>
+        <view class="address">{{item.address}}</view>
+      </view>
+    </scroll-view>
+
+  </view>
+  <!-- 如果是搜索结果则隐藏 -->
+  <!-- 我的收货地址 -->
+  <view class="address-wrap " hidden="{{!cityListShow}}">
+    <!-- 位置定位 -->
+    <view class="location-bar">
+      <view class='left'>当前定位: {{address}}</view>
+      <view class='right' bindtap='updateAddress'>
+        <image src="../images/anew_location.png"></image>重新定位
+      </view>
+    </view>
+    <view class="address-top">
+      <view class="address-img">
+        <image src="../images/my_site.png"></image>我的收货地址
+      </view>
+      <view class="add-address" bindtap='addAddress'>
+        新增地址
+        <image src="../images/dzxz_add_site.png"></image>
+      </view>
+    </view>
+    <!-- 我的收货地址列表 -->
+    <view class="address-list">
+      <block wx:for="{{addressData}}">
+        <view class="address-item" catchtap='handleStore' data-address="{{item.address}}" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}">
+          <view class="item">
+            <text>{{item.address}}</text>
+            <text class=" {{item.lable === '' ? 'none' : 'label'}}">{{item.lable != '' ?item.lable : '' }}</text>
+            <text class="isDefault {{item.isDefault == 0 ? 'noneDefault' : ''}}">{{item.isDefault ==1  ?  '默认': ''}}</text>
+          </view>
+          <view class="item-user">
+            <text>{{item.persion}}</text>
+            <text>{{item.phone}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

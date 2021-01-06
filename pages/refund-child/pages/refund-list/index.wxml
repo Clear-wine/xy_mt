@@ -1,0 +1,116 @@
+
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+<!-- 内容 -->
+<swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
+  <swiper-item>
+  <!-- 全部售后 -->
+  <scroll-view scroll-y="true" bindscrolltolower="onbottom">
+    <view class='list' wx:for="{{list}}">
+      <view class="list-yi">
+        <image src="../../images/dianpu.png"></image>
+        <view class="list-yi-left">{{item.shopName}}</view>
+        <view class="list-yi-right status1" wx:if="{{item.status==1}}">{{item.statusText}}</view>
+        <view class="list-yi-right status2" wx:if="{{item.status==2||item.status==4}}">{{item.statusText}}</view>
+        <view class="list-yi-right" wx:if="{{item.status==3}}">{{item.statusText}}</view>
+        <view class="list-yi-right status5" wx:if="{{item.status==5}}">{{item.statusText}}</view>
+        <view class="list-yi-right status6" wx:if="{{item.status==6}}">{{item.statusText}}</view>
+      </view>
+      <view class="list-er"></view>
+      <view class="list-san" bindtap="gorefunddeteils" data-id="{{item.id}}" data-status="{{item.status}}">
+        <image src="{{item.goodsList[0].img}}"></image>
+        <view>
+          <view class="list-san-yi">
+            <view class="name">{{item.goodsList[0].goodsName}}</view>
+            <view class="jiage">￥{{item.goodsList[0].price}}</view>
+          </view>
+          <view class="list-san-er">
+            <view class="biaoqian">
+              <text wx:if="{{item.goodsList[0].specValue}}">{{item.goodsList[0].specValue}}</text>
+            </view>
+            <view class="shuliang">x{{item.goodsList[0].num}}</view>
+          </view>
+          <view class="list-san-san">
+             <text>共{{item.znum}}件商品，共计</text>
+            <text class="list-san-sant">{{item.orderAmount}}元</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <!-- 正在处理 -->
+    <scroll-view scroll-y="true" bindscrolltolower="onbottom">
+    <view class='list' wx:for="{{list1}}">
+      <view class="list-yi">
+        <image src="../../images/dianpu.png"></image>
+        <view class="list-yi-left">{{item.shopName}}</view>
+        <view class="list-yi-right status1" wx:if="{{item.status==1}}">{{item.statusText}}</view>
+        <view class="list-yi-right status2" wx:if="{{item.status==2||item.status==4}}">{{item.statusText}}</view>
+        <view class="list-yi-right" wx:if="{{item.status==3}}">{{item.statusText}}</view>
+        <view class="list-yi-right status5" wx:if="{{item.status==5}}">{{item.statusText}}</view>
+        <view class="list-yi-right status6" wx:if="{{item.status==6}}">{{item.statusText}}</view>
+      </view>
+      <view class="list-er"></view>
+      <view class="list-san" bindtap="gorefunddeteils" data-id="{{item.id}}" data-status="{{item.status}}">
+        <image src="{{item.goodsList[0].img}}"></image>
+        <view>
+          <view class="list-san-yi">
+            <view class="name">{{item.goodsList[0].goodsName}}</view>
+            <view class="jiage">￥{{item.goodsList[0].price}}</view>
+          </view>
+          <view class="list-san-er">
+            <view class="biaoqian">
+              <text wx:if="{{item.goodsList[0].specValue}}">{{item.goodsList[0].specValue}}</text>
+            </view>
+            <view class="shuliang">x{{item.goodsList[0].num}}</view>
+          </view>
+          <view class="list-san-san">
+             <text>共{{item.goodsList.length}}件商品，共计</text>
+            <text class="list-san-sant">{{item.orderAmount}}元</text>
+          </view>
+        </view>
+      </view>
+      </view>
+  </scroll-view>
+  </swiper-item>
+  <swiper-item>
+      <!-- 售后记录 -->
+      <scroll-view scroll-y="true" bindscrolltolower="onbottom">
+    <view class='list' wx:for="{{list2}}">
+      <view class="list-yi">
+        <image src="../../images/dianpu.png"></image>
+        <view class="list-yi-left">{{item.shopName}}</view>
+        <view class="list-yi-right status1" wx:if="{{item.status==1}}">{{item.statusText}}</view>
+        <view class="list-yi-right status2" wx:if="{{item.status==2||item.status==4}}">{{item.statusText}}</view>
+        <view class="list-yi-right" wx:if="{{item.status==3}}">{{item.statusText}}</view>
+        <view class="list-yi-right status5" wx:if="{{item.status==5}}">{{item.statusText}}</view>
+        <view class="list-yi-right status6" wx:if="{{item.status==6}}">{{item.statusText}}</view>
+      </view>
+      <view class="list-er"></view>
+      <view class="list-san" bindtap="gorefunddeteils" data-id="{{item.id}}" data-status="{{item.status}}">
+        <image src="{{item.goodsList[0].img}}"></image>
+        <view>
+          <view class="list-san-yi">
+            <view class="name">{{item.goodsList[0].goodsName}}</view>
+            <view class="jiage">￥{{item.goodsList[0].price}}</view>
+          </view>
+          <view class="list-san-er">
+            <view class="biaoqian">
+              <text wx:if="{{item.goodsList[0].specValue}}">{{item.goodsList[0].specValue}}</text>
+            </view>
+            <view class="shuliang">x{{item.goodsList[0].num}}</view>
+          </view>
+          <view class="list-san-san">
+            <text>共{{item.goodsList.length}}件商品，共计</text>
+            <text class="list-san-sant">{{item.orderAmount}}元</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,115 @@
+<!--pages/shoppingCart/shoppingCart.wxml-->
+<wxs module="filters" src="../../utils/number.wxs"></wxs>
+
+<block wx:if="{{data.length == 0}}">
+  <view class="no-cart">
+    <image mode="aspectFit" src="../images/default_page3.png"></image>
+    <view class="no-cart-title">购物车还没有商品,快去逛逛吧!</view>
+  </view>
+</block>
+<block wx:else="{{data.length != 0}}">
+  <view class='carEdit'>
+    <view class='editbody'>
+      <view class='editTitle'>商品数量有限,请尽快结算哦</view>
+      <view class='editBtn' bindtap='editAll'>{{editAllStatus ?'管理':'完成' }}</view>
+    </view>
+  </view>
+  <view class="table-view" style="margin-bottom:4%;">
+    <view class="teacher-kes" wx:for="{{data}}" wx:key="index" wx:for-index="groupIndex">
+      <view class="teacher-ke">
+        <checkbox-group bindchange="checkall" data-index="{{groupIndex}}">
+          <checkbox checked='{{item.checkedAll}}' value='{{item}}'></checkbox>
+        </checkbox-group>
+        <image class="shop-img" src="../images/shop.png" mode="aspectFit"></image>
+        <text class="teacher-ke-name" catchtap="toShopList" data-shopNo="{{item.shopNo}}">{{item.shopName}}</text>
+        <image class="shop-more" src="../images/index_arrows.png" mode="aspectFit"></image>
+      </view>
+      <checkbox-group class="hot-div hot-checked" data-groupIndex="{{groupIndex}}" wx:for="{{item.list}}" data-kc="{{item}}" wx:key="index1" data-index="{{index}}" data-id="{{item.id}}" bindchange="Checks2">
+        <checkbox checked="{{item.checked}}"></checkbox>
+        <image mode="aspectFill" src="{{item.goodsImgPath}}" class="Hot-div-img" bindtap="toGoodsDetails" data-goodsNo="{{item.goodsNo}}"></image>
+        <view class="Hot-div-shop">
+          <view class="hot-price-title">{{item.goodsName}}</view>
+          <view class='reelect' bindtap="handleShow" wx:if="{{item.specValue}}">{{item.specValue}}
+          </view>
+          <view class="order-red" style="margin-top: 8rpx;">
+            <text> ¥{{vipGrade == '1'? item.price : filters.toFix(item.price - item.profit *vipRate)}}</text>
+            <!-- <text> ¥{{vipGrade == '1'? item.price : (item.price - item.profit * vipRate).toFixed(2)}}</text> -->
+
+          </view>
+          <view class="stepper">
+            <!-- 减号 -->
+            <text class="{{minusStatus}}" data-index="{{index}}" data-groupIndex="{{groupIndex}}" data-id='{{item.id}}' data-num='{{item.num}}' bindtap="bindMinus" data-stockNo="{{item.stockNo}}">-</text>
+            <!-- 数值 -->
+            <input size="mini" type="number" bindchange="bindManual" value="{{item.num}}" disabled />
+            <!-- 加号 -->
+            <text data-index="{{index}}" data-groupIndex="{{groupIndex}}" class="normal" data-id='{{item.id}}' data-num='{{item.num}}' bindtap="bindPlus" data-stocknum="{{item.stockNum}}" data-stockNo="{{item.stockNo}}">+</text>
+          </view>
+          <view>
+          </view>
+        </view>
+      </checkbox-group>
+    </view>
+  </view>
+</block>
+<view class="shop-check">
+  <checkbox-group bindchange="AllTap" data-index="{{index}}">
+    <checkbox checked='{{checkeedAll}}'></checkbox>
+  </checkbox-group>
+  <text class="shop-check-text">全选</text>
+  <block wx:if="{{editAllStatus}}">
+    <view class="shop-check-right">
+      <view class="shop-check-he">
+        <text class='nohe'>不含运费</text> 合计：
+        <text>¥ {{ priceAll}}</text>
+      </view>
+      <view class="shop-check-jie" bindtap='handleClose'>结算({{count}})</view>
+    </view>
+  </block>
+  <view wx:else class=" shop-check-right">
+    <view class='shop-check-jie' bindtap='hadleRemove' data-index="{{index}}" data-groupIndex="{{groupIndex}}"> 删除商品</view>
+  </view>
+
+</view>
+<!---推荐 猜你喜欢-->
+<view class='recommend' wx:if="{{likedata.length != 0}}">
+  <view class='recommend-title'>
+    <image class='icon-border icon-left' src='../images/shoppingcar_icon3.png'></image>
+    <view class='icon-img'>
+      <image mode="aspectFit" src='../images/like_help.png'></image>
+    </view>
+    <view>猜你喜欢</view>
+    <image class='icon-border' src='../images/shoppingcar_icon3.png'></image>
+  </view>
+  <view class='rec-ul'>
+    <block wx:for="{{likedata}}" wx:key='index'>
+      <view class='rec-li' bindtap='toGoodsDetails' data-goodsNo='{{item.goodsNo}}'>
+        <view class='help-li-img'>
+          <image mode="aspectFill" src='{{item.imgPath}}'></image>
+        </view>
+        <view class='rec-li-tit'>{{item.goodsName}}</view>
+        <!-- <view class='ticket-img'>
+          <image src='../images/index_ticket.png'></image>
+          <view class='ticket-money'>￥99</view>
+        </view> -->
+        <view class='rec-money'>¥{{vipGrade == '1'? item.price : filters.toFix(item.price - item.profit *vipRate)}}</view>
+        <!-- <view class='rec-money'>￥{{(item.price - item.profit * vipRate).toFixed(2)}}</view> -->
+
+        <view class='rec-nomoney' wx:if="{{vipRate&&vipGrade!=1}}">￥{{item.price}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-----弹出层------>
+<!-- <view class='mask-layer' wx:if="{{showPop}}" bindtap='hideModal'></view>
+<view class='pop-add-cart pop-common' wx:if="{{showPop}}" animation='{{animationData}}'>
+  <view class='header row'>
+    头部区域
+  </view>
+  <scroll-view class='body' scroll-y='true'>
+    中间区域
+  </scroll-view>
+  <view class='footer toolbar'>
+    底部区域
+  </view>
+</view> -->
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

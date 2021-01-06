@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "show-page":"/components/show-page/show-page"
+  },
+  "disableScroll": true,
+  "navigationStyle": "custom"
+}

@@ -1,0 +1,952 @@
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.container {
+  padding-bottom: 40rpx;
+}
+
+swiper {
+  width: 100%;
+  height: 481rpx;
+}
+
+.shops-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.shops-head {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 2%;
+}
+
+.head-box {
+  overflow: hidden;
+  font-size: 28rpx;
+  padding: 4% 0;
+  margin: auto;
+  width: 90%;
+  position: relative;
+}
+
+.hesd-title {
+  font-weight: bold;
+}
+
+.head-mini-title {
+  font-size: 26rpx;
+  color: #999;
+  margin: 2% 0;
+}
+
+.head-mini-title text {
+  margin-right: 4%;
+}
+
+.head-money {
+  color: #ff5543;
+  font-size: 30rpx;
+  display: inline-block;
+  margin-right: 2%;
+}
+
+.noMoney {
+  display: inline-block;
+  color: #999;
+  font-size: 23rpx;
+  text-decoration: line-through;
+}
+
+.head-select {
+  margin-top: 4%;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.head-select text {
+  color: #000;
+  margin-right: 2%;
+}
+
+.head-select image {
+  width: 13rpx;
+  height: 24rpx;
+  position: relative;
+  top: 3rpx;
+  margin-left: 2%;
+}
+
+.head-payBtn {
+  width: 19%;
+  text-align: center;
+  color: #f80;
+  border-radius: 20rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  font-size: 24rpx;
+  border: 1px solid #f80;
+  height: 38rpx;
+  line-height: 38rpx;
+}
+
+.head-commission {
+  display: inline-block;
+  background-color: #ffe3dc;
+  border-radius: 6px;
+  font-family: PingFang-SC-Medium;
+  font-size: 22rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #ff3000;
+  padding: 1% 2%;
+}
+
+/***猜你喜欢******/
+
+.like-title {
+  font-size: 26rpx;
+  padding: 1.5% 3.8%;
+  font-weight: bold;
+}
+
+.like-ul {
+  overflow: hidden;
+  white-space: nowrap;
+  overflow-x: initial;
+}
+
+.like-features {
+  width: 310rpx;
+  display: inline-block;
+  margin: 1.5%;
+  box-shadow: 0 0 10px rgba(9, 9, 9, 0.25);
+  position: relative;
+  border-radius: 20rpx;
+}
+
+.li-img {
+  /* width: 220rpx; */
+  height: 310rpx;
+  border-radius: 10rpx 10rpx 0rpx 0rpx;
+  overflow: hidden;
+}
+
+.li-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.li-title {
+  font-size: 26rpx;
+  height: 40rpx;
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden; */
+  margin-top: 3%;
+  font-weight: 600;
+  margin-left: 4%;
+  width: 280rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.li-money {
+  font-size: 26rpx;
+  color: #ff5543;
+  /* float: left; */
+  font-weight: 600;
+  margin-left: 4%;
+}
+
+.li-span-num {
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 2%;
+  display: inline-block;
+}
+
+.li-add {
+  position: absolute;
+  bottom: 4%;
+  right: 0;
+  text-align: center;
+  width: 40%;
+}
+
+.li-add image {
+  width: 39rpx;
+  height: 33rpx;
+  margin-right: 3%;
+  position: relative;
+  top: 8rpx;
+}
+
+.li-add text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/*****用户评价*****/
+
+.eva-head {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2%;
+}
+
+.evaluate {
+  font-size: 28rpx;
+  float: left;
+  width: 50%;
+}
+
+.eva-all {
+  font-size: 26rpx;
+  color: #999;
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.eva-all image {
+  width: 18rpx;
+  height: 18rpx;
+}
+
+.eva-pro {
+  font-weight: 600;
+}
+
+.eva-num {
+  font-size: 26rpx;
+  color: #999;
+  margin-left: 4%;
+}
+
+.use-list {
+  width: 100%;
+  padding: 4% 0;
+  position: relative;
+}
+
+.user-img {
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.user-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.user-box {
+  position: absolute;
+  top: 22%;
+  left: 10%;
+  font-size: 26rpx;
+}
+
+.user-time {
+  position: absolute;
+  top: 22%;
+  right: 0;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.user-title {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.noeva {
+  color: #999;
+}
+
+/******  店铺***********/
+
+.shop-img {
+  width: 127rpx;
+  height: 127rpx;
+  float: left;
+}
+
+.shop-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.shop-content {
+  width: 70%;
+  float: right;
+  position: relative;
+}
+
+.shop-content-star {
+  font-size: 20rpx;
+  margin: 2% 0;
+}
+
+.shop-content-star image {
+  width: 18rpx;
+  height: 17rpx;
+  margin-right: 2%;
+}
+
+.shop-content-intro {
+  font-size: 22rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  padding-right: 20rpx;
+
+}
+
+.shop-content-img {
+  width: 11px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.shop-content-img image {
+  width: 100%;
+  height: 100%;
+}
+
+/* **********************商品详情*************************** */
+
+.shopDetails {
+  margin-top: 4%;
+}
+
+.shopDetails-title {
+  font-size: 26rpx;
+  color: #999;
+  position: relative;
+  text-align: center;
+}
+
+.shopDetails-title::after, .shopDetails-title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  background: #999;
+  width: 28%;
+  height: 1px;
+}
+
+.shopDetails-title::after {
+  right: 10%;
+}
+
+.shopDetails-title::before {
+  left: 10%;
+}
+
+/****支付*********/
+
+.pay {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  overflow: hidden;
+  width: 100%;
+  justify-content: space-between;
+  height: 88rpx;
+}
+
+.pay-left {
+  width: 32%;
+  float: left;
+  text-align: center;
+}
+
+.pay-left navigator {
+  margin: 5% 8%;
+  display: inline-block;
+  text-align: center;
+  font-size: 25rpx;
+}
+
+.pay-left navigator image {
+  width: 40rpx;
+  height: 37rpx;
+  display: block;
+  margin: auto;
+}
+
+.pay-right {
+  width: 60%;
+  font-size: 28rpx;
+  color: #fff;
+  float: right;
+  text-align: right;
+}
+
+.pay-right .pay-add {
+  display: inline-block;
+  line-height: 88rpx;
+  background: #f80;
+  width: 50%;
+  text-align: center;
+}
+
+.pay-right .pay-share {
+  display: inline-block;
+  line-height: 88rpx;
+  background: #ff5543;
+  width: 50%;
+  text-align: center;
+}
+
+/**********活动*************/
+
+.activity-logo {
+  display: inline-block;
+  overflow: hidden;
+  /* width: 98rpx; */
+  height: 21px;
+  padding: 0 2%;
+  margin: 0;
+  /* position: relative;
+  top: 10rpx; */
+  background-color: #ffb62a;
+  border-radius: 9rpx;
+}
+
+/* .activity-logo image {
+  width: 100%;
+  height: 100%;
+} */
+
+.activity-logo .joinPersonNum {
+  /* position: absolute;
+  top: 10rpx;
+  left: 9rpx; */
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.activity-logo .activityTypeName {
+  /* position: absolute;
+  top: 9rpx;
+  left: 15rpx; */
+  font-size: 24rpx;
+  color: #fff;
+}
+
+/* 活动支付 */
+.activity-pay .recommend {
+  width: 20%;
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+  padding: 12rpx 0 0;
+}
+
+.recommend image {
+  width: 100%;
+  height: 45rpx;
+}
+
+.activity-title {
+  width:440rpx;
+  font-size: 30rpx;
+  color: #fff;
+  float: right;
+  height: 88rpx;
+  background-color: #FF9736;
+}
+.activity-title>view{
+  width: 100%;
+  text-align: center;
+}
+.activity-title .jielong {
+  line-height: 88rpx;
+}
+.pay-left {
+  width: 37%;
+  float: left;
+  margin-left: 19rpx;
+}
+
+.pay-left .navto {
+  margin: 4% 5%;
+  float: left;
+  font-size: 25rpx;
+}
+.navto>button{
+  width: 54rpx;
+  height: 67rpx;
+  padding: 0;
+  font-size: 24rpx;
+  line-height: 37rpx;
+  background-color: #fff;
+}
+.navto>button::after{
+  border: none;
+}
+.pay-left .navto image {
+  width: 40rpx;
+  height: 37rpx;
+  display: block;
+  margin: auto;
+}
+.cartNum {
+  position: absolute;
+  top: 1rpx;
+  left: 234rpx;
+  width: 30rpx;
+  background: red;
+  height: 30rpx;
+  border-radius: 50%;
+  font-size: 21rpx;
+  color: #fff;
+}
+/**************弹出层 start**********************/
+
+.mask-layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.pop-common {
+  width: 100%;
+  overflow: hidden;
+  /* position: absolute; */
+  bottom: 0;
+  background: #fff;
+  border-radius: 10rpx 10rpx 0 0;
+  height: 949rpx;
+  /* max-height: 949rpx; *//* min-height: 600rpx; */
+  z-index: 2000;
+  position: fixed;
+}
+
+.spinfo {
+  position: relative;
+  overflow: hidden;
+  padding: 4%;
+  padding-right: 0;
+}
+
+.spinfo .spinfo-img {
+  width: 30%;
+  height: 220rpx;
+  float: left;
+}
+
+.spinfo .spinfo-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+
+.spinfo .spinfo-content {
+  width: 65%;
+  position: absolute;
+  left: 34%;
+  bottom: 10%;
+}
+
+.spinfo .spinfo-content .money {
+  color: #ff3000;
+  font-family: PingFang-SC-Bold;
+  font-size: 36rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  padding: 2% 0;
+}
+
+.spinfo .spinfo-content .selected_size {
+  font-size: 32rpx;
+  padding: 2% 0;
+}
+
+.spinfo .spinfo-content .spnoNum {
+  color: #999;
+  font-size: 26rpx;
+  padding: 2% 0;
+}
+
+.spinfo .spinfo-content .spnoNum text:first-child {
+  margin-right: 6%;
+}
+
+.spinfo .spinfo-delete {
+  position: absolute;
+  right: 3%;
+  top: 4%;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.spinfo .spinfo-delete image {
+  width: 100%;
+  height: 100%;
+}
+
+.spinfo-size {
+  height: 265rpx;
+}
+
+/* 选择规格 start */
+
+.standard {
+  margin: 0 3%;
+  width: 94%;
+  font-size: 28rpx;
+}
+
+.standardTitle {
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.standardItem {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.selectItem {
+  border: solid 1px #f0f0f0;
+  margin: 20rpx;
+  padding: 5rpx 23rpx;
+  border-radius: 16rpx;
+  background-color: #f0f0f0;
+}
+
+.active {
+  border: solid 1rpx #ff3000;
+  background-color: #ffe7e1;
+  color: #ff3000;
+}
+
+/* 规格选中时样式 */
+
+.standardSelected {
+  color: #fff;
+  background: #f26740;
+  background-color: #fe6732;
+  border: solid 1px #fe6732;
+  margin: 20rpx;
+  padding: 5rpx 23rpx;
+  border-radius: 16rpx;
+}
+
+.standardNormal {
+  color: #000;
+}
+
+.standardDisable {
+  color: #eee;
+}
+
+/* 选择的数量 */
+
+.selectCount {
+  margin: 30rpx 3%;
+  width: 94%;
+  font-size: 28rpx;
+}
+
+.countright {
+  float: right;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 200rpx;
+  height: 62rpx;
+  /*给主容器设一个边框*/
+  border: 2rpx solid #ccc;
+  border-radius: 3px;
+}
+
+/* 加号和减号 */
+
+.countright text {
+  width: 58rpx;
+  line-height: 62rpx;
+  text-align: center;
+  float: left;
+}
+
+/* 数值 */
+
+.countright input {
+  width: 80rpx;
+  height: 62rpx;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 32rpx;
+  border-left: 2rpx solid #ccc;
+  border-right: 2rpx solid #ccc;
+}
+
+.countright .normal {
+  color: black;
+}
+
+.countright .disabled {
+  color: #ccc;
+}
+
+.countname {
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+}
+
+.showFooter {
+  position: fixed;
+  bottom: 2%;
+  width: 100%;
+  height: 95rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.showFooter .footer-color {
+  width: 85%;
+  margin: auto;
+  border-radius: 45rpx;
+}
+
+/* .showFooter view {
+  width: 50%;
+  float: left;
+  color: #fff;
+  height: 95rpx;
+  line-height: 95rpx;
+}
+
+.showFooter .modal_cart {
+  background: #ffb03f;
+}
+
+.showFooter .modal_buy {
+  background: #f44336;
+} */
+
+/******************end*******************/
+
+/*全部属性的主盒子*/
+
+.commodity_attr_list {
+  background: #fff;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+  overflow: hidden;
+  width: 100%;
+}
+
+/*每组属性的主盒子*/
+
+.attr_box {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1rpx solid #ececec;
+  display: flex;
+  flex-direction: column;
+}
+
+/*属性名*/
+
+.attr_name {
+  width: 20%;
+  float: left;
+  padding: 15rpx 0;
+}
+
+/*属性值*/
+
+.attr_value_box {
+  width: 80%;
+  float: left;
+  padding: 15rpx 0;
+  overflow: hidden;
+}
+
+/*每个属性值*/
+
+.attr_value {
+  float: left;
+  padding: 0 30rpx;
+  margin: 10rpx 10rpx;
+  border: 1rpx solid #f0f0f0;
+  border-radius: 50px;
+  line-height: 30px;
+  background: #f0f0f0;
+  box-sizing: border-box;
+}
+
+/*每个属性选中的当前样式*/
+
+.attr_value_active {
+  border-radius: 50rpx;
+  color: #ff3000;
+  padding: 0 30rpx;
+  border: 1rpx solid #ff3000;
+  background-color: #ffe7e1;
+  box-sizing: border-box;
+}
+
+/*禁用属性*/
+
+.attr_value_disabled {
+  color: #ccc;
+}
+
+.footer-color {
+  background-color: #ffb03f;
+  line-height: 95rpx;
+  color: #fff;
+}
+
+/* *********商品详情*********** */
+
+.imglist-h5 {
+  width: 100%;
+  height: 810rpx;
+  /* padding-top: 2%;
+  padding-bottom: 1%; */
+}
+
+.imglist-h5 image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.imglist-h5:last-child {
+  padding-bottom: 90rpx;
+}
+
+/************************活动 展示********************************/
+
+.act-head {
+  width: 100%;
+  background-image: linear-gradient(90deg, #ff9d1b 0%, #ff6e16 51%, #ff3e11 100%),
+                      linear-gradient(#ff5a34, #ff5a34);
+  background-blend-mode: normal, normal;
+  /* padding: 2% 0; */
+}
+
+.li-span {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 4%;
+  padding-right: 4%;
+  /* margin: 0.5% 0; */
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+
+.li-span:last-child {
+  padding-top: 0;
+}
+
+.li-span-icon {
+  width: 200rpx;
+  height: 51rpx;
+}
+
+.li-span-icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.li-span-show {
+  background-color: #fff;
+  border-radius: 19rpx;
+  color: #ff3000;
+  font-size: 22rpx;
+  padding: 0 1%;
+  line-height: 51rpx;
+  height: 51rpx;
+}
+
+.li-span-show image {
+  width: 20rpx;
+  height: 24rpx;
+}
+
+.li-span-title {
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.li-span-val {
+  color: #ffbda5;
+  font-size: 22rpx;
+}
+
+/* *************承诺时间/售后期限****************** */
+
+.span-item {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.span-val {
+  color: #353b56;
+  font-size: 26rpx;
+}
+
+/* 到底提醒 */
+
+.bottom-title {
+  margin-top: 20rpx;
+  margin-bottom: 130rpx;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.bottom-title view {
+  line-height: 20px;
+  color: #999;
+  font-size: 24rpx;
+}
+
+/*CSS伪类用法*/
+
+.bottom-title view:after, .bottom-title view:before {
+  position: absolute;
+  top: 50%;
+  background: #ddd;
+  content: "";
+  height: 1px;
+  width: 35%;
+}
+
+/*调整背景横线的左右距离*/
+
+.bottom-title view:before {
+  left: 0;
+}
+
+.bottom-title view:after {
+  right: 0;
+}

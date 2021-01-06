@@ -1,0 +1,209 @@
+page{
+  padding: 0;
+  margin: 0;
+  background-color: #F1F1F1;
+}
+.top{
+  width:702rpx;
+  height:118rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  margin-left: 24rpx;
+  margin-top: 8rpx;
+}
+.top-yi{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(255,125,38,1);
+  padding-top: 12rpx;
+  margin-left: 24rpx;
+}
+.top-er{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  margin-left: 24rpx;
+}
+.center{
+  width:702rpx;
+  height:308rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  margin-left: 24rpx;
+  margin-top: 8rpx;
+}
+.jindu{
+  width:652rpx;
+  height:66rpx;
+  background:rgba(248,248,248,1);
+  border-radius:34rpx;
+  margin-top: 18rpx;
+  margin-left: 24rpx;
+  padding-left: 12rpx;
+}
+.jindu>view{
+  float: left;
+}
+.jindu-yuan{
+  width:44rpx;
+  height:44rpx;
+  background:rgba(255,125,38,1);
+  border-radius:50%;
+  margin-top: 12rpx;
+}
+.jindu-yuan1{
+  width:38rpx;
+  height:38rpx;
+  background:rgba(255,255,255,1);
+  border:4rpx solid rgba(254,105,89,1);
+  border-radius:50%;
+  margin-top: 12rpx;
+}
+.jindu-xian{
+  width:250rpx;
+  height:10rpx;
+  background:linear-gradient(270deg,rgba(253,130,75,1) 0%,rgba(255,222,90,1) 100%);
+  margin-top: 30rpx;
+}
+.center-er{
+  height: 34rpx;
+  margin-top: 10rpx;
+  margin-left: 24rpx;
+}
+.center-er>view{
+  float: left;
+}
+.center-er-yi{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  width: 280rpx;
+}
+.center-er-san{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+}
+/*进度到达的颜色*/
+.yescolor{
+  color:rgba(255,125,38,1);
+}
+/*进度未到达的颜色*/
+.nocolor{
+  color:rgba(197,197,197,1);
+}
+.center-san{
+  width:650rpx;
+  height:0rpx;
+  border:2rpx solid rgba(225,225,225,1);
+  margin-left: 28rpx;
+  margin-top:24rpx;
+}
+.center-si{
+  width: 650rpx;
+  height: 42rpx;
+  margin-top: 18rpx;
+  margin-left: 26rpx;
+}
+.center-si-yi{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  float: left;
+}
+.center-si-er{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(255,125,38,1);
+  float: right;
+}
+.center-wu-er{
+  float: right;
+  height: 42rpx;
+}
+.center-wu-er>image{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+.center-wu-er>view{
+  float: left;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  margin-left: 6rpx;
+}
+.bottom{
+  width:702rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  margin-left: 24rpx;
+  margin-top: 8rpx;
+}
+.bottom-yi{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  margin-top: 14rpx;
+  margin-left: 24rpx;
+}
+.bottom-er{
+  width: 100%;
+  height: 200rpx;
+  margin-top: 4rpx;
+  margin-left: 24rpx;
+}
+.bottom-er>image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  float: left;
+}
+.bottom-er>view{
+  margin-left: 24rpx;
+  float: left;
+}
+.right-yi{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(102,102,102,1);
+}
+.right-er{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  margin-top: 10rpx;
+}
+.right-san{
+  margin-top: 12rpx;
+}
+.right-san>text{
+  display: inline-block;
+  height:36rpx;
+  background:rgba(225,225,225,1);
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  line-height:34rpx;
+  color:rgba(51,51,51,1);
+  border-radius: 18rpx;
+  text-align: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.right-si{
+  width: 448rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(102,102,102,1);
+  text-align: right;
+}

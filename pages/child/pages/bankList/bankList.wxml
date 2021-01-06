@@ -1,0 +1,19 @@
+<!--意外险-->
+<radio-group class="radio-group" bindchange="radioChange" wx:for="{{bankList}}">
+  <view class='pre-list' >
+    <view class='inst-img'>
+      {{item.bankName}}
+    </view>
+    <view class='attribute'>
+      {{item.bankNo}}
+    </view>
+    <radio class="state" value='{{item.id + "-" + item.bankName + "-" + item.bankNo}}'></radio>
+  </view>
+</radio-group>
+<!--暂无数据-->
+<!-- <view class='nolist' wx:if='{{isShow}}'>
+  <view class='no-img'>
+    <image src='../images/on_order.png'></image>
+  </view>
+  <view class='no-title'>暂无数据</view>
+</view> -->

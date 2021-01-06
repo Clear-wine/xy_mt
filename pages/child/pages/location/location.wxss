@@ -1,0 +1,121 @@
+/* pages/child/pages/location/location.wxss */
+
+.location {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 2%;
+  height: auto;
+  overflow-y: auto;
+  padding-bottom: 100rpx;
+}
+
+.location-list {
+  width: 90%;
+  margin: 0 auto 2%;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 2%;
+  font-size: 28rpx;
+  position: relative;
+}
+
+.location-list image {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  right: 4%;
+  top: 11%;
+  color: #000;
+  z-index: 999;
+  padding: 30rpx;
+}
+
+.list-head {
+  margin: 2% 0;
+}
+
+.list-head text {
+  margin-right: 2%;
+  font-weight: bold;
+}
+.list-head-yi{
+  display: inline-block;
+  width: 22%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list-head .label {
+  border: 1px solid #f80;
+  color: #fff;
+  font-size: 22rpx;
+  background-color: #f80;
+  border-radius: 20rpx;
+  width: 76rpx;
+  display: inline-block;
+  text-align: center;
+  font-weight: 300;
+  margin-left: 2%;
+}
+.list-head .none{
+ border: none;
+ background: #fff;
+ width: 0
+}
+.list-head .isDefault{
+    border: 1px solid #999;
+  color: #fff;
+  font-size: 22rpx;
+  background-color: #999;
+  border-radius: 20rpx;
+  width: 76rpx;
+  display: inline-block;
+  text-align: center;
+  font-weight: 300;
+  margin-left: 2%;
+}
+.list-head .noneDefault{
+   border: none;
+ background: #fff;
+ width: 0
+}
+.location-list .list-title {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.add {
+  width: 50%;
+  height: 91rpx;
+  text-align: center;
+  float: right;
+  color: #fff;
+  background-color: #FF7D26;
+  font-size: 30rpx;
+  line-height: 90rpx;
+}
+.button{
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   z-index: 999; 
+}
+.button>view{
+  width: 50%;
+  height: 70rpx;
+  float: left;
+  padding-top: 21rpx;
+  background-color: #05B904;
+}
+.button>view>image{
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 58rpx;
+  margin-right: 10rpx;
+}
+.button>view>view{
+  float: left;
+  color: #fff;
+}

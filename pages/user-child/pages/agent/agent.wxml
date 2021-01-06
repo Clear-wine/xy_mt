@@ -1,0 +1,124 @@
+<!-- 代理商 -->
+<!-- <view class="container"> -->
+<!-- 我的团队 -->
+<view class="agent-top">
+  <view class="agent-banner">
+    <image src="../images/agent_bg.png"></image>
+  </view>
+  <view class="cen-wrap">
+    <view class="withdraw-view">
+      <view class="price">{{data.withdrawableAmount}}</view>
+      <view class="title">可提现金额(元)</view>
+    </view>
+    <view class="row-price">
+      <view class="col-price-view" bindtap="handleToShare">
+        <view class="price">{{data.consumeAmount}}</view>
+        <view class="title">历史累计分润(元)</view>
+      </view>
+      <view class="col-price-view" bindtap="handleNoToShare">
+        <view class="price">{{data.waitAmount}}</view>
+        <view class="title">未入账的分润(元)</view>
+      </view>
+    </view>
+  </view>
+  <view class="withdraw-btn" bindtap='handleDrawings'>提现</view>
+  <!-- <view class="team">
+    <navigator url="/pages/agent-child/pages/my-team/my-team">
+      <view class="team-title">我的团队</view>
+      <view class="team-num">{{teamTotal}}人</view>
+      <image class="icon-r" src="../images/my_team_enter.png"></image>
+    </navigator>
+  </view>
+  <view class="mark">
+    <image src="../images/icon_insurance.png"></image>
+    个人账户盗刷保险
+  </view> -->
+</view>
+<!-- 代理说明 -->
+<view class="agent-wrap">
+  <view class="li-view">
+    <view class="team-view" bindtap="handleToTeam">
+      <view class="row-team">
+        <image class="teamimg" src="../images/my_team.png"></image>
+        <text>我的团队</text>
+        <image class="team-more" src="../images/my_team_enter.png"></image>
+      </view>
+      <view class="teamNum">
+        <text>{{data.teamNum}}</text> 人</view>
+    </view>
+  </view>
+  <view class="li-view">
+    <view class="row-num">
+      <view class="col-num">
+        <view class="title">总分润商品数</view>
+        <view class="module">
+          <text>{{data.teamTradeCount}}</text> 件</view>
+      </view>
+      <view class="col-num">
+        <view class="title">团队总交易额</view>
+        <view class="module">
+          <text>{{data.teamTradeAmount}}</text>元 </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- <view class="agent-body">
+  <view class="agent-ul">
+    <view class="agent-li" bindtap='memberDivided' data-type="{{memberDivided.detailsType}}">
+      <view class="vipShare-benefit">{{memberDivided.gradeText}}:{{memberDivided.amount}}</view>
+      <view class="share-benefit-way">直接:{{memberDivided.indirectNum}}人</view>
+      <view class="share-benefit-way">间接:{{memberDivided.directNum}}人</view>
+      <image src="../images/agent_enter.png"></image>
+    </view>
+    <view class="agent-li" bindtap='partnerDivided' data-type="{{partnerDivided.detailsType}}">
+      <view class="vipShare-benefit">{{partnerDivided.gradeText}}:{{partnerDivided.amount}}</view>
+      <view class="share-benefit-way">直接:{{partnerDivided.indirectNum}}人</view>
+      <view class="share-benefit-way">间接:{{partnerDivided.directNum}}人</view>
+      <image src="../images/agent_enter.png"></image>
+    </view>
+    <view class="agent-li" bindtap='memberReward' data-type="{{memberReward.detailsType}}">
+      <view class="vipShare-benefit">{{memberReward.gradeText}}:{{memberReward.amount}}</view>
+      <view class="share-benefit-way">直接:{{memberReward.indirectNum}}人</view>
+      <view class="share-benefit-way">间接:{{memberReward.directNum }}人</view>
+      <image src="../images/agent_enter.png"></image>
+
+    </view>
+    <view class="agent-li" bindtap='partnerReward' data-type="{{partnerReward.detailsType}}">
+      <view class="vipShare-benefit">{{partnerReward.gradeText}}:{{gradeText.amount}}</view>
+      <view class="share-benefit-way">直接:{{partnerReward.indirectNum}}人</view>
+      <view class="share-benefit-way">间接:{{partnerReward.directNum}}人</view>
+      <image src="../images/agent_enter.png"></image>
+
+    </view>
+  </view>
+  <!-- 交易统计 -->
+<!-- <view class="agent-detail">
+    <view class="agent-detail-li">
+      <view class='li-title'>总交易额</view>
+      <view class='li-allPrice'>
+        <text class='text-style'>{{transactionAmount}}</text>
+        <text class='text-style-2'></text> 元</view>
+    </view>
+    <view class="agent-detail-li">
+      <view class='li-title'>总分润额</view>
+      <view class='li-allPrice'>
+        <text class='text-style'>{{dividedAmount}}</text>
+        <text class='text-style-2'></text> 元</view>
+    </view>
+    <view class="agent-detail-li">
+      <view class='li-title'>总推广奖励金</view>
+      <view class='li-allPrice'>
+        <text class='text-style'>{{rewardAmount}}</text>
+        <text class='text-style-2'></text> 元</view>
+    </view>
+  </view> -->
+<!-- 提现 -->
+<!-- <view class="withdraw-deposit" bindtap='handleDrawings'>
+    <view class='title'>可提现收益</view>
+    <view class='price'>{{withdrawableAmount}}
+      <text class='text-style'>元</text> </view>
+  </view>
+</view> -->
+<!-- </view> -->

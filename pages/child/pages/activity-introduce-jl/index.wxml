@@ -1,0 +1,2 @@
+<!--pages/child/pages/activity-introduce-jl/index.wxml-->
+<web-view src="{{webUrl}}"></web-view>

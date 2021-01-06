@@ -1,0 +1,134 @@
+<!--pages/child/pages/activityjl/activityjl.wxml-->
+<!-- 接龙购 -->
+<view class='bg-wrap'>
+  <view class='bg-img'>
+    <image mode='widthFix' src='../images/bg_jielong.png'></image>
+    <view class='bg-time' wx:if="{{status==1}}">倒计时 {{countdown}}</view>
+    <view class='hdalert' bindtap="activityMsg">
+      活动介绍
+      <image mode='scaleToFit' src="../images/activity-js.png"></image>
+    </view>
+  </view>
+  <!-- 产品详情 -->
+  <view class='bg-container'>
+    <view class='sp-detail'>
+      <view class='spleft'>
+        <image mode='scaleToFill' src='{{chainsData.imgPath}}'></image>
+      </view>
+      <view class='spright'>
+        <view class='sp-title'>{{chainsData.activityName}}</view>
+        <view class='sp-span' wx:if="{{chainsData.specValue !=null}}">
+          <text>规格</text>
+          <text>{{chainsData.specValue}}</text>
+        </view>
+        <view class="activity-logo">
+          <image src="../images/price_tag.png" mode="aspectFit"></image>
+          <text>接龙价</text>
+        </view>
+        <view class='sp-money'>￥{{chainsData.originalPrice}}</view>
+      </view>
+      <image src="../images/jlchenggong.png" class="ptcg" wx:if="{{orderStatus==2}}"></image>
+      <image src="../images/jlshibai.png" class="ptcg" wx:if="{{orderStatus==3}}"></image>
+    </view>
+    <!-- 接龙 -->
+    <!-- <view class='dragon'>
+       判断接龙人数为几人 
+      <image mode="widthFix" src='../images/long.png'></image>
+      <view class='box-item'>
+        <view class='box-item-img' wx:for="{{list}}" wx:key="{{item.userId}}">
+          <image src="{{item.url ? item.url : '../images/person_no_join.png'}}"></image>
+          <view class="chainsPrice" wx:if="{{item.chainsPrice ==='待接龙'}}">{{item.chainsPrice}}</view>
+          <view class="chainsPrice" wx:else>￥{{item.chainsPrice}}</view>
+        </view>
+      </view>
+    </view> -->
+    <view class="jielong">
+      <view class="jielong-yi">正在接龙 {{chainsData.joinList.length}} \ {{chainsData.chainsPersonNum}}</view>
+      <view class="jielong-er">
+        <view class="er-yi" style="width:{{jdwidth}}%"></view>
+      </view>
+       <view class="jielong-san">
+        <view class="san-zhu" wx:for="{{list1}}" wx:key="index">
+          <block wx:if="{{item.yc}}">
+            <view class="{{item.ps?'san-zhu-yi':'san-zhu-yi1'}}">{{item.id}}</view>
+            <image src="{{item.ps?'../images/jielong1.png':'../images/jielong2.png'}}" class="ditu"></image>
+            <block wx:if="{{item.zhqj}}">
+              <image wx:if="{{!item.qjyc}}" src="{{item.ps?'../images/jlqianjin1.png':'../images/jlqianjin2.png'}}" class="{{item.qj?'qianjin1':''}} qianjin"></image>
+              <image wx:if="{{item.qjyc}}" src="{{item.ps?'../images/jlqianjin1.png':'../images/jlqianjin2.png'}}" class="{{item.qj?'qianjin2':''}} qianjin3"></image>
+            </block>
+            <image wx:if='{{item.ps}}' src="{{item.userHead}}" class="touxiang"></image>
+            <view wx:if='{{item.ps}}' class="name">{{item.userNike}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 购买操作 -->
+  <!-- 活动进行中,可以接龙人员进入 -->
+  <block  wx:if="{{status==1&&orderStatus==1&&join==true}}">
+      <view class='btn' bindtap="joinChainsActivity">我来接龙</view>
+  </block>
+  <!-- 活动进行中,不可以接龙人员进入 -->
+  <block wx:if="{{status==1&&orderStatus==1&&join==false&&ifjl==false}}">
+    <view class="zhe"></view>
+      <view class="tankuang">
+        <image src="/images/activity.png"></image>
+        <view class="tankuang-yi">手速太慢了</view>
+        <view class="tankuang-er">这条龙已经被人接了</view>
+        <view class="tankuang-san">去看看别的龙</view>
+        <view class="tankuang-si" bindtap="gocantuan">去接龙</view>
+      </view>
+  </block>
+  <!-- 活动进行中,已经接龙的人员进入 -->
+  <block wx:if="{{status==1&&orderStatus==1&&join==false&&ifjl==true}}">
+    <button class='btn' open-type="share">接龙完成,分享其他好友来接龙</button>
+  </block>
+  <!-- 接龙成功,非参加人员 -->
+  <block wx:if="{{status==1&&orderStatus==2&&ifjl==false}}">
+    <view class="zhe"></view>
+      <view class="tankuang">
+        <image src="/images/activity.png"></image>
+        <view class="tankuang-yi">手速太慢了</view>
+        <view class="tankuang-er">这条龙已经被人接了</view>
+        <view class="tankuang-san">去看看别的龙</view>
+        <view class="tankuang-si" bindtap="gocantuan">重新发起接龙</view>
+      </view>
+  </block>
+  <!-- 接龙成功,参加人员 -->
+  <block wx:if="{{status==1&&orderStatus==2&&ifjl==true}}">
+    <view class='btn' bindtap="toOrder">接龙成功,查看订单</view>
+  </block>
+  <!-- 接龙失败,非参加人员 -->
+  <block  wx:if="{{status==1&&orderStatus==3&&ifjl==false}}">
+    <view class='btn' bindtap="gocantuan">我也想接龙</view>
+  </block>
+  <!-- 接龙失败,参加人员 -->
+  <block wx:if="{{status==1&&orderStatus==3&&ifjl==true}}">
+    <view class='btn' bindtap="gocantuan">重新发起接龙</view>
+  </block>
+  <!-- 活动结束,非参加人员 -->
+  <block wx:if="{{status==2&&ifjl==false}}">
+    <view class="zhe"></view>
+        <view class="tankuang">
+          <image src="/images/activity.png"></image>
+          <view class="tankuang-yi">你来晚了</view>
+          <view class="tankuang-er">活动已结束</view>
+          <view class="tankuang-san">去看看别的活动</view>
+          <view class="tankuang-si" bindtap="gohuodong">去参加活动</view>
+        </view>
+  </block>
+  <!-- 活动结束,参加人员 -->
+  <block wx:if="{{status==2&&ifjl==true}}">
+    <view class="zhe"></view>
+        <view class="tankuang">
+          <image src="/images/activity.png"></image>
+          <view class="tankuang-er">活动已结束</view>
+          <view class="tankuang-si" bindtap="toOrder" wx:if="{{orderStatus==2}}">查看订单</view>
+          <view class="tankuang-si" bindtap="gohuodong" wx:if="{{orderStatus==3}}">查看别的活动</view>
+        </view>
+  </block>
+</view>
+<!-- 回到首页(分享的时候显示) -->
+<image wx:if="{{isshare}}" bindtap='backHome' class='d-back-home' src='http://cdn.xcx.pemarket.com.cn/icon-Return%20to%20the%20home%20page.png' lazy-load></image>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

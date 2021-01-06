@@ -1,0 +1,380 @@
+/* pages/child/pages/activitypt/activitypt.wxss */
+
+page {
+  min-height: 100vh;
+  height: auto;
+}
+
+.bg-wrap {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background: #e8594f;
+}
+
+.bg-wrap image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.bg-container {
+  font-size: 30rpx;
+  margin: auto;
+  width: 95%;
+}
+
+.bg-container .bg-time {
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  margin: 2% 0 4%;
+}
+
+.bg-container .bg-detail {
+  background: #fff;
+  padding: 3% 2%;
+  overflow: hidden;
+  border-radius: 20rpx;
+  width: 95%;
+}
+
+.bg-detail .detail-img {
+  float: left;
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.detail-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+
+.bg-detail .bg-content {
+  float: left;
+  width: 66%;
+  font-family: PingFang-SC-Medium;
+  font-size: 28rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rpx;
+  color: #353b56;
+  margin-left: 2%;
+}
+.yuanjia{
+  font-size:24rpx;
+  text-decoration:line-through;
+  color:rgba(153,153,153,1);
+  padding-top: 23rpx;
+}
+.bg-content .bg-title {
+  word-break: break-all;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+.bg-content .bg-span {
+  color: #999;
+  font-size: 24rpx;
+  margin: 2% 0;
+}
+
+.bg-span text {
+  margin-right: 2%;
+}
+
+.activity-logo {
+  display: inline-block;
+  overflow: hidden;
+  width: 57px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 8rpx;
+}
+
+.activity-logo image {
+  width: 100%;
+  height: 100%;
+}
+
+.activity-logo text {
+  position: absolute;
+  top: 7rpx;
+
+  left: 15rpx;
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.bg-content .bg-money {
+  font-size: 36rpx;
+  color: #ff3000;
+  display: inline-block;
+  padding-top: 40rpx;
+}
+
+.uplist-wrap {
+  margin-top: 10%;
+  text-align: center;
+}
+.chengtuan{
+  width: 100%;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  padding-bottom: 18rpx;
+}
+.uplist {
+  display: flex;
+  /* justify-content:center; */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.uplist .list-span {
+  width: 120rpx;
+  height: 120rpx;
+  padding: 2% 6.8%;
+}
+
+.uplist .list-span image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.list-title {
+  font-size: 28rpx;
+  color: #ffff;
+  padding: 5.8% 0;
+}
+
+.btn-share {
+  width: 360rpx;
+  height: 70rpx;
+  background-color: #f9e992;
+  border-radius: 35rpx;
+  font-family: PingFang-SC-Bold;
+  font-size: 30rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 70rpx;
+  letter-spacing: 0rpx;
+  color: #ff3000;
+  margin: auto;
+}
+
+.btn-share .check {
+  border: 1rpx solid #f9e992;
+  box-sizing: border-box;
+  color: #f9e992;
+  background-color: #ff3000;
+}
+
+/* 猜你喜欢 */
+
+.like {
+  width: 95%;
+  margin: 10% auto 2%;
+  font-size: 30rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rpx;
+}
+
+.like .like-title {
+  text-align: center;
+  color: #ffff;
+  font-family: PingFang-SC-Bold;
+}
+
+.like-title image {
+  width: 28rpx;
+  height: 28rpx;
+  display: inline-block;
+  margin-right: 2%;
+}
+
+.like-title::before, .like-title::after {
+  content: "";
+  width: 80rpx;
+  height: 2rpx;
+  display: inline-block;
+  border-top: 1rpx #fff solid;
+  vertical-align: middle;
+}
+
+.like-title::before {
+  margin-right: 10rpx;
+}
+
+.like-title::after {
+  margin-left: 10rpx;
+}
+
+.like-list {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.like-list .like-li {
+  width: 47%;
+  margin: 1.5%;
+  text-align: center;
+  background: #ffff;
+  border-radius: 12rpx;
+}
+
+.like-li .li-img {
+  width: 100%;
+  height: 281rpx;
+}
+
+.li-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx 12rpx 0rpx 0rpx;
+}
+
+.like-li .li-title {
+  font-size: 22rpx;
+  color: #353b56;
+  padding: 3% 0;
+}
+
+.like-li .li-money {
+  font-size: 30rpx;
+  color: #353b56;
+  padding-bottom: 2%;
+}
+
+.li-money text {
+  color: #ff3000;
+}
+
+.li-nomoney {
+  color: #999;
+  font-size: 20rpx;
+  text-decoration: line-through;
+  padding-bottom: 2%;
+}
+/* 回到首页,固定定位,悬浮 */
+.d-back-home {
+  position: fixed;
+  width: 96rpx;
+  height: 96rpx;
+  right: 30rpx;
+  bottom: 166rpx;
+  z-index: 10000;
+}
+.tiem{
+  width: 100%;
+  height: 34rpx;
+  text-align: center;
+  margin-bottom: 70rpx;
+  margin-top: 10rpx;
+}
+.tiem>text{
+  display: inline-block;
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+.tiem>text:nth-child(odd){
+  color: #FFf;
+}
+.tiem>text:nth-child(even){
+  color: #010101;
+  width:44rpx;
+  height:34rpx;
+  background:#FFE612;
+  border-radius:4rpx;
+}
+.ptcg{
+  width: 216rpx !important;
+  height: 111rpx !important;
+  position: absolute;
+  left: 495rpx;
+  top: 488rpx;
+}
+/*弹框*/
+.zhe{
+  width: 750rpx;
+  height:100vh;
+  opacity:0.4;
+  z-index: 100;
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  background-color: #111;
+}
+.tankuang{
+  width:490rpx;
+  height:520rpx;
+  background:rgba(255,255,255,1);
+  border-radius:30rpx;
+  position: absolute;
+  top: 340rpx;
+  left: 130rpx;
+  z-index: 200;
+}
+.tankuang>image{
+  width: 349rpx;
+  height: 278rpx;
+  margin-top: 60rpx;
+  margin-left: 64rpx;
+}
+.tankuang-yi{
+  width: 100%;
+  font-size:24rpx;
+  color:rgba(102,102,102,1);
+  text-align: center;
+  margin-top: 11rpx;
+}
+.tankuang-er{
+  width: 100%;
+  font-size:30rpx;
+  color:rgba(243,83,83,1);
+  font-weight:bold;
+  text-align: center;
+}
+.tankuang-san{
+  width: 100%;
+  font-size:24rpx;
+  color:rgba(102,102,102,1);
+  text-align: center;
+}
+.tankuang-si{
+  width:210rpx;
+  height:50rpx;
+  border:1rpx solid rgba(255,48,0,1);
+  border-radius:25rpx;
+  margin-top: 22rpx;
+  margin-left: 140rpx;
+  font-size:26rpx;
+  color:rgba(255,48,0,1);
+  text-align: center;
+  line-height: 50rpx;
+}
+/*玩法介绍*/
+.hdjieshao{
+  float: right;
+  font-size:30rpx;
+  color:rgba(255,255,255,1);
+  position: absolute;
+  top: 40rpx;
+  right: 42rpx;
+}
+.hdjieshao>image{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+  margin-top: 6rpx;
+  margin-left: 8rpx;
+}

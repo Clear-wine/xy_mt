@@ -1,0 +1,20 @@
+<view class="top">
+  <image src="../images/wuliugs.png"></image>
+  <view>
+    <view class="top-name">{{data.companyName}}</view>
+    <view class="top-danhao">物流单号：{{data.deliveryNo}}</view>
+  </view>
+</view>
+<view class="center">
+  <view class="center-yi" wx:for="{{traces}}">
+    <view class="yi-aite" wx:if="{{item.ps==3}}"></view>
+    <image src="../images/wuliud.png" class="yi-image1" wx:if="{{item.ps==3}}"></image>
+    <image src="../images/wuliufh.png" class="yi-image" wx:if="{{item.ps==1}}"></image>
+    <image src="../images/wuliuqs.png" class="yi-image" wx:if="{{item.ps==2}}"></image>
+    <view>
+      <view class="yi-yi">{{item.acceptStation}}</view>
+      <view class="yi-er">{{item.acceptTime}}</view>
+    </view>
+  </view>
+  <view class="yi-san" style="height:{{traces.length*145}}rpx" wx:if="{{traces.length>1}}"></view>
+</view>

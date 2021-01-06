@@ -1,0 +1,74 @@
+<!--pages/child/pages/all-evaluate/all-evaluate.wxml-->
+<view class='wrap'>
+  <block wx:for="{{evaData}}">
+    <view class='wrap-list'>
+      <view class='list-dom'>
+        <view class='user-msg'>
+          <image src='{{item.userHead}}'></image>
+          {{item.nickName}}
+        </view>
+        <view class='product-msg'>
+          <text>{{item.createDate}}</text>
+          <!-- <text>颜色:灰色</text>
+          <text>尺寸:L</text> -->
+        </view>
+        <view class='eva-content'>
+          {{item.content}}
+        </view>
+        <view class='eva-img' >
+          <view class='eva-item' wx:for="{{item.fileList}}" wx:for-item="file">
+            <image src='{{file.filePath}}'></image>
+          </view>
+        </view>
+        <view class='product-content'>
+          <view class='cont-left'>
+            <image src='{{item.goodsImg}}'></image>
+          </view>
+          <view class='cont-right'>
+            <view class='cont-r-title'>{{item.goodsName}}</view>
+            <view class='cont-r-money'>￥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- <view class='wrap-list'>
+    <view class='list-dom'>
+      <view class='user-msg'>
+        <image src='../images/l_head_portrait.png'></image>
+        小花苗
+      </view>
+      <view class='product-msg'>
+        <text>04.12</text>
+        <text>颜色:灰色</text>
+        <text>尺寸:L</text>
+      </view>
+      <view class='eva-content'>
+        衣服很不错,很合身,这个价格质量哈尅,宣教部很哈不可少的师德师风蓝色大海刚开始绝代风华高科技的!
+      </view>
+      <view class='eva-img'>
+        <view class='eva-item'>
+          <image src='../images/cp-banner.jpg'></image>
+        </view>
+        <view class='eva-item'>
+          <image src='../images/cp-banner.jpg'></image>
+        </view>
+        <view class='eva-item'>
+          <image src='../images/cp-banner.jpg'></image>
+        </view>
+        <view class='eva-item'>
+          <image src='../images/cp-banner.jpg'></image>
+        </view>
+      </view>
+      <view class='product-content'>
+        <view class='cont-left'>
+          <image src='../images/cp-banner.jpg'></image>
+        </view>
+        <view class='cont-right'>
+          <view class='cont-r-title'>URSDA/有兰 秋季上升到开始放假鼎折覆餗单鹄寡凫蓝色大海格拉苏蒂hahahhhahahah复合弓</view>
+          <view class='cont-r-money'>88.88</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+</view>

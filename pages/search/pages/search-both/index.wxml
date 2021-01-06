@@ -1,0 +1,267 @@
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+<!-- 顶部搜索 -->
+<view class="top" style="padding-top:{{navHeight}}px">
+  <image src="../../images/fanhui.png" class="top-yi" bindtap="fanhui"></image>
+  <input class="top-er" placeholder='请输入商店名或商品名' confirm-type="search" bindinput='inputvalue' value="{{inputVal}}" type='text' bindconfirm='sousuo'></input>
+  <image src="../../images/fdj.png" class="top-san" bindtap="handleSearchDetails"></image>
+</view>
+<!-- 搜索盒子 -->
+<view wx:if='{{heziShop}}'>
+  <!-- 历史记录 -->
+  <view class="lishi" wx:if="{{listarr.length !=0}}">
+    <view class="lishi-biaoti">
+      历史记录
+      <image bindtap='delete_list' src='/pages/images/delete_history.png'></image>
+    </view>
+    <view class="lishi-hezi">
+      <text wx:for="{{listarr}}" data-text="{{item}}" wx:key='index' bindtap='this_value'>{{item}}</text>
+    </view>
+  </view>
+  <!-- 热门搜索 -->
+  <view class="lishi">
+    <view class="lishi-biaoti">热门搜索</view>
+    <view class="lishi-hezi">
+      <text wx:for="{{hostarr}}" data-text="{{item}}" wx:key='index1' bindtap='this_value'>{{item}}</text>
+    </view>
+  </view>
+</view>
+<!-- 搜索结果 -->
+<view class="er" wx:if="{{!heziShop}}">
+  <view class="er-top">
+    <view class="item {{currentTab==index ? 'er-top-yi' : 'er-top-er'}}" wx:for="{{navbar}}" wx:key="navbar1" data-idx="{{index}}" bindtap="navbarTap">{{item}}</view>
+    <swiper current="{{currentTab}}" duration="200" bindchange="swiperChange">
+      <!-- 商品 -->
+      <swiper-item>
+        <!-- 排序 -->
+        <view class="paixu">
+          <text bindtap="zonghe" class="{{zonghe?'baixuyes':''}}">综合排序</text>
+          <text bindtap="xiaoliang" class="{{xiaoliang?'baixuyes':''}}">销量优先</text>
+          <text bindtap="jiage" class="{{jiageyes?'baixuyes':''}}">价格:{{jiage?"高":"低"}}</text>
+          <image src="{{paixu?'../../images/paixu.png':'../../images/paixu2.png'}}" bindtap="paixu"></image>
+        </view>
+        <!-- 商品列表 -->
+        <scroll-view scroll-y class="liebiao" bindscrolltolower="xiala" lower-threshold='200'>
+          <!-- 列表-卡片式 -->
+          <view class="kp" wx:for="{{contentlist}}" wx:key='index3' wx:if="{{paixu}}" bindtap="toGoods" data-goodsNo="{{item.goodsNo}}">
+            <image src="{{item.goodsImgPath}}" mode="aspectFill"></image>
+            <view class="kp-name">{{item.goodsName}}</view>
+            <view class="kp-bang">
+              <text wx:if="{{item.ranKText}}">{{item.ranKText}}</text>
+            </view>
+            <!-- 标签 -->
+            <view class="kp-biao">
+              <text class="kp-biao-xin" wx:if="{{item.newProduct==1}}">新品</text>
+              <text class="kp-biao-bao" wx:if="{{item.explosive==1}}">爆款</text>
+              <text class="kp-biao-you" wx:if="{{item.newProduct==0||item.explosive==0}}">包邮</text>
+              <view class="kp-xiaoliang">{{item.goodsSaleNum?item.goodsSaleNum:'0'}}人购买</view>
+            </view>
+            <!-- 会员价 -->
+            <view class="kp-huiyuan">
+              <block  wx:if="{{vipRate&&vipGrade>1}}">
+                <text>会员价</text>
+                ￥{{(vipRate != undefined && vipGrade>1)? filters.toFix((item.price - item.profit * vipRate)) : item.price}}
+              </block>
+              <image src="../../images/gouwuche.png" data-stockno="{{item.stockNo}}" data-multi="{{item.multi}}" catchtap="handlePay"></image>
+            </view>
+            <view class="kp-jiage">￥{{item.price}}</view>
+          </view>
+          <!-- 列表-列表式 -->
+          <view class="lie" wx:for="{{contentlist}}" wx:key='index4' wx:if="{{!paixu}}" bindtap="toGoods" data-goodsNo="{{item.goodsNo}}">
+            <image src="{{item.goodsImgPath}}" mode="aspectFill"></image>
+            <view>
+              <view class="lie-name">{{item.goodsName}}</view>
+              <view class="lie-jiage">
+                <text class="lie-jiage-yi">￥{{item.price}}</text>
+                <text class="lie-jiage-er" wx:if="{{vipRate&&vipGrade>1}}">会员价</text>
+                <text class="lie-jiage-san" wx:if="{{vipRate&&vipGrade>1}}">￥{{(vipRate != undefined && vipGrade>1)? filters.toFix((item.price - item.profit * vipRate)) : item.price}}</text>
+              </view>
+              <!-- 标签 -->
+              <view class="kp-biao lie-biao">
+                 <text class="kp-biao-xin" wx:if="{{item.newProduct==1}}">新品</text>
+                <text class="kp-biao-bao" wx:if="{{item.explosive==1}}">爆款</text>
+                <text class="kp-biao-you" wx:if="{{item.newProduct==0||item.explosive==0}}">包邮</text>
+                <view class="kp-xiaoliang lie-xiaoliang">{{item.goodsSaleNum?item.goodsSaleNum:'0'}}人购买</view>
+              </view>
+              <view class="kp-bang lie-bang">
+                <text wx:if="{{item.ranKText}}">{{item.ranKText}}</text>
+                <image src="../../images/gouwuche.png" data-stockno="{{item.stockNo}}" data-multi="{{item.multi}}" catchtap="handlePay"></image>              
+              </view>
+            </view>
+          </view>
+          <view class="noshuju" wx:if="{{contentlist.length==0}}">
+            <image src="/pages/images/sousuo.png"></image>
+            抱歉, 没有找到商品
+          </view>
+          <view class="jiazai1" wx:if="{{contentlist.length!=0}}">
+            <view wx:if="{{jiazai}}">
+              <image src="/pages/images/jiazai.gif"></image>
+              <view class="wenzi">加载中.....</view>
+            </view>
+            <view class="wenzi1" wx:if="{{!jiazai}}">暂无更多数据</view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <!-- 活动 -->
+      <swiper-item>
+        <!-- 排序 -->
+        <view class="paixu">
+          <text bindtap="zonghe" class="{{zonghe?'baixuyes':''}}">综合排序</text>
+          <text bindtap="xiaoliang" class="{{xiaoliang?'baixuyes':''}}">销量优先</text>
+          <text bindtap="jiage" class="{{jiageyes?'baixuyes':''}}">价格:{{jiage?"高":"低"}}</text>
+        </view>
+        <scroll-view scroll-y class="liebiao" bindscrolltolower="xiala" lower-threshold='200'>
+          <view style="float:left">
+            <block wx:for="{{hdcontentlist}}" wx:key='index55'>
+              <view class="hdlie" wx:if="{{index%2==0}}" bindtap="toActivity" data-activityType="{{item.activityType}}" data-activityNo="{{item.activityNo}}" data-type="{{item.shopType}}" data-goodsNo='{{item.goodsNo}}'>
+                <view class="hdlie-top" wx:if="{{item.activityType!=2}}">
+                  <image src="{{item.headImg}}" mode="aspectFill"></image>
+                  <text>{{item.shopName}}</text>
+                </view>
+                <image src="{{item.goodsImgPath}}" class="hdlie-tu"></image>
+                <!-- 接龙购 拼团购 助力购 -->
+                <block wx:if="{{item.activityType==1||item.activityType==4||item.activityType==5}}">
+                  <view class="hdlie-name">{{item.goodsName}}</view>
+                  <view class="hdlie-xl">{{item.goodsSaleNum?item.goodsSaleNum:'0'}}人购买</view>
+                  <image wx:if="{{item.activityType==4}}" src="../../images/hdliejl.png" class="hdlie-biao"></image>
+                  <image wx:if="{{item.activityType==5}}" src="../../images/hdliept.png" class="hdlie-biao"></image>
+                  <image wx:if="{{item.activityType==1}}" src="../../images/hdliezl.png" class="hdlie-biao"></image>
+                  <view class="hdlie-jiage">
+                    <view>
+                      <view>日常价</view>
+                      <view>{{item.price}}元</view>
+                    </view>
+                    <view class="hdlie-jiage-zhu">¥{{item.lowPrice}}</view>
+                    <view class="hdlie-jiage-ti">即将恢复</view>
+                  </view>
+                  <view class="xianshi">限时抢购</view>
+                </block>
+                <!-- 大礼包 代言购 -->
+                <block wx:if="{{item.activityType==2||item.activityType==3}}">
+                  <view class="hdlie-jishi">
+                    <text class="jishi-yi">结束还有</text>
+                    <text class="jishi-er">{{item.d}}</text>
+                    <text class="jishi-yi">天</text>
+                    <text class="jishi-er">{{item.h}}</text>
+                    <text class="jishi-yi">小时</text>
+                  </view>
+                  <view class="hdlie-djiage">
+                    <view class="djiage-jiage">
+                      <view class="djiage-jiage-lei">{{item.activityTypeName}}购</view>
+                      <text class="djiage-jiage-jiage">￥69.99</text>
+                    </view>
+                    <view class="djiage-xl">{{item.goodsSaleNum?item.goodsSaleNum:'0'}}人购买</view>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </view>
+          <view style="float:right;margin-right:32rpx">
+            <block wx:for="{{hdcontentlist}}" wx:key='index66'>
+              <view class="hdlie" wx:if="{{index%2==1}}" bindtap="toActivity" data-activityType="{{item.activityType}}" data-activityNo="{{item.activityNo}}" data-type="{{item.shopType}}" data-goodsNo='{{item.goodsNo}}'>
+                <view class="hdlie-top" wx:if="{{item.activityType!=2}}">
+                  <image src="{{item.headImg}}" mode="aspectFill"></image>
+                  <text>{{item.shopName}}</text>
+                </view>
+                <image src="{{item.goodsImgPath}}" class="hdlie-tu"></image>
+                <!-- 接龙购 拼团购 助力购 -->
+                <block wx:if="{{item.activityType==1||item.activityType==4||item.activityType==5}}">
+                  <view class="hdlie-name">{{item.goodsName}}</view>
+                  <view class="hdlie-xl">{{item.goodsSaleNum?item.goodsSaleNum:'0'}}人购买</view>
+                  <image src="../../images/hdliejl.png" class="hdlie-biao"></image>
+                  <view class="hdlie-jiage">
+                    <view>
+                      <view>日常价</view>
+                      <view>{{item.price}}元</view>
+                    </view>
+                    <view class="hdlie-jiage-zhu">¥{{item.lowPrice}}</view>
+                    <view class="hdlie-jiage-ti">即将恢复</view>
+                  </view>
+                  <view class="xianshi">限时抢购</view>
+                </block>
+                <!-- 大礼包 代言购 -->
+                <block wx:if="{{item.activityType==2||item.activityType==3}}">
+                  <view class="hdlie-jishi">
+                    <text class="jishi-yi">结束还有</text>
+                    <text class="jishi-er">{{item.d}}</text>
+                    <text class="jishi-yi">天</text>
+                    <text class="jishi-er">{{item.h}}</text>
+                    <text class="jishi-yi">小时</text>
+                  </view>
+                  <view class="hdlie-djiage">
+                    <view class="djiage-jiage">
+                      <view class="djiage-jiage-lei">{{item.activityTypeName}}购</view>
+                      <text class="djiage-jiage-jiage">￥{{item.price}}</text>
+                    </view>
+                    <view class="djiage-xl">{{item.goodsSaleNum?item.goodsSaleNum:'0'}}人购买</view>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </view>
+          <view class="noshuju" wx:if="{{hdcontentlist.length==0}}">
+            <image src="/pages/images/sousuo.png"></image>
+            抱歉, 没有找到商品
+          </view>
+          <view class="jiazai1" wx:if="{{hdcontentlist.length!=0}}">
+            <view wx:if="{{jiazai}}">
+              <image src="/pages/images/jiazai.gif"></image>
+              <view class="wenzi">加载中.....</view>
+            </view>
+            <view class="wenzi1" wx:if="{{!jiazai}}">暂无更多数据</view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <!-- 店铺 -->
+      <swiper-item>
+        <!-- 排序 -->
+        <view class="paixu">
+          <text bindtap="zonghe" class="{{zonghe?'baixuyes':''}}">综合排序</text>
+          <text bindtap="xiaoliang" class="{{xiaoliang?'baixuyes':''}}">销量优先</text>
+          <text bindtap="pinfen" class="{{pinfen?'baixuyes':''}}">评分优先</text>
+        </view>
+        <scroll-view scroll-y class="liebiao" bindscrolltolower="xiala" lower-threshold='200'>
+          <!-- 店铺列表 -->
+            <view class="dianpu" wx:for="{{pdcontentlist}}" wx:key="shopo1" bindtap="toShop" data-shopno="{{item.shopNo}}"> 
+              <view class="dianpu-top">
+                <image class="dianpu-top-tu" src="{{item.headImg}}"></image>
+                <view class="dianpu-top-name">{{item.shopName}}</view>
+                <view class="dianpu-top-xing">
+                  <text>店铺星级</text>
+                  <block wx:for="{{one_1}}" wx:key="indexone">
+                      <image mode='aspectFit' src='/pages/images/star3.png'></image>
+                    </block>
+                    <block wx:for="{{tow_1}}" wx:key="indextwo">
+                      <image mode='aspectFit' src='/pages/images/star2.png'></image>
+                    </block>
+                </view>
+                <image src="../../images/jiantou.png" class="dianpu-top-you"></image>
+              </view>
+              <view class="dianpu-er">
+                <view class="dianpu-er-yi" wx:for="{{item.netGoods}}" wx:key="netgood">
+                  <image src="{{item.goodsImgPath}}"></image>
+                  <view class="dianpu-er-jiage">¥{{item.price}}</view>
+                </view>
+              </view>
+            </view>
+          <view class="noshuju" wx:if="{{pdcontentlist.length==0}}">
+            <image src="/pages/images/sousuo.png"></image>
+            抱歉, 没有找到店铺
+          </view>
+          <view class="jiazai1" wx:if="{{pdcontentlist.length!=0}}">
+            <view wx:if="{{jiazai}}">
+              <image src="/pages/images/jiazai.gif"></image>
+              <view class="wenzi">加载中.....</view>
+            </view>
+            <view class="wenzi1" wx:if="{{!jiazai}}">暂无更多数据</view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+  <!-- 联想商品列表 -->
+  <view class="list" wx:if="{{aslistps}}" style="margin-top:{{navHeight-20}}px">
+    <scroll-view scroll-y style="height:89vh">
+      <view class="li-goods" wx:for="{{aslist}}" wx:key='dex' data-text="{{item}}" bindtap='this_value'>{{item}}</view>
+    </scroll-view>
+  </view>

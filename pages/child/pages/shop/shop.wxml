@@ -1,0 +1,99 @@
+<!--pages/child/pages/shop/shop.wxml-->
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+<view class="shopNavTop">
+  <view id='shopImg' style="background:url('{{shopObj.shopImg}}');background-size:cover;"></view>
+  <view class='shop'>
+    <view class='shop-content'>
+      <view class='shop-content-title' bindtap='toMerchant'>
+        <text> {{shopObj.shopName}}</text>
+        <image src='../images/shangjia_xiangqing.png'></image>
+      </view>
+      <view class='shop-content-intro'>{{shopObj.shopDesc}}</view>
+      <view class='shop-content-star'>
+        <block wx:for="{{one_1}}" wx:key='item'>
+          <image src='../images/star3.png'></image>
+        </block>
+        <block wx:for="{{tow_1}}" wx:key='item'>
+          <image src='../images/star4.png'></image>
+        </block>
+        <!-- <text>{{shopObj.attentionPersonNum}}关注</text> -->
+      </view>
+      <!-- <view class="shop-content-btn {{isAttention  ? 'isActive':''}}" bindtap='handleAttention'>{{isAttentionText}}</view> -->
+    </view>
+    <view class='shop-img'>
+      <image mode="aspectFill" src='{{shopObj.headImg}}'></image>
+    </view>
+  </view>
+</view>
+<!-- tab 切换 -->
+<view class='shop-body'>
+  <view wx:for="{{shopteb}}" class="swiper-tab-item {{currentTab == index?'active':''}}" wx:key="{{index}}" data-current="{{index}}" catchtap='clickTab' data-id="{{item.id}}">
+    {{item.tabtitle}}
+  </view>
+</view>
+<!-- 内容 -->
+<!-- 商品 -->
+<view wx:if="{{iid === '0'}}">
+  <view class='goods-dom'>
+    <view class='goods-head'>
+      <scroll-view scroll-x='true' class="goods-jun">
+        <view wx:for="{{goodsList}}" class="goods-li {{currentIndex == index?'selected': ''}}" data-id='{{item.id}}' data-current="{{index}}" bindtap='handleSelect'>{{item.name}}</view>
+      </scroll-view>
+    </view>
+    <!-- 商品分类列表 -->
+    <view class="scroll-view_H">
+      <view class='goods-body'>
+        <block wx:for="{{shopGoodsList}}">
+          <view class='goods-body-li' catchtap="todetails" data-goodsno="{{item.goodsNo}}">
+            <view class='body-li-img'>
+              <image  src='{{item.goodsImgPath}}' mode="aspectFill"></image>
+            </view>
+            <view class='body-li-content'>
+              <view class='li-content-title'>{{item.goodsName}}</view>
+              <!-- <view class='li-content-img'>
+                    <image src='../images/index_ticket.png'></image>
+                    <view class='discounts'>￥8</view>
+                  </view> -->
+              <view class='li-content-money'>￥{{vipRate != undefined&&vipGrade!=1? filters.toFix(item.price - item.profit * vipRate) : item.price}}</view>
+              <view class='li-content-nomoney' wx:if="{{vipRate&&vipGrade!=1}}">￥{{item.price}}</view>
+              <!-- <image class='li-content-car' src='../images/join_shopping_trolley.png'></image> -->
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 活动 -->
+<view wx:if="{{iid === '1' }}">
+  <view class='goods-dom'>
+    <view class='goods-head-hd'>
+      <image src='../images/huodong_gonggao.png'></image>
+      以下是本店活动商品,欢迎选购
+    </view>
+    <view class='goods-body'>
+      <block wx:for="{{goodsActivityList}}">
+        <view class='goods-body-li' catchtap="toactivtyDetails" data-shoptype="{{item.shopType}}" data-activityNo="{{item.activityNo}}" data-activityType="{{item.activityType}}" data-goodsNo="{{item.goodsNo}}">
+          <view class='body-li-img'>
+            <image  src='{{item.imgPath}}' mode="aspectFill"></image>
+          </view>
+          <view class='body-li-content'>
+            <view class='li-content-title'>{{item.activityName}}</view>
+            <!-- <view class='li-content-img'>
+                    <image src='../images/index_ticket.png'></image>
+                    <view class='discounts'>￥8</view>
+                  </view> -->
+            <view class="li-content-act">{{item.actName}}</view>
+            <view class='li-content-money'>￥{{item.price}}</view>
+            <view class='li-content-nomoney'>￥{{item.originalPrice}}</view>
+            <!-- <image class='li-content-car' src='../images/join_shopping_trolley.png'></image> -->
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>
+
+
+<!--swiper-->

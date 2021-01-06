@@ -1,0 +1,37 @@
+<!--pages/members/members.wxml-->
+
+<view class='vip-list'>
+  <view class='vip-ul'>
+    <view class='vip-li' wx:for='{{viplist}}'>
+      <view class='vip-img'>
+        <image wx:if='{{item.imgPath}}' src='{{item.imgPath}}'></image>
+        <view class='img-text'>
+          <view class='img-title'>
+            <image src='../images/ic-vip.png'></image>
+            <text>{{item.gradeText}}</text>
+          </view>
+          <view class='img-msg'>
+            <view>{{item.directRemark}}</view>
+            <view>{{item.indirectRemark}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='viplist-b'>
+        <!--  <view wx:if='{{item.isUpgrade == 1}}' class='text'>已达到要求</view>
+        <view wx:else class='text'>未达到要求</view>-->
+        <navigator url='/pages/child/pages/order-pay/order-pay?id={{item.id}}&price={{item.price}}&gradeText={{item.gradeText}}&imgPath={{item.imgPath}}&directRemark={{item.directRemark}}&indirectRemark={{item.indirectRemark}}'>
+          <button bindtap='upgrade' wx:if='{{item.isUpgrade == 1}}' size='mini' class='btn' style=''>确认升级</button>
+          <button wx:else size='mini' class='btn btnGray' disabled='true'>确认升级</button>
+        </navigator>
+
+      </view>
+    </view>
+  </view>
+</view>
+<!--说明-->
+<view class='members-list'>
+  <view class='members-list-title'>说明</view>
+  <view class='members-li' wx:for='{{desc}}'>
+    <text>{{item}}</text>
+  </view>
+</view>

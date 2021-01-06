@@ -1,0 +1,300 @@
+/* pages/child/pages/submit-order/submit-order.wxss */
+
+.home-top {
+  width: 100%;
+  height: 260rpx;
+  background: #ffa729;
+  position: relative;
+}
+
+.top-list {
+  position: absolute;
+  top: 52rpx;
+  left: 22%;
+}
+
+.switch-type {
+  display: flex;
+  justify-content: center;
+  font-size: 30rpx;
+  border-radius: 30rpx;
+  background-color: rgba(255, 200, 104, 0.8);
+}
+
+/* .switch-type .btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.switch-type .btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+} */
+
+.switch-type .btn {
+  padding: 10rpx 40rpx;
+  color: #fff;
+  /* background-color: rgba(255, 200, 104,0.4) */
+}
+
+.switch-type .btn.active {
+  background: #fff;
+  color: #ff9736;
+  border-radius: 30rpx;
+}
+
+.sub-order {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: -120rpx;
+}
+
+.sub-dom {
+  width: 95%;
+  margin: 0 auto 2%;
+ 
+  border-radius: 10rpx;
+}
+.dom-address{
+ background: #fff;
+}
+
+.sub-top {
+  overflow: hidden;
+  position: relative;
+  padding: 2%;
+}
+
+.sub-top-left {
+  width: 80%;
+}
+.sub-top-left>image{
+  width: 50rpx;
+  height: 50rpx;
+  float: left;
+  margin-right: 20rpx;
+  margin-top: -5rpx;
+}
+.dz-top {
+  width: 30%;
+  background: #ffa729;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  margin: 2% 0 4%;
+}
+
+.noaddress {
+  font-size: 32rpx;
+  color: #ccc;
+}
+
+.noremind {
+  font-size: 30rpx;
+  color: #ccc;
+}
+
+.dz-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-top: 2%;
+}
+
+.dz-user {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.dz-user text {
+  margin-right: 4%;
+}
+
+.sub-top-right {
+  position: absolute;
+  top: 33%;
+  right: 10%;
+  width: 15rpx;
+  height: 28rpx;
+}
+
+.sub-top-right image {
+  width: 100%;
+  height: 100%;
+}
+
+.sub-content {
+  padding: 2%;
+  margin: 0 auto 2%;
+  background: #fff
+}
+
+.df-title {
+  font-size: 30rpx;
+  color: #353b56;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 2% 0;
+}
+
+.df-title image {
+  width: 12rpx;
+  height: 22rpx;
+  margin-left: 2rpx;
+}
+
+.sub-li {
+  margin: 4% 0;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  font-size: 28rpx;
+  position: relative;
+}
+
+.sub-li-left {
+  float: left;
+  width: 25%;
+}
+
+.sub-li-left image {
+  width: 150rpx;
+  height: 137rpx;
+  border-radius: 20rpx;
+}
+
+.sub-li-right {
+  width: 70%;
+  float: left;
+}
+
+.li-title {
+  width: 388rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.li-num {
+  /* position: absolute; */
+  bottom: 10%;
+  color: #999;
+}
+
+.li-sum {
+  position: absolute;
+  top: 0;
+  right: 4%;
+}
+
+.cost-ul {
+  overflow: hidden;
+  font-size: 28rpx;
+}
+
+.cost-li {
+  width: 100%;
+  font-size: 28rpx;
+  overflow: hidden;
+  padding: 2% 0;
+}
+
+.cost-title {
+  float: left;
+  text-align: left;
+  width: 20%;
+}
+
+.cost-sum {
+  float: right;
+  text-align: right;
+  width: 70%;
+}
+
+.cost-right {
+  text-align: right;
+}
+
+.cost-span {
+  display: inline-block;
+  margin-left: 2%;
+  text-align: right;
+}
+
+.cost-span .cost-price {
+  font-size: 30rpx;
+  color: #ff4f4b;
+}
+
+.sumColor {
+  color: #999;
+}
+
+.cost-sum image {
+  width: 15rpx;
+  height: 28rpx;
+  position: relative;
+  top: 5rpx;
+}
+
+.noborder {
+  border: none;
+  margin: 0;
+}
+
+.payOrder {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  z-index: 999;
+}
+
+.pay-l {
+  width: 70%;
+  float: left;
+}
+
+.pay-r {
+  width: 30%;
+  float: right;
+  color: #fff;
+  background: #ffa729;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.pay-span {
+  display: inline-block;
+  margin: 0 2%;
+}
+
+.pay-sum {
+  color: #ff4f4b;
+}
+/* 优店订单地址 */
+.order-list{
+  width: 100%;
+  overflow: hidden;
+}
+.order-span{
+  display: inline-block;
+  width: 45%;
+  position: relative;
+}
+.order-span .span-tit{
+color: #999999;
+font-size: 26rpx;
+}
+.order-span image{
+  width: 10rpx;
+  height: 19rpx;
+  position: absolute;
+  right: 12%;
+  top: 40%;
+}

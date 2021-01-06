@@ -1,0 +1,56 @@
+<!--pages/index-child//pages/classification/classification.wxml-->
+<!-- <text>pages/index-child//pages/classification/classification.wxml</text> -->
+<view class="container">
+
+  <view class="head" style="height:{{globalData.navHeight}}px">
+    <view class="head_nav flex-row-between-c" style="padding-top:{{globalData.navTop}}px;padding-right:97px;height:{{globalData.navHeight}}px;">
+      <view class="center" catchtap="back">
+          <image class="img_back" mode="widthFxix" src="../images/fanhuib.png" ></image>
+      </view>
+      <view class="center" style="padding-right: 10rpx;" catchtap="scanCode">
+          <image class="img_saoyisao" mode="widthFxix" src="/pages/images/saoyisao.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="content flex" style="padding-top:{{globalData.navHeight}}px">
+    <view class="nav_">
+      <block wx:for="{{oneCategory_list}}" wx:for-item="li">
+        <view class="tabs_li center {{li.catId==this_tabid? 'tabs_act':''}}" catchtap='tab_change' data-catId='{{li.catId}}'>
+          <text>{{li.name == 'null'? '商品':li.name}}</text>
+        </view>
+        <!-- this_tabid -->
+      </block>
+    </view>
+
+    <view class="nav_content">
+
+      <!-- <view class="header" hidden="{{hideHeader}}">
+        <view>向下拉继续浏览</view>
+      </view> -->
+
+      <scroll-view scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+        <block wx:for="{{twoCategory_list}}">
+          <view class="fl_title">
+            {{item.name}}
+          </view>
+          <view class="fl_li">
+            <block wx:if="{{item.subList.length}}" wx:for="{{item.subList}}" wx:for-item="li">
+              <view class="fl_li_i flex-cloumn-x-center">
+                <image class="" mode="widthFix" src="{{li.icon == '' || li.icon == null? '../images/jlbj.png':li.icon}}"></image>
+                <text>{{li.name == "" || li.name== null? '商品':li.name}}</text>
+              </view>
+            </block>
+            <view class="clearfix"></view>
+          </view>
+        </block>
+      </scroll-view>
+
+      <!-- <view class="bottom" hidden="{{hideBottom}}">
+        <view>向上拉继续浏览</view>
+      </view> -->
+
+    </view>
+  </view>
+
+</view>

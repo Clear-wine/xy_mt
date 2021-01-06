@@ -1,0 +1,25 @@
+<scroll-view scroll-y>
+  <view class="shop" wx:for="{{list}}" wx:key="index" data-goodsNo="{{item.goodsNo}}">
+    <image src="{{item.xq?'../images/quanxian2.png':'../images/quanxian1.png'}}" id="shop-img" wx:if="{{yc}}" data-id="{{item.id}}" catchtap="xuanqu"></image>
+    <view class="shop-left" bindtap="{{item.status==0?'':'goshop'}}">
+      <image src="{{item.imgPath}}"></image>
+      <view class="shixiao" wx:if="{{item.status==0}}">已失效</view>
+    </view>
+    <view class="shop-right" bindtap="{{item.status==0?'':'goshop'}}">
+      <view class="shop-name {{item.status==0?'shixiao2':''}}">{{item.goodsName}}</view>
+      <view class="shop-tn">
+        <view class="jiage {{item.status==0?'shixiao2':''}}">￥{{item.price}}</view>
+        <view class="sctn" catchtap="shanchu" data-id="{{item.id}}">删除</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="bt">
+  <view class="bt-yi" wx:if="{{yc}}" bindtap="quanxian">
+    <image src="{{qxtu?'../images/quanxian2.png':'../images/quanxian1.png'}}"></image>
+    <view>全选</view>
+  </view>
+  <view class="bt-san" bindtap="bianji">编辑</view>
+  <view class="bt-er" wx:if="{{yc}}" bindtap="shanchu2">删除</view>
+</view>
+

@@ -1,0 +1,37 @@
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+<view class="container">
+  <view class="bag-view">
+    <view class="lose-view-img">
+      <image mode="aspectFit" src="../images/lost_effectiveness.png"></image>
+      <view class="lose-title">商品已失效~</view>
+    </view>
+  </view>
+<!---推荐 猜你喜欢-->
+<view class='recommend' wx:if="{{likedata.length != 0}}">
+  <view class='recommend-title'>
+    <image class='icon-border icon-left' src='../images/shoppingcar_icon3.png'></image>
+    <view class='icon-img'>
+      <image mode="aspectFit" src='../images/like_help.png'></image>
+    </view>
+    <view>猜你喜欢</view>
+    <image class='icon-border' src='../images/shoppingcar_icon3.png'></image>
+  </view>
+  <view class='rec-ul'>
+    <block wx:for="{{likedata}}" wx:key='index'>
+      <view class='rec-li' bindtap='toGoodsDetails' data-goodsNo='{{item.goodsNo}}'>
+        <view class='help-li-img'>
+          <image mode="aspectFill"  src='{{item.imgPath}}'></image>
+        </view>
+        <view class='rec-li-tit'>{{item.goodsName}}</view>
+        <!-- <view class='ticket-img'>
+          <image src='../images/index_ticket.png'></image>
+          <view class='ticket-money'>￥99</view>
+        </view> -->
+        <view class='rec-money'>￥{{filters.toFix(item.price - item.profit * vipRate)}}</view>
+        <view class='rec-nomoney'>￥{{item.price}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+</view>

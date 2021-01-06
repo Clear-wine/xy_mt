@@ -1,0 +1,315 @@
+/* pages/store-index/pages/storeList/storeList.wxss */
+/**********首页导航头 star*************/
+
+.head {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  padding: 2% 0%;
+  background-color: #fff;
+}
+
+.head-dom {
+  width: 92%;
+  margin: 0 auto 1.4%;
+  overflow: hidden;
+}
+
+.head image {
+  width: 45rpx;
+  height: 45rpx;
+  display: inline-block;
+  /* margin: 0 10%; */
+  position: relative;
+  top: 8rpx;
+}
+
+.loction {
+  width: 20%;
+  font-size: 28rpx;
+  text-align: center;
+  position: relative;
+  top: 15rpx;
+}
+
+.loction-img {
+  width: 26rpx;
+  height: 14rpx;
+  position: absolute;
+  top: -5rpx;
+  right: 15rpx;
+}
+
+.loction-img image {
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.head-input {
+  width: 60%;
+  /* display: inline-block; */
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  font-size: 24rpx;
+  position: relative;
+  left: 5rpx;
+  top: 0;
+  padding-left: 10%;
+  padding-right: 5%;
+  text-align: left;
+  float: left;
+}
+
+.head-input image {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  left: 5%;
+  top: 22%;
+  margin: 0;
+}
+
+.head-input input {
+  height: 58rpx;
+}
+
+.head-r {
+  width: 24%;
+  float: right;
+  font-size:24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.head-r image {
+  width: 20px;
+}
+
+/*****************搜索导航头 end**************************/
+.storeList {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  margin-top: 2%;
+}
+
+.screen {
+  margin: auto;
+}
+
+.screen-list {
+  width: 30%;
+  font-size: 28rpx;
+  margin: 3% 0;
+  display: inline-block;
+  text-align: center;
+}
+
+.screen-list image {
+  width: 26rpx;
+  height: 14rpx;
+}
+
+/************附近店铺******************/
+
+.nearby-shops {
+  width: 100%;
+  background: #fff;
+  margin-top: 4%;
+}
+
+.nearby-list {
+  position: relative;
+  padding: 0 2%;
+  border-bottom: 1rpx solid #f4f4f4;
+  margin-bottom: 2%;
+  padding-bottom: 2%;
+}
+
+.nearby-list:last-child {
+  border-bottom: none;
+}
+
+.nearby-l {
+  width: 30%;
+  height: 175rpx;
+  overflow: hidden;
+}
+
+.nearby-l image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.nearby-c {
+  font-size: 28rpx;
+  position: absolute;
+  top: 2%;
+  left: 34%;
+  width: 40%;
+}
+
+.c-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.li-xing {
+  width: 28rpx;
+  height: 27rpx;
+  display: inline-block;
+  margin: 4% 1%;
+}
+
+.xing-title {
+  display: inline-block;
+  margin-top: 10%;
+  margin-right: 1%;
+  color: #999;
+  font-size: 26rpx;
+  margin-left: 2%;
+}
+
+.li-xing image {
+  width: 100%;
+  height: 100%;
+}
+
+.nearby-t {
+  width: 100%;
+  font-size: 28rpx;
+  position: absolute;
+  bottom: 20%;
+  left: 34%;
+  color: #999;
+}
+
+.nearby-t text {
+  margin-right: 2%;
+  font-size: 26rpx;
+}
+
+.nearby-r {
+  position: absolute;
+  top: 2%;
+  right: 6%;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.nearby-r image {
+  width: 20rpx;
+  height: 24rpx;
+}
+
+/************条件筛选****************/
+
+.type-li {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  font-size: 26rpx;
+}
+
+.type-li-left {
+  width: 50%;
+  float: left;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+.l-list {
+  padding: 4% 2%;
+  position: relative;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.type-li-right {
+  width: 50%;
+  float: left;
+  background: #fff;
+  overflow: hidden;
+}
+
+.type-li-right .type-li-title {
+  color: #ffa729;
+}
+
+.type-li-title {
+  margin-left: 2%;
+}
+
+.type-li-img {
+  position: absolute;
+  top: 10rpx;
+  right: 6%;
+}
+
+.type-li-img image {
+  width: 15rpx;
+  height: 28rpx;
+}
+
+.active {
+  background: #fff;
+  color: #ffa729;
+}
+
+.overall-sort-list, .filterList, .filterList-footer {
+  background: white;
+}
+
+.overall-sort-list {
+  flex-direction: column;
+  border-top: 1px solid rgba(0, 0, 0, 0);
+  display: flex;
+}
+
+.overall-sort {
+  font-size: 25rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-left: 30rpx;
+}
+
+.sort-list {
+  justify-content: space-around;
+  display: flex;
+  background: white;
+  width: 100%;
+  height: 80rpx;
+  font-size: 27rpx;
+  color: #6a6a6a;
+  align-content: center;
+  border: 1rpx solid #ececec;
+}
+
+.sort {
+  text-align: center;
+  margin: auto 0;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-right: 1rpx solid #ececec;
+  flex: 1;
+}
+
+.sort-active {
+  color: black;
+  font-weight: 800;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  background-color: rgba(15, 15, 26, 0.7);
+}
+.quxiao{
+  margin-top: 8rpx;
+}

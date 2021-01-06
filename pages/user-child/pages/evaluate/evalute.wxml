@@ -1,0 +1,62 @@
+<!--pages/user-child/pages/evaluate/evalute.wxml-->
+<!--用户评价-->
+<view class='eva-dom'>
+  <view class='dom-content'>
+    <view class=' dom-li '>
+      <image wx:if="{{data.headImg == null}}" src="/pages/images/default_head_portrait.png"></image>
+      <image wx:else src='{{data.headImg}}'></image>
+      {{data.nickName}}
+    </view>
+    <view class='dom-ul '>
+      <navigator url="/pages/child/pages/all-evaluate/all-evaluate?type=0" class='ul-li '>
+        <view class='ul-li-num'>{{data.allCount}}</view>
+        <view class='ul-li-title'>全部评价</view>
+      </navigator>
+      <navigator url="/pages/child/pages/all-evaluate/all-evaluate?type=1" class='ul-li '>
+        <view class='ul-li-num'>{{data.hasFileEvaCount}}</view>
+        <view class='ul-li-title'>有图评价</view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class='evaluate'>
+  <view class='evaluate-title'>写评价</view>
+  <!--评价列表-->
+  <block wx:for="{{orderList}}" wx:key>
+  <view class='eva-dom'>
+    <view class='dom-content'>
+      <view class='dom-title'>
+        <image src='../images/shop.png'>
+        </image>
+      {{item.shopName}}
+      </view>
+      <view class='dom-list' wx:for="{{item.goodsList}}">
+        <view class='dom-list-left'>
+          <image src='{{item.goodsImg}}'></image>
+        </view>
+
+        <view class='dom-list-right'>
+          <view class='title'>{{item.goodsName}}</view>
+          <view class='label' wx:if="{{item.specValue != null}}">
+            <text>{{item.specValue}}</text>
+          </view>
+          <view class='list-r'>
+            <view class='dom-money'>￥{{item.price}}</view>
+            <view class='dom-num'>x{{item.num}}</view>
+          </view>
+        </view>
+
+      </view>
+      <view class='dom-list-bottom'>
+        <view class=' total'>
+          <text>共计{{item.allNum}}件商品</text>
+          <text>共计{{item.orderPrice}}元</text>
+        </view>
+        <view class='evabtn' bindtap='toComment' data-orderGoodsList="{{item.goodsList}}" data-orderCode="{{item.orderNo}}" data-merchantNo="{{item.merchantNo}}" data-orderType="{{item.orderType}}" data-activityNo="{{item.activityNo}}"  data-shopNo="{{item.shopNo}}" data-shopType="{{item.shopType}}">评价</view>
+      </view>
+    </view>
+  </view>
+  </block>
+  <view>
+  </view>
+</view>

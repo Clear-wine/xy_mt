@@ -1,0 +1,2 @@
+<!--pages/child/pages/scan-code/scan-code.wxml-->
+<text>{{code}}</text>

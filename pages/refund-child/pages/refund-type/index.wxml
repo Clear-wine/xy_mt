@@ -1,0 +1,21 @@
+<!--pages/refund-child//pages/refund-type/index.wxml-->
+<scroll-view scroll-y="true">
+<!-- 商品 -->
+<view class="shangp" wx:for="{{goodsList}}">
+  <image src="{{item.imgPath}}"></image>
+  <view class="shangp-right">
+    <view class="shangp-right-yi">{{item.goodsName}}</view>
+    <view class="shangp-right-san">
+      <text wx:if="{{item.specValue}}">{{item.specValue}}</text>
+    </view>
+    <view class="right-si">x{{item.num}}</view>
+  </view>
+</view>
+</scroll-view>
+<!-- 底部按钮 -->
+<view class="anniu">
+  <view class="anniu-right" bindtap="gorefunds">退款退货</view>
+  <view class="anniu-right1" bindtap="gorefund">
+    <text>仅退款</text>
+  </view>
+</view>

@@ -1,0 +1,136 @@
+/*
+优惠卷内容 
+ */
+
+.coupon {
+  width: 100%;
+  margin-top: 2%;
+}
+
+.coupon-ul {
+  width: 100%;
+}
+
+.coupon-li {
+  margin: auto;
+  width: 95%;
+  position: relative;
+}
+
+.coupon-img {
+  width: 100%;
+  height: 240rpx;
+}
+
+.coupon-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.coupon-con {
+  position: absolute;
+  top: 14%;
+  left: 6%;
+  width: 100%;
+}
+
+.con-li {
+  float: left;
+  margin: 0 4%;
+  font-size: 26rpx;
+}
+
+.coupon-money {
+  font-size: 42rpx;
+  color: #ff5543;
+}
+
+.coupon-title {
+  color: #ff5543;
+}
+
+.con-span {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+}
+
+.coupon-day {
+  font-size: 22rpx;
+  text-align: center;
+  margin: 2% 0;
+  color: #f80;
+}
+
+.con-btn {
+  position: absolute;
+  right: 10%;
+  top: 25%;
+}
+
+.coupon-btn {
+  color: #fff;
+  background: #f80;
+  border-radius: 50rpx;
+}
+
+.coupon-btn::after {
+  border: none;
+}
+.no-coupon-btn{
+  background-color: #999;
+  color: #f4f4f4;
+}
+.coupon-request {
+  position: absolute;
+  bottom: 12%;
+  left: 6%;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.lose {
+  margin-left: 4%;
+  font-size: 28rpx;
+}
+
+.lose-img {
+  width: 27rpx;
+  height: 14rpx;
+}
+
+.con-btn image {
+  width: 168rpx;
+  height: 133rpx;
+}
+/* 重写radio样式 */
+/* 未选中的背景样式 */
+/* radio .wx-radio-input{
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+} */
+/* 选中后的背景样式 */
+radio .wx-radio-input.wx-radio-input-checked{
+  border: none;
+  background: #ffb62a;
+}
+/* 选中后的对勾样式(白色对勾 ) */
+/* radio .wx-radio-input.wx-radio-input-checked::before{
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%,-50%)scale(1);
+  -webkit-transform: translate(-50%,-50%)scale(1);
+} */
+.wujuan{
+  width: 100%;
+  text-align: center;
+  color: #999;
+  
+}

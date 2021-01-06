@@ -1,0 +1,85 @@
+<!--pages/child/pages/comment/comment.wxml-->
+<view class='comment'>
+  <view class='comment-list'>
+    <view class='list-dom' wx:for="{{goodsNoarr}}" wx:for-index="groupindex" wx:key>
+      <view class='dom-head'>
+        <view class='dom-img'>
+          <image src='{{item.goodsImg}}'></image>
+          <text>描述相符</text>
+        </view>
+        <view class='dom-star'>
+          <block wx:for="{{star_index[groupindex].one_1}}" wx:key="index">
+            <image catchtap="shangpin_in" id="{{index+1}}" data-groupindex="{{groupindex}}" data-index="{{index}}"  data-in="use_sc1" src='../images/star1.png'></image>
+          </block>
+          <block wx:for="{{star_index[groupindex].two_1}}" wx:key="index">
+            <image catchtap="shangpin_in" id="{{index+1}}" data-groupindex="{{groupindex}}"  data-index="{{index}}" data-in="use_sc" src='../images/star2.png'></image>
+          </block>
+          <text>{{star_index[groupindex].commentTitle}}</text>
+        </view>
+      </view>
+      <view class='dom-content'>
+        <textarea bindinput="bindTextAreaChange"  data-groupindex="{{groupindex}}" style="height: 8em;width:100%" value="{{comment[index]}}" maxlength="{{noteMaxLen}}" focus placeholder='商品满足您的期望吗? 说说它的优点和美中不足的地方吧!'></textarea>
+        <!-- <view class="weui-textarea-counter">{{noteNowLen}}/{{noteMaxLen}}</view> -->
+      </view>
+
+      <!-- 上传 -->
+      <!-- <view class='img-list'> -->
+          
+      <view class='upim-list'>
+          <block wx:for="{{img_arr_index[groupindex]}}" wx:key="*this">
+            <view class='upimg-li' bindlongpress="deleteImage" id="{{item}}" data-groupindex="{{groupindex}}" data-index="{{index}}">
+              <image mode='aspectFill' src='{{item}}'></image>
+              <view class="closeClick" bindtap="closeClick" data-groupindex="{{groupindex}}" data-index="{{index}}">
+                <image src='../images/remove.png'></image>
+              </view>
+            </view>
+          </block>
+
+        <view class='uploadimg' bindtap='upimg' data-groupindex="{{groupindex}}" data-goodsNo="{{item.goodsNo}}" wx:if="{{img_arr_index[groupindex].length < 4}}">
+          <image src='../images/upimg.png'></image>
+        </view>
+        <canvas style="width: {{cw}}px; height: {{ch}}px;position: absolute; z-index: -1; left: -10000rpx;; top: -10000rpx;" canvas-id="firstCanvas"></canvas>
+      </view>
+         <!-- </view> -->
+      <!--匿名-->
+      <view class='noname'>
+        <view class='noname-left' catchtap='checkedTap'>
+          <checkbox value="{{value}}" checked="{{checked}}" /> 匿名
+        </view>
+        <view class='noname-right'>{{checktitle ? '你写的评价会以匿名的形式展现':'你的评价能帮助其他小伙伴哟'}}</view>
+      </view>
+    </view>
+  </view>
+  <!--店铺评分-->
+  <view class='comment-list'>
+    <view class='list-dom'>
+      <view class='shop-img'>
+        <image src='../images/store_entrance.png'></image> 店铺评分
+      </view>
+      <!--卖家评分-->
+      <view class='serve-star'>
+        <text>卖家服务</text>
+        <block wx:for="{{one_2}}" wx:key="index">
+          <image catchtap='maijia_in' id='{{index+1}}' data-in="use_sc2" src='../images/star1.png'></image>
+        </block>
+        <block wx:for="{{two_2}}" wx:key="index">
+          <image catchtap='maijia_in' id='{{index+1}}' data-in="use_sc" src='../images/star2.png'></image>
+        </block>
+        <text>{{commentTitle2}}</text>
+      </view>
+      <!--物流评分-->
+      <view class='serve-star'>
+        <text>物流服务</text>
+        <block wx:for="{{one_3}}" wx:key="index">
+          <image catchtap='wuliu_in' id='{{index+1}}' data-in="use_sc3" src='../images/star1.png'></image>
+        </block>
+        <block wx:for="{{two_3}}" wx:key="index">
+          <image catchtap='wuliu_in' id='{{index+1}}' data-in="use_sc" src='../images/star2.png'></image>
+        </block>
+        <text>{{commentTitle3}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!--发布评论-->
+<view class='submitBnt'  bindtap="submitBnt">发布</view>

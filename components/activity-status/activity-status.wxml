@@ -1,0 +1,14 @@
+<!--components/activity-status/activity-status.wxml-->
+<view class='my-dialog' hidden='{{showDialog}}'>
+  <view class='my-mask'></view>
+  <view class='my-container'>
+    <view class='status-img'>
+      <image wx:if="{{conut_down === 0 && iscomplete === 2}}" mode="aspectFit" src='/images/acticityprize.png'></image>
+      <image wx:if="{{conut_down === 1 && iscomplete === 1}}" mode="aspectFit" src='/images/activity.png'></image>
+    </view>
+    <view class='title'>{{title}}</view>
+    <view wx:if="{{conut_down === 1 && iscomplete === 1 && joinActivity}}" class='btncall' bindtap='handleStatus'>
+      查看订单
+    </view>
+  </view>
+</view>

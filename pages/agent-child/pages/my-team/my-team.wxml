@@ -1,0 +1,30 @@
+<!-- 我的团队 -->
+<view class='partner'>
+  <view class='partner-ul'>
+    <view class='partner-li' wx:for='{{contentlist}}' catchtap='toTeam' data-id="{{item.id}}" data-teamNum="{{item.teamNum}}">
+      <view class='partner-l'>
+        <view class='partner-top'>
+          <view class='partner-img'>
+            <image wx:if="{{item.headPortrait == null}}" src='../images/default_head_portrait.png'></image>
+            <image wx:if="{{item.headPortrait != null}}" src='{{item.headPortrait}}'></image>
+          </view>
+          <view class='partner-name'>{{item.nickName}}</view>
+        </view>
+        <view class='vip-logo'>会员等级: {{item.gradeText}}</view>
+        <view class="vip-logo">截止今日产生分润额: {{item.profitAmount}}元</view>
+        <!-- <view class='partner-num'>TA的团队: {{item.teamNum}}人</view> -->
+      </view>
+
+      <!-- <view class='partner-r'>
+        <image src='../images/agent_enter.png'></image>
+      </view> -->
+    </view>
+  </view>
+</view>
+<!--暂无数据-->
+<view class='nolist' wx:if='{{isShow}}'>
+  <view class='no-img'>
+    <image src='../images/on_order.png'></image>
+  </view>
+  <view class='no-title'>暂无数据</view>
+</view>

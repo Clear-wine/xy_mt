@@ -1,0 +1,182 @@
+/* pages/user-child/pages/evaluate/evalute.wxss */
+
+.evaluate {
+  width: 100%;
+  overflow: hidden;
+}
+
+.evaluate-title {
+  font-size: 30rpx;
+  color:  #ff9736;
+  font-weight: bold;
+  text-align: center;
+  margin: 4% 0;
+}
+
+.evaluate-title::after, .evaluate-title::before {
+  content: "";
+  width: 48px;
+  border-top: 1px  #ff9736 solid;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.evaluate-title::before {
+  margin-right: 22rpx;
+}
+
+.evaluate-title::after {
+  margin-left: 22rpx;
+}
+
+.eva-dom {
+  width: 95%;
+  margin: 2% auto;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 10rpx;
+}
+
+.dom-content {
+  overflow: hidden;
+  padding: 2%;
+  width: 100%;
+  position: relative;
+}
+
+.eva-dom .dom-li {
+  width: 35%;
+  float: left;
+  /* padding: 2%; */
+  padding-bottom: 5%;
+  padding-left: 2%;
+}
+
+.dom-li image {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  top: 24rpx;
+  border-radius: 50rpx;
+}
+
+.dom-ul {
+  display: flex;
+  text-align: center;
+  float: left;
+  width: 57%;
+  justify-content: space-around;
+  padding-top: 5%;
+}
+
+.dom-ul .ul-li {
+  margin: 0 2%;
+}
+
+.ul-li .ul-li-title {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.dom-title {
+  font-size: 26rpx;
+  color: #000;
+  margin: 2% 0 4%;
+}
+
+.dom-title image {
+  width: 32rpx;
+  height: 31rpx;
+  position: relative;
+  top: 8rpx;
+}
+
+.dom-list {
+  overflow: hidden;
+  font-size: 28rpx;
+}
+
+.dom-list .dom-list-left {
+  float: left;
+  width: 28%;
+}
+
+.dom-list-left image {
+  width: 100%;
+  height: 168rpx;
+  border-radius: 10rpx;
+}
+
+.dom-list-right {
+  width: 66%;
+  float: left;
+  margin-left: 2%;
+  position: relative;
+}
+
+.dom-list-right .title {
+  width: 78%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.dom-list-right .label {
+  background: #f4f4f4;
+  color: #999;
+  width: 53%;
+  font-size: 22rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  margin-top: 4%;
+}
+
+.dom-list-right .label text {
+  margin: 0 3%;
+}
+
+.dom-list-right .list-r {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  font-size: 26rpx;
+}
+
+.list-r .dom-num {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.dom-list-bottom {
+  font-size: 28rpx;
+  float: right;
+  margin-right: 7%;
+  text-align: right;
+  position: relative;
+  overflow: hidden;
+  padding: 5% 0 10% 0;
+}
+
+.dom-list-bottom .total {
+  padding: 2% 0;
+}
+
+.dom-list-bottom .evabtn {
+  width: 130rpx;
+  color:  #ff9736;
+  border: 1px solid #ff9736;
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  position: absolute;
+  right: 0;
+  height: 42rpx;
+  line-height: 42rpx;
+  bottom: 2%;
+
+}

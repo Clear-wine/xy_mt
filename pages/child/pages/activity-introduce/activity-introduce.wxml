@@ -1,0 +1,16 @@
+<!-- 活动介绍 -->
+<web-view src="{{weburl}}"></web-view>
+<!-- <web-view src="https://www.baidu.com/"></web-view> -->
+
+<!-- <view class='activity-container'>
+  <image class='activity-bg' mode='aspectFill' src='../images/activity-bg.png'></image>
+  <view class='activity-wrap'>
+    <view class='title-ul'>
+      <view>1.支付商品底价后,将此商品分享到朋友圈;</view>
+      <view>2.朋友通过微信给你助力;</view>
+      <view>3.当助力人数达到一定数量的时候,享受相应的价格;</view>
+      <view>4.助力成功后,即可使用助力后的价格购买商品;若未助力成功,可以补差价进行购买;</view>
+      <view>5.助力活动有限期为(后台设置)小时,超时将关闭活动,请尽快完成</view>
+    </view>
+  </view>
+</view> -->

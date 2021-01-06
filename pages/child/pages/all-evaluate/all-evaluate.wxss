@@ -1,0 +1,94 @@
+/* pages/child/pages/all-evaluate/all-evaluate.wxss */
+
+.wrap {
+  margin-top: 3%;
+}
+
+.wrap .wrap-list {
+  background-color: #fff;
+  width: 100%;
+}
+
+.wrap-list .list-dom {
+  width: 95%;
+  margin: 2% auto;
+  overflow: hidden;
+}
+
+.list-dom .user-msg {
+  font-size: 26rpx;
+  color: #000;
+  margin: 2% 0;
+}
+
+.user-msg image {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: 12rpx;
+}
+
+.product-msg {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.product-msg text {
+  margin-right: 2%;
+}
+
+.eva-content {
+  font-size: 28rpx;
+  margin: 2% 0;
+}
+
+.eva-img {
+  overflow: hidden;
+}
+
+.eva-img .eva-item {
+  float: left;
+  width: 30%;
+  margin: 0 6px;
+}
+
+.eva-item image {
+  width: 100%;
+  height: 202rpx;
+  border-radius: 10rpx;
+}
+
+.product-content {
+  background-color: #f4f4f4;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10rpx;
+  margin: 4% 0;
+  font-size: 30rpx;
+  height: 176rpx;
+}
+
+.cont-left {
+  width: 24%;
+  float: left;
+}
+
+.cont-left image {
+  width: 100%;
+  height: 176rpx;
+}
+
+.cont-right {
+  float: left;
+  margin-left: 3%;
+  width: 72%;
+}
+
+.cont-r-title {
+  margin-bottom: 4%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

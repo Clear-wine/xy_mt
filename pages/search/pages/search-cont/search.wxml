@@ -1,0 +1,144 @@
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+            <view class='search-wrap'>
+              <view class='search'>
+                <view url='/pages/search/search' class='search-input'>
+                  <image src='/pages/images/magnifying_glass.png'></image>
+                  <!-- <input bindinput='getSearchName' value='{{value}}' type='text' placeholder='请输入您需查找的关键字' bindconfirm="findSearchProduct"></input> -->
+                  <view class="input-div" bindtap="handleFocus">
+                    <input value='{{content}}' type='text' placeholder='请输入您需查找的关键字'></input>
+                  </view>
+                </view>
+              </view>
+              <!-- <view class='search-btn' bindtap='findSearchProduct'>搜索</view> -->
+              <!-- 选择搜索的类别 商品/活动/店铺-->
+              <view class='swiper-tab'>
+                <view wx:for="{{sorttab}}" class="swiper-tab-item {{currentTab == index ? 'active' :''}}" data-current='{{index}}' bindtap='clickTab' data-type="{{item.type}}">
+                  <text>{{item.tabtitle}}</text>
+                </view>
+              </view>
+            </view>
+<view class="container">
+  <!-- 搜索结果 -->
+  <view class='search-result-wrap'>
+    <!-- <view class="tab_container"></view> -->
+    <swiper current="{{currentTab}}" duration='300'>
+      <block wx:for="{{sorttab}}">
+        <!-- 选择商品 -->
+        <swiper-item wx:if="{{item.index == 0}}" catchtouchmove="stopTouchMove">
+          <scroll-view class='scroll-view_H' scroll-y="true" style='height:100%' lower-threshold='50' upper-threshold="50" bindscrolltolower="scrollBottom">
+            <!-- <template is="search" data="{{tabArr}}"/> -->
+            <view class='swiper-tab-list' bindtap='tabFun' wx:if="{{contentlist.length != 0}}">
+              <!-- 综合 -->
+              <view class="tab-item {{tabArr.curHdIndex == '1' ? 'selectItem' :''}}" id="tab-hd01" data-id="1" data-sortType="1">综合排序</view>
+              <!-- 销量 -->
+              <view class="tab-item {{tabArr.curHdIndex == '3' ? 'selectItem':''}}" id='tab-hd02' data-id='3' data-sortType="3">销量优先</view>
+              <!-- 价格 -->
+              <view class="tab-item {{tabArr.curHdIndex == '2' ? 'selectItem':''}}" id='tab-hd01' data-id='2' data-sortType="2" data-t="{{t}}">价格
+                <!-- 向上的三角形 4 -->
+                <view class="triangle-up {{tabArr.agg == '4' ? 'san' :''}}"></view>
+                <!-- 向下的三角形 2 -->
+                <view class="triangle-down {{tabArr.agg == '5' ? 'sa' :''}}"></view>
+              </view>
+            </view>
+            <template is="search" />
+            <!-- 商品列表 -->
+            <view class='commodityWrap'>
+              <view class='commodity-ul'>
+                <block wx:for="{{contentlist}}" wx:key="{{item.goodsNo}}">
+                  <view class='commodity-li li-left' catchtap="toGoods" data-goodsNo="{{item.goodsNo}}">
+                    <view class='comm-li-img'>
+                      <image mode="aspectFill" src='{{item.goodsImgPath}}'></image>
+                    </view>
+                    <view class='comm-li-content'>
+                      <view class='rec-li-title'>{{item.goodsName}}</view>
+                      <view class='rec-money'>￥{{vipRate != undefined&&vipGrade!=1? filters.toFix(item.price - item.profit * vipRate) : item.price}}</view>
+                      <view class='rec-nomoney' wx:if="{{vipRate&&vipGrade!=1}}">￥{{item.price}}</view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+        <!-- 选择活动 -->
+        <swiper-item catchtouchmove="stopTouchMove" wx:if="{{item.index==1}}">
+          <!-- 选择活动 -->
+
+          <scroll-view class='scroll-view_H' scroll-y="{{true}}" style='height:100%' lower-threshold='50' upper-threshold="50" bindscrolltolower="scrollBottom">
+            <view class='swiper-tab-list' bindtap='tabFun' wx:if="{{contentlist.length != 0}}">
+              <!-- 综合 -->
+              <view class="tab-item {{tabArr.curHdIndex == '1' ? 'selectItem' :''}}" id="tab-hd01" data-id="1" data-sortType="1">综合排序</view>
+              <!-- 销量 -->
+              <view class="tab-item {{tabArr.curHdIndex == '3' ? 'selectItem':''}}" id='tab-hd02' data-id='3' data-sortType="3">销量优先</view>
+              <!-- 价格 -->
+              <view class="tab-item {{tabArr.curHdIndex == '2' ? 'selectItem':''}}" id='tab-hd01' data-id='2' data-sortType="2" data-t="{{t}}">价格
+                <!-- 向上的三角形 -->
+                <view class="triangle-up {{tabArr.agg == '4' ? 'san' :''}}"></view>
+                <!-- 向下的三角形 -->
+                <view class="triangle-down {{tabArr.agg == '5' ? 'sa' :''}}"></view>
+              </view>
+            </view>
+            <!-- 商品列表 -->
+            <view class='commodityWrap'>
+              <view class='commodity-ul'>
+                <block wx:for="{{contentlist}}" wx:key="{{index}}">
+                  <view class='commodity-li' catchtap="toActivity" data-activityType="{{item.activityType}}" data-activityNo="{{item.activityNo}}" data-type="{{item.shopType}}" data-goodsNo='{{item.goodsNo}}'>
+                    <view class='comm-li-img'>
+                      <image mode="aspectFill" src='{{item.goodsImgPath}}'></image>
+                    </view>
+                    <view class='comm-li-content'>
+                      <view class='comm-li-title'>{{item.goodsName}}</view>
+                      <view class='comm-li-sum'>{{item.activityTypeName}}价:
+                        <text>￥{{item.actPrice}}</text>
+                      </view>
+                      <view class='comm-li-nosum'>市场价:￥{{item.price}}</view>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+
+          </scroll-view>
+        </swiper-item>
+        <!-- 选择店铺 -->
+        <swiper-item catchtouchmove="stopTouchMove" wx:if="{{item.index == 2}}">
+          <!-- 判断查询选择的商品/活动/店铺 -->
+          <scroll-view class='scroll-view_H' scroll-y="{{true}}" style='height:100%' lower-threshold='50' upper-threshold="50" bindscrolltolower="scrollBottom">
+            <view wx:if="{{item.index == 2}}" class="swiper-tab-list {{ top > 0 ? 'topnav':''}}" wx:if="{{contentlist.length != 0}}">
+              <view wx:for="{{tabShopList}}" class="tab-item {{tabIndex == index ? 'selectItem' :''}}" data-index='{{index}}' data-sortType='{{item.sortType}}' bindtap='handleType'>{{item.title}}</view>
+            </view>
+            <!-- 店铺列表 -->
+            <block wx:for="{{contentlist}}" wx:key="{{item.shopNo}}">
+              <view class='shoplist'>
+                <view class='shop-top'>
+                  <view class='shop-top-title'>{{item.shopName}}
+                    <block wx:for="{{one_1}}" wx:key="{{index}}">
+                      <image mode='aspectFit' src='/pages/images/star1.png'></image>
+                    </block>
+                    <block wx:for="{{tow_1}}" wx:key="{{index}}">
+                      <image mode='aspectFit' src='/pages/images/star2.png'></image>
+                    </block>
+                  </view>
+                  <view class='shopbox' catchtap="toShop" data-shopNo="{{item.shopNo}}">
+                    进入店铺
+                    <image mode='aspectFit' src='/pages/images/management_site.png'></image>
+                  </view>
+                </view>
+                <view class='shopimg'>
+                  <image mode='aspectFill' src='{{item.shopImg}}'></image>
+                </view>
+                <view class='shop-span'>{{item.shopDesc}}</view>
+              </view>
+            </block>
+          </scroll-view>
+        </swiper-item>
+
+      </block>
+    </swiper>
+    <!-- 导航头 -->
+  </view>
+</view>
+<view class="noshuju" wx:if="{{contentlist.length==0}}">
+  <image src="/pages/images/sousuo.png"></image>
+  抱歉, 没有找到商品
+</view>

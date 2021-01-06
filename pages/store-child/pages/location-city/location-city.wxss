@@ -1,0 +1,212 @@
+page {
+  height: 100%;
+}
+
+.container {
+  padding-top: 100rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.search-bar {
+  width: 100%;
+  height: 100rpx;
+  /* line-height: 100rpx; */
+  margin-top: -100rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0 20rpx;
+  background-color: #fff;
+  position: relative;
+}
+
+.search-bar .search-input {
+  width: 72%;
+  position: relative;
+  font-size: 24rpx;
+  background-color: #e5e5e5;
+  padding-left: 10%;
+  padding-right: 5%;
+  height: 58rpx;
+  line-height: 58rpx;
+  border-radius: 20px;
+}
+
+.search-bar .search-input .phcolor {
+  color: #fff;
+}
+
+.search-bar .search-input image {
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  left: 5%;
+  top: 22%;
+  margin: 0;
+}
+
+.search-bar .search-input input {
+  height: 58rpx;
+  line-height: 58rpx;
+}
+
+.search-bar .cancel {
+  font-family: PingFang-SC-Medium;
+  font-size: 30rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rpx;
+  color: #ff9736;
+  position: absolute;
+  right: 5%;
+  top: 10%;
+}
+
+.list-detail, .list-city{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+}
+
+/* 搜索结果页 */
+
+.list-detail .item-nav {
+  width: 95%;
+  margin: auto;
+  border-bottom: 1rpx solid #eee;
+}
+
+.list-detail .title, .history .title {
+  font-size: 32rpx;
+  color: #000;
+  line-height: 55rpx;
+}
+
+.list-detail .address, .history .address {
+  font-size: 28rpx;
+  color: #aaa;
+  white-space: normal;
+}
+
+/* 城市列表 */
+
+.list-city {
+  position: relative;
+}
+
+.no-data {
+  font-size: 25rpx;
+  margin: 25rpx 0 0 25rpx;
+  color: #555;
+}
+
+.location-bar {
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+  /* border-bottom: 1rpx solid #f4f4f4; */
+  padding: 2% 20rpx;
+  background-color: #fff;
+}
+
+.location-bar .location-city {
+  width: 50%;
+  float: left;
+}
+
+.location-bar .location-btn {
+  width: 27%;
+  font-family: PingFang-SC-Medium;
+  font-size: 28rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rpx;
+  color: #ff9736;
+  float: right;
+}
+
+.location-bar .location-btn image {
+  width: 39rpx;
+  height: 39rpx;
+  position: relative;
+  top: 10rpx;
+  margin-right: 2%;
+}
+
+.py-city {
+  box-sizing: border-box;
+  font-size: 23rpx;
+  color: #999;
+  padding: 10rpx 25rpx;
+}
+
+.fullname {
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color: #555;
+  padding: 25rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.h-city {
+  border: 1rpx solid #eee;
+  display: inline-block;
+  margin: 25rpx 0 0 25rpx;
+  padding: 10rpx 25rpx;
+  font-size: 25rpx;
+}
+
+.py {
+  box-sizing: border-box;
+  background: #eee;
+  font-size: 23rpx;
+  color: #aaa;
+  padding: 10rpx 25rpx;
+}
+
+.city-py {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  margin-top: -360rpx;
+}
+
+.city-py view {
+  width: 60rpx;
+  height: 12px;
+  line-height: 12px;
+  text-align: center;
+  color: #555;
+  padding: 10% 0;
+  font-size: 28rpx;
+}
+
+/* 选择显示 */
+
+.showPy {
+  width: 150rpx;
+  height: 150rpx;
+  background: #fff;
+  border-radius: 15rpx;
+  line-height: 150rpx;
+  text-align: center;
+  font-size: 80rpx;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  color: #333;
+  box-shadow: 0 0 150rpx rgba(0, 0, 0, 0.35);
+}
+
+.hot-city {
+  border: 1rpx solid #eee;
+  display: inline-block;
+  margin: 25rpx 0 0 25rpx;
+  padding: 10rpx 25rpx;
+  font-size: 25rpx;
+}

@@ -1,0 +1,23 @@
+<!--pages/auth/auth.wxml-->
+<view class='auth'>
+  <view class='auth-top'>
+    <image mode='widthFix' src='../images/bg.png'></image>
+  </view>
+  <view class='auth-pos'>
+    <view class='auto-title'>
+      <text>允许该小程序获取您的公开信息包括头像和昵称</text>
+    </view>
+    <view wx:if="{{authFlag == false && !canIUse }}">请升级微信版本</view>
+    <view class="auth-wrap">
+    <button class='auth-btn' size='mini' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <button class="auth-btn-cal" size="mini" bindtap="authCancel" wx:if='{{!sharePerson}}'>拒绝</button>
+</view>
+  </view>
+</view>
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <view class="zan-dialog__mask" bindtap="toggleDialog" />
+  <view class="zan-dialog__container">
+    <view style='padding:100rpx;'>此处是填充的布局代码</view>
+    <button class='bindstyle' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信快捷登录/绑定</button>
+  </view>
+</view>

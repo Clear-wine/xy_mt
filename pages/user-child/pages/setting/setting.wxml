@@ -1,0 +1,21 @@
+<!--pages/user-child/pages/setting/setting.wxml-->
+<view class='setuothe'>
+  <view class='setuothe-list'>
+    <navigator url='/pages/child/pages/location/location?ishandle=1' class='setuothe-li'>
+      收货地址
+      <image src='../images/index_arrows.png'></image>
+    </navigator>
+    <navigator url="/pages/child/pages/bank-card/bank-card" class='setuothe-li'>
+      我的银行卡
+      <image src='../images/index_arrows.png'></image>
+    </navigator>
+    <navigator url="/pages/agent-child/pages/modification-traderspassword/index" class='setuothe-li'>
+      修改交易密码
+      <image src='../images/index_arrows.png'></image>
+    </navigator>
+     <!-- <navigator class='setuothe-li'>
+      反馈与帮助
+      <image src='../images/index_arrows.png'></image>
+    </navigator> -->
+  </view>
+</view>

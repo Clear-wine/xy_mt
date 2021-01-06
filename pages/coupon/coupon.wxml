@@ -1,0 +1,95 @@
+<!--pages/coupon/coupon.wxml-->
+<!-- 优惠卷头部导航 -->
+<view class='couponNav'>
+  <view class='title'>
+    <view wx:for="{{orderteb}}" class="titleSel {{currentIndex == index ? 'titleUnsel' : ''}} " catchtap='titleClick' data-current='{{index}}' data-type="{{item.type}}">
+      <text>{{item.tebtitle}}</text>
+      <hr class="{{currentIndex == index ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+  </view>
+</view>
+<!--内容布局-->
+<swiper class='swiper' bindchange='pagechange' current='{{currentIndex}} ' style='padding-top:{{headHeight}}px '>
+  <swiper-item wx:for="{{orderteb}}" catchtouchmove='catchTouchMove '>
+    <!-- 未使用 -->
+    <scroll-view wx:if="{{item.index === '0'}}" scroll-y="true" style="height:{{scrollHeight}}px;" lower-threshold='50 ' upper-threshold="50" bindscrolltolower="scrollBottom">
+      <view class='coupon '>
+        <view class='coupon-ul '>
+          <view class='coupon-li ' wx:for="{{contentlist}}">
+            <view class='coupon-img '>
+              <image src='../images/ticket_bg.png '></image>
+            </view>
+            <view class='coupon-con '>
+              <view class='con-li '>
+                <view class='coupon-money '>￥{{item.amount}}</view>
+                <view class='coupon-title '>抵用券</view>
+              </view>
+              <view class='con-li con-span '>
+                <view class='coupon-money-title '>{{item.explan}}</view>
+                <view class='coupon-day '>还剩{{item.term}}天到期</view>
+              </view>
+              <view class='con-li con-btn '>
+                <button size='mini' class='coupon-btn' bindtap="goindex">立即使用</button>
+              </view>
+            </view>
+            <view class='coupon-request '>满{{item.useAmount}}元可用,限定最新版本客户使用</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 已使用 -->
+    <scroll-view wx:if="{{item.index ==='1'}}" scroll-y="true" style='height:{{scrollHeight}}px; ' lower-threshold="50" upper-threshold='50 ' bindscrolltolower="scrollBottom">
+      <view class='coupon '>
+        <view class='coupon-ul '>
+          <view class='coupon-li ' wx:for="{{contentlist}}">
+            <view class='coupon-img '>
+              <image src='../images/ticket_bg.png '></image>
+            </view>
+            <view class='coupon-con '>
+              <view class='con-li '>
+                <view class='coupon-money '>￥{{item.amount}}</view>
+                <view class='coupon-title '>抵用券</view>
+              </view>
+              <view class='con-li con-span '>
+                <view class='coupon-money-title '>{{item.explan}}</view>
+                <view class='coupon-day coupon-hide '>该卷已使用</view>
+              </view>
+              <view class='con-li con-btn '>
+                <button size='mini' class='coupon-btn coupon-btn-used '>已使用</button>
+              </view>
+            </view>
+            <view class='coupon-request '>满{{item.useAmount}}元可用,限定最新版本客户使用</view>
+          </view>
+        </view>
+      </view>
+
+
+    </scroll-view>
+    <!-- 已过期 -->
+    <scroll-view wx:if="{{item.index ==='2'}}" scroll-y="true" style='height:{{scrollHeight}}px; ' lower-threshold="50" upper-threshold='50 ' bindscrolltolower="scrollBottom">
+      <view class='coupon '>
+        <view class='coupon-ul ' hidden="{{isShowCoupon}}" style='color:#999; '>
+          <view class='coupon-li ' wx:for="{{contentlist}}">
+            <view class='coupon-img '>
+              <image src='../images/ticket_bg.png '></image>
+            </view>
+            <view class='coupon-con '>
+              <view class='con-li '>
+                <view class='coupon-money ' style='color:#999; '>￥{{item.amount}}</view>
+                <view class='coupon-title ' style='color:#999; '>抵用券</view>
+              </view>
+              <view class='con-li con-span '>
+                <view class='coupon-money-title '>{{item.explan}}</view>
+                <view class='coupon-day ' style='color:#999; '>该卷已过期</view>
+              </view>
+              <view class='con-li con-btn '>
+                <image src='../images/seal.png '></image>
+              </view>
+            </view>
+            <view class='coupon-request '>满{{item.useAmount}}元可用,限定最新版本客户使用</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

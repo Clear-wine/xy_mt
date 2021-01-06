@@ -1,0 +1,163 @@
+<!--pages/index-child//pages/activityzl-details/index.wxml-->
+<import src="../../../../utils/wxParse/wxParse.wxml" />
+<scroll-view class="body" scroll-y="true">
+<!-- 商品轮播图 -->
+<swiper class="lunbo" autoplay="true" circular="true">
+  <swiper-item wx:for="{{data.imgList}}" wx:key="index">
+    <image src="{{item}}" class="lunbo-img"></image>
+  </swiper-item>
+</swiper>
+<!-- 活动标题 -->
+<view class="biaoti">
+  <view class="biaoti-top">
+    <view class="biaoti-top-yi">亲友助力购</view>
+    <view class="biaoti-top-er">
+      <image src="../images/xiaohuo.png"></image>
+      火热进行中
+    </view>
+  </view>
+  <view class="biaoti-bottom">
+    <view class="biaoti-bottom-yi">活动结束时间：{{data.endDate}}</view>
+    <view class="biaoti-bottom-er">已有{{data.joinNum}}人助力成功</view>
+  </view>
+</view>
+<!-- 商品信息 -->
+<view class="xinxi">
+  <view class="xinxi-yi">{{data.activityName}}</view>
+  <view class="xinxi-er">
+    <text>销量{{data.countSales}}</text>
+    <text>快递: 免邮</text>
+    <text wx:if="{{data.isRestPurch==1}}">限购一份</text>
+  </view>
+  <view class="xinxi-san">
+    <view class="xinxi-san-yi">{{data.num}}人助力</view>
+    <view class="xinxi-san-er">￥{{data.helpPrice}}
+      <text wx:if="{{!guigelist.length==0}}">起</text>
+    </view>
+    <view class="xinxi-san-san">￥{{data.originalPrice}}</view>
+  </view>
+  <view class="xinxi-si" bindtap="kaiq" wx:if="{{data.multi}}">
+    <view class="xinxi-si-left">选择规格</view>
+    <image src="../images/index_arrows.png" class="xinxi-si-right"></image>
+  </view>
+</view>
+<!-- 猜你喜欢 -->
+<view class="xihuan">
+  <view class="xihuan-top">猜你喜欢</view>
+  <scroll-view scroll-x="true" class="xihuan-bottom">
+    <view class="xh" wx:for="{{data.youLikeList}}" wx:key="index" data-goodsNo="{{item.goodsNo}}" bindtap="goyoulike">
+      <image src="{{item.imgPath}}" mode="aspectFill"></image>
+      <view class="xh-name">{{item.goodsName}}</view>
+      <view class="xh-jiage">￥{{item.price}}</view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 评价 -->
+<view class='shops-head'>
+    <view class='head-box'>
+      <view class='eva-head'>
+        <view class='evaluate'>
+          <text class='eva-pro'>产品评价</text>
+          <text class='eva-num'>(好评率{{data.favorableComment || 100}}%)</text>
+        </view>
+        <view class='eva-all' bindtap="checkEva">
+          {{data.commentList.data.length}}条评论
+          <image src='../images/index_arrows.png'></image>
+        </view>
+      </view>
+      <block wx:for="{{data.commentList.data}}" wx:key="index" wx:if="{{data.commentList.data.length !=0 }}">
+        <view class='use-list'>
+          <view class='user-img'>
+            <image src='{{item.userHead}}'></image>
+          </view>
+          <view class='user-box'>
+            <view class='user-name'>{{item.nickName}}</view>
+            <view class='user-title'>{{item.content}}</view>
+          </view>
+          <view class='user-time'>{{item.createDate}}</view>
+        </view>
+      </block>
+      <view wx:if="{{data.commentList.data.length ==0}}" class="noeva">该商品还没有评价!</view>
+    </view>
+  </view>
+<!-- 店铺 -->
+ <view class='shops-head' bindtap='handleShop'>
+    <view class='head-box'>
+      <view class='shop-img'>
+        <image mode="aspectFit" src='{{data.shopBaseDTO.imgPath}}'></image>
+      </view>
+      <view class='shop-content'>
+        <view class='shop-content-title'>{{data.shopBaseDTO.shopName}}</view>
+        <view class='shop-content-star'>
+          <block wx:for="{{data.shopBaseDTO.score}}" wx:key="item">
+            <image src='../images/star1.png'></image>
+          </block>
+          <block wx:for="{{5-data.shopBaseDTO.score}}" wx:key="item">
+            <image src='../images/star2.png'></image>
+          </block>
+        </view>
+        <view class='shop-content-intro'>{{data.shopBaseDTO.desc}}</view>
+        <view class='shop-content-img'>
+          <image src='../images/management_site.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+<!-- 商品详情 -->
+  <view class='shopDetails'>
+    <view class='shopDetails-title'> 商品详情</view>
+    <view class="imglist-h5">
+      <template is="wxParse" data="{{wxParseData:detailh5.nodes}}" />
+      <!-- <image  wx:for="{{detailh5}}" data-src="{{item.imgPath}}"  mode="widthFix" src="{{item.imgPath}}"  catchtap="imgDetails" ></image> -->
+        <!-- 到底提示 -->
+      <view class="bottom-title">
+        <view> 已经全部加载完了~ </view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+  <!-- 按钮 -->
+  <view class='pay activity-pay'>
+    <view class='pay-left'>
+    <view class='navto' bindtap='handleShops'>
+      <image src='../images/store_entrance.png'></image>
+      首页
+    </view>
+    <view class='navto'>
+      <button open-type='share'>
+        <image src="../images/fenxiang.png"></image>
+        分享
+      </button>
+    </view>
+    <view class='navto' bindtap='tocart'>
+      <image src='../images/shopping_entrance.png'></image>
+      购物车
+      <view class="{{cartNum != 0 ? 'cartNum' :''}}">{{cartNum != 0 ? cartNum :''}}</view>
+    </view>
+  </view>
+  <view class='activity-title' bindtap='handlePay'>
+      ￥{{data.helpPrice}}发起助力
+  </view>
+</view>
+<!-- 规格弹框 -->
+<view class="mask-layer" wx:if="{{guigec}}" bindtap="yingc"></view>
+<view class="guige" wx:if="{{guigec}}" animation='{{animationData}}'>
+  <view class="guige-yi">
+    <image src="{{guigedetails.imgPath}}" class="guige-yi-left"></image>
+    <view class="guige-yi-center">
+      <image src="../images/cha.png" bindtap="yingc"></image>
+      <view class="guige-yi-jiage">￥{{guigedetails.price}}</view>
+      <view class="guige-yi-xuanz">已选规格：{{guigedetails.stockName}}</view>
+      <view class="guige-yi-kucun">库存:{{guigedetails.num}}</view>
+    </view>
+  </view>
+  <view class="guige-er">
+    <view class="guige-er-yi">请选择规格</view>
+    <view class="guige-xuanze">
+      <text class="{{item.ps?'xuanze1':'xuanze2'}}" wx:for="{{guigelist}}" wx:key="index" bindtap="guigex" data-id="{{item.id}}">{{item.stockName}}</text>
+    </view>
+  </view>
+  <view class="guige-san" bindtap="goxiadan" data-activityNo="{{guigedetails.activityNo}}" data-stockNo="{{guigedetails.stockNo}}">选好了</view>
+</view>
+<!-- 登录弹窗 -->
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

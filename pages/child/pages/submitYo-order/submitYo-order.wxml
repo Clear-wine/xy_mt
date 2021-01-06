@@ -1,0 +1,249 @@
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+<view class='home-top'>
+  <view class='top-list'>
+    <!-- 选择是自提/商家配送 -->
+    <view class="switch-type">
+      <block wx:for="{{typelist}}" wx:key="index10">
+        <view class="btn {{currentSelectTripType == item.name ? 'active' : ''}}" catchtap="selectedType" data-name="{{item.name}}" data-type="{{item.type}}">{{item.name}}</view>
+      </block>
+    </view>
+  </view>
+</view>
+<!--订单-->
+<view class='sub-order'>
+  <view class='sub-dom'>
+    <!-- 判断如果是商家配送 -->
+    <view class='sub-top' wx:if="{{addressData.isDefault != null &&isdeliveryType != 1 &&(isshowdeliveryType == undefined  || isshowdeliveryType == 0) }}">
+      <view class='sub-top-left'>
+        <view class='dz-top'>收货地址</view>
+          <view class='dz-user'>
+          <text>{{addressData.persion}}</text>
+          <text>{{addressData.phone}}</text>
+        </view>
+        <view class='dz-title'>{{addressData.province}} {{addressData.city}} {{addressData.area}} {{addressData.address}}</view>
+      
+      </view>
+      <view class='sub-top-right' bindtap='selectAddress'>
+        <image src='../images/index_arrows.png'></image>
+      </view>
+    </view>
+    <!-- 如果是到店自提 -->
+    <view class="sub-top" wx:if='{{isdeliveryType != 0 &&(isshowdeliveryType == undefined  || isshowdeliveryType == 1 || isdeliveryType==1) }}'>
+      <view class="sub-top-left">
+        <view class="dz-title">{{data.shopDataList[0].shopAddr}}</view>
+        <!-- <view class="dz-title">扬帆小区e11栋 五单元</view> -->
+      </view>
+      <view class="sub-top-right adress">
+        <image src="../images/site_1.png"></image>
+      </view>
+      <view class="order-list">
+        <view class="order-span"  bindtap="clickme">
+          <view class="span-tit">自取时间</view>
+          <view>
+            <view class="picker">
+              {{tiemxz}}
+            </view>
+          </view>
+          <image src="../images/index_arrows.png"></image>
+        </view>
+        <view class="order-span">
+          <view class="span-tit">预留电话</view>
+          <input type="number" value="{{phone}}" bindinput="bindKeyInput"></input>
+        </view>
+      </view>
+    </view>
+    <!-- 如果是没有默认地址 -->
+    <view class='sub-top' wx:if="{{addressData.isDefault == null && deliveryType != 1}}" bindtap='selectAddress'> 
+      <view class='sub-top-left'>
+        <view class='dz-top '>收货地址</view>
+        <view class='dz-title noaddress'>还未添加收货地址</view>
+        <view class='dz-title noaddress'>立即添加到您的收货地址</view>
+      </view>
+      <view class='sub-top-right' >
+        <image src='../images/index_arrows.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 普通商品 -->
+  <view class='sub-dom' wx:if="{{data[0].deliveryMap ==null}}">
+    <view class='sub-content'>
+      <view class='df-title'>{{data.shopDataList[0].shopName}}
+        <image mode='aspectFit' src='../images/shangjia_zhengjia.png'></image>
+      </view>
+      <view class='sub-li' wx:for="{{data.shopDataList[0].goodsList}}" wx:key="item.index">
+        <view class='sub-li-left'>
+          <image src='{{item.imgPath}}'></image>
+        </view>
+        <view class='sub-li-right'>
+          <view class='li-title'>{{item.goodsName}}</view>
+          <view class='li-num'>
+            <text wx:if="{{item.specValue != null}}">{{item.specValue}}</text>
+            <text> x{{item.num}}</text>
+          </view>
+          <view class='li-sum'>￥{{item.price}}</view>
+        </view>
+      </view>
+      <view class='cost-ul'>
+        <view class='cost-li'>
+          <view class='cost-title'>包装费</view>
+          <view class='cost-sum'>￥{{data.shopDataList[0].packFee}}</view>
+        </view>
+        <view class='cost-li'>
+          <view class='cost-title'>配送费</view>
+          <view class='cost-sum'>￥{{postage}}</view>
+        </view>
+        <!-- <view class='cost-li' wx:if="{{deliveryType == 0}}">
+          <view class='cost-title'>起送费</view>
+          <view class='cost-sum'>￥{{distPrice}}</view>
+        </view> -->
+        <view class='cost-li' bindtap="handleCoupon" data-price="{{data.shopDataList[0].price}}" data-goodsOriginalPriceAll="{{data.goodsOriginalPriceAll}}" data-goodsPriceAll="{{data.goodsPriceAll}}" data-shopNo="{{data.shopNo}}">
+          <view class='cost-title'>优惠券</view>
+          <view class='cost-sum' wx:if="{{voucherPrice}}">
+            {{voucherPrice}}元
+            <image src='../images/index_arrows.png'></image>
+          </view>
+          <view class='cost-sum sumColor' wx:else>
+            选择优惠券
+            <image src='../images/index_arrows.png'></image>
+          </view>
+        </view>
+        <view class='cost-li'>
+          <view class='cost-title'>填写备注</view>
+          <view class='cost-sum'>
+            <input placeholder='选填,请确认是否需要提前与卖家协商' bindinput="handlebindinput"></input>
+          </view>
+        </view>
+      </view>
+      <!-- 店铺结算 -->
+      <view class='cost-ul cost-right'>
+        <view class='cost-span'>
+          共
+          <text>{{data.totalNum}}</text>件
+        </view>
+        <view class='cost-span'>
+          小计
+          <text class='cost-price'>￥{{data.price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 普通商品订单 -->
+  <!-- <view class='sub-dom' wx:else>
+    <view class='sub-content' wx:for="{{data}}" wx:key="{{index}}">
+      <view class='df-title'>{{item.shopName}}
+        <image mode='aspectFit' src='../images/shangjia_zhengjia.png'></image>
+      </view>
+      <view class='sub-li' wx:for="{{item.goodsInfoList}}">
+        <view class='sub-li-left'>
+          <image src='{{item.imgPath}}'></image>
+        </view>
+        <view class='sub-li-right'>
+          <view class='li-title'>{{item.goodsName}}</view>
+          <view class='li-num'>
+            <text>{{item.specValue}}</text>
+            <text> x{{item.num}}</text>
+          </view>
+          <view class='li-sum'>￥{{item.price}}</view>
+        </view>
+      </view>
+      <view class='cost-ul'>
+        <view class='cost-li'>
+          <view class='cost-title'>配送方式</view>
+          <view class='cost-sum'>{{item.deliveryMap.deliveryText}}</view>
+        </view>
+        <view class='cost-li'>
+          <view class='cost-title'>邮费</view>
+          <view class='cost-sum'>{{item.deliveryMap.postPrice}}</view>
+        </view>
+        <view class='cost-li'>
+          <view class='cost-title'>优惠卷</view>
+          <view class='cost-sum sumColor'>
+            暂无可用
+            <image src='../images/index_arrows.png'></image>
+          </view>
+        </view>
+        <view class='cost-li'>
+          <view class='cost-title'>填写备注</view>
+          <view class='cost-sum'>
+            <input placeholder='选填,请确认是否需要提前与卖家协商'></input>
+
+          </view>
+        </view>
+      </view>
+      <!-- 店铺结算 -->
+  <!-- <view class='cost-ul cost-right'>
+        <view class='cost-span'>
+          共
+          <text>{{item.shopGoodsNum}}</text>件
+        </view>
+        <view class='cost-span'>
+          小计
+          <text class='cost-price'>￥{{shopsPriceAll}}</text>
+        </view>
+      </view>
+    </view>
+  </view> -->
+</view>
+
+
+<!--付款-->
+<view class='payOrder'>
+  <view class='pay-l'>
+    <view class='pay-span'>
+      共{{data.shopDataList[0].totalNum}}件
+    </view>
+    <view class='pay-span'>
+      合计
+      <text class='pay-sum'>￥{{data.shopDataList[0].price}}</text>
+    </view>
+  </view>
+  <view class='pay-r' bindtap='submitOrder'>
+    提交订单
+  </view>
+
+</view>
+<!-- 选择自提时间弹框 -->
+<!--屏幕背景变暗的背景  -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class="wang-top">选择预计自取时间</view>
+      <view class="content">
+      <scroll-view scroll-y="true" class='left'>
+        <view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav'>今天</view>
+        <view class="{{flag==1?'select':'normal'}}" id='1' bindtap='switchNav'>明天</view>
+        <view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>后天</view>
+      </scroll-view>
+      <view class='right'>
+        <view class='category'>
+          <swiper current='{{currentTab}}' style='height:420rpx' vertical="{{true}}">
+            <swiper-item id='0' catchtouchmove="stopTouchMove">
+              <scroll-view scroll-y="true" class="right-scroll">
+                <view class="{{item.ps?'zitiem1':'zitiem'}}" bindtap="xuanzetiem" wx:for="{{tiemlist}}" data-id="{{item.id}}" data-tiem="{{item.tiem}}">
+                  <view class="zitiem-left">{{item.tiem}}</view>
+                  <view class="zitiem-right" wx:if="{{item.ps}}"></view>
+                </view>
+              </scroll-view>
+            </swiper-item>
+            <swiper-item id='1' catchtouchmove="stopTouchMove">
+              <scroll-view scroll-y="true" class="right-scroll">
+                <view class="{{item.ps?'zitiem1':'zitiem'}}" bindtap="xuanzetiem" wx:for="{{tiemlist1}}" data-id="{{item.id}}" data-tiem="{{item.tiem}}">
+                  <view class="zitiem-left">{{item.tiem}}</view>
+                  <view class="zitiem-right" wx:if="{{item.ps}}"></view>
+                </view>
+              </scroll-view>
+            </swiper-item>
+            <swiper-item id='2' catchtouchmove="stopTouchMove">
+              <scroll-view scroll-y="true" class="right-scroll">
+                <view class="{{item.ps?'zitiem1':'zitiem'}}" bindtap="xuanzetiem" wx:for="{{tiemlist1}}" data-id="{{item.id}}" data-tiem="{{item.tiem}}">
+                  <view class="zitiem-left">{{item.tiem}}</view>
+                  <view class="zitiem-right" wx:if="{{item.ps}}"></view>
+                </view>
+              </scroll-view>
+            </swiper-item>
+          </swiper>
+        </view>
+      </view>
+    </view>
+    <view class="wang-bottom" bindtap="yestiem">确定</view>
+  </view>

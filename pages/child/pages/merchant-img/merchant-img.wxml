@@ -1,0 +1,3 @@
+<view class="img-wrap">
+  <image  src="{{imgurl}}"></image>
+</view>

@@ -1,0 +1,36 @@
+<view class="weui-loadmore" wx:if='{{isRefreshing}}'>
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore-tips">正在刷新...</view>
+</view>
+<view  wx:for="{{roomlist}}" wx:key="index" class="for_view_coverImg" bindtap="goLive" data-roomid="{{item.roomid}}">
+  <!-- 直播间图片 -->
+  <view class='view_item'>
+    <view class="view_coverImg">
+          <image class="coverImg" src="{{item.shareImg}}" data-id="{{item.roomid}}" mode="aspectFill">
+              <view wx:if="{{item.liveStatus===101}}" class="zhuangtai">直播中</view>
+              <view wx:elif="{{item.liveStatus===103}}" class="zhuangtai1">回放</view>
+              <view wx:elif="{{item.liveStatus===105}}" class="zhuangtai1">暂停</view>
+              <view wx:elif="{{item.liveStatus===102}}" class="zhuangtai2">开播时间:{{item.startTimeStr}}</view>
+              <view wx:elif="{{item.liveStatus===107}}" class="zhuangtai">已过期</view>
+          </image>
+          <!-- <view class="tag_class">{{item.liveStatusStr}}-{{item.anchorName}}</view> -->         
+    </view>
+    <view class="wang-name">{{item.anchorName}}</view>
+    <view class="name_class">
+      {{item.name}}
+    </view>
+    <view class="time_class">
+      直播时间:{{item.startTimeStr}}-{{item.endTimeStr}}
+    </view>
+  </view>
+</view>
+<!--上拉数据-->
+<view class="weui-loadmore">
+  <view wx:if='{{isLoadingMoreData}}'>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore-tips">正在加载更多...</view>
+  </view>
+  <view class="pagetips"  wx:else>
+    <view class="weui-loadmore-tips">没有更多内容啦</view>
+  </view>
+</view>

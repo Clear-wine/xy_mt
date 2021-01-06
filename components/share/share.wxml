@@ -1,0 +1,7 @@
+<!--components/share/share.wxml-->
+<view class='my-dialog' hidden='{{showDialog}}'>
+  <view class='my-mask'></view>
+  <view class='my-container'>
+    <button open-type="share">邀请好友接龙~</button>
+  </view>
+</view>

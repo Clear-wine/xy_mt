@@ -1,0 +1,2 @@
+<!--pages/index-child//pages/playmethod/index.wxml-->
+<image src="{{tupian.playPath}}" class="bjtu" mode="widthFix"></image>

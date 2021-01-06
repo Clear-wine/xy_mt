@@ -1,0 +1,240 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.13.0",
+  "appid": "wx7efa96450d26a405",
+  "projectname": "%E5%A3%B9%E5%8F%81%E5%95%86%E5%9F%8E",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 7,
+          "name": "拼团购活动页面",
+          "pathName": "pages/child/pages/activitypt/activitypt",
+          "query": "cartNo=PT_LO202007021853204434077&&activityNo=PT_LO202007011726113124702",
+          "scene": null
+        },
+        {
+          "id": 11,
+          "name": "助力购活动页面",
+          "pathName": "pages/child/pages/activityzl/activityzl",
+          "query": "cartNo=ZL_O202007151024182469425&&activityNo=ZL_O202007071747401133173",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "优店店铺",
+          "pathName": "pages/store-child/pages/storeHome/storeHome",
+          "query": "shopNo=YS_YO202008181639258377631",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "网店普通商品详情",
+          "pathName": "pages/child/pages/shopping-details/shopping-details",
+          "query": "goodsNo=NET_GD202007071544162429299",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "优店",
+          "pathName": "pages/store/store",
+          "query": "goodsNo=NET_GD202005150931380982408",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "购物车",
+          "pathName": "pages/shoppingCart/shoppingCart",
+          "query": "goodsNo=NET_GD202005150931380982408",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "网店店铺",
+          "pathName": "pages/child/pages/shop/shop",
+          "query": "shopNo=YS_NET202005160725196335438",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "mode测试",
+          "pathName": "pages/mode/mode",
+          "query": "goodsNo=NET_GD202005161252513905679",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "添加地址",
+          "pathName": "pages/child/pages/add-location/add-location",
+          "query": "goodsNo=NET_GD202005161252513905679",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/refund-child/pages/logistics/index",
+          "pathName": "pages/refund-child/pages/logistics/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "搜索页面",
+          "pathName": "pages/search/pages/search-both/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "网店订单详情",
+          "pathName": "pages/child/pages/order-details/order-details",
+          "query": "orderNo=JL_PO202007152010454386236",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "会员展示页面",
+          "pathName": "pages/child/pages/vip-details/index",
+          "query": "goodsNo=NET_GD202007071544162429299",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/child/pages/vip-details/index",
+          "pathName": "pages/child/pages/vip-details/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/child/pages/bank-card/bank-card",
+          "pathName": "pages/child/pages/bank-card/bank-card",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "提现",
+          "pathName": "pages/agent-child/pages/drawings/drawings",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的页面",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "设置交易密码",
+          "pathName": "pages/agent-child/pages/traders-password/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/agent-child/pages/sucpage/index",
+          "pathName": "pages/agent-child/pages/sucpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/agent-child/pages/modification-traderspassword/index",
+          "pathName": "pages/agent-child/pages/modification-traderspassword/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "帮助中心",
+          "pathName": "pages/user-child/pages/help-center/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "浏览记录",
+          "pathName": "pages/user-child/pages/browsing-history/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页分类",
+          "pathName": "pages/index-child/pages/classification/classification",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "店铺 ==》首页",
+          "pathName": "pages/custom_navbar/index/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

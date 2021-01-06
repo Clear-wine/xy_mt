@@ -1,0 +1,58 @@
+<scroll-view scroll-y="true">
+<!-- 商品 -->
+  <view class="shangp" wx:for="{{goodsList}}" wx:if="{{index<shangpsl}}">
+    <image src="{{item.imgPath}}"></image>
+    <view class="shangp-right">
+      <view class="shangp-right-yi">{{item.goodsName}}</view>
+      <!-- <view class="shangp-right-er">便携式餐椅</view> 简称-->
+      <view class="shangp-right-san">
+        <text wx:if="{{item.specValue}}">{{item.specValue}}</text>
+      </view>
+      <view class="right-si">x{{item.num}}</view>
+    </view>
+  </view>
+  <view class="shangp-bottom" wx:if="{{goodsList.length>3}}" bindtap="gengduosp">{{shangpsl>3?'收起':'展示更多'}}</view>
+<!-- 是否收到货 -->
+<view class="xuanze" wx:if="{{cargo}}">
+  <view class="xuanze-left">是否收到货</view>
+  <view class="xuanze-right">
+    <text class="{{xuanzeY?'xuanze-shi':'xuanze-fou'}}" bindtap="xuanzeYES">是</text>
+    <text class="{{xuanzeN?'xuanze-shi':'xuanze-fou'}}" bindtap="xuanzeNO">否</text>
+  </view>
+</view>
+<!-- 退款原因 -->
+<view class="yuanyin">
+  <view class="yuanyin-ling">
+     <view class="yuanyin-left">退款原因:</view>
+     <view class="yuanyin-right" bindtap="yuanyin">
+      <view>请选择</view>
+      <image src="../../images/gengduo.png" style="{{yuanyinX?'transform: rotate(90deg)':''}}"></image>
+     </view>
+  </view>
+   <view class="yuanyin-yi" wx:if="{{yuanyinX}}">
+    <view class="{{item.ps?'yi-yes':''}}" wx:for="{{yuanyinlist}}" bindtap="xuanzeyy" data-id="{{item.value}}" data-text="{{item.text}}">{{item.text}}</view>
+   </view>
+</view>
+<!-- 退款金额 -->
+<view class="jine">
+  <view class="yuanyin-left">退款金额:</view>
+  <view class="jine-right">¥{{jiage}}</view>
+</view>
+<!-- 退款说明 -->
+<view class="shuom">
+  <view class="shuom-yi">退款说明</view>
+  <textarea class="shuom-er" maxlength="120" bindblur="shuomingwen"></textarea>
+  <view class="shuom-san" wx:if="{{cargo1}}">
+    <view class="shuom-san-yi">上传凭证</view>
+    <block wx:for="{{files}}" wx:key="index">
+      <image bindlongpress='longPress' src="https://www.yisanmall.com/{{item}}" class="shuom-san-er" mode="aspectFit" data-img="{{item}}"></image>
+    </block>
+    <image src="../../images/shangchuan.png" class="shuom-san-er" bindtap="shangchuantu" wx:if="{{tupianhide}}"></image>
+  </view>
+</view>
+</scroll-view>
+<!-- 底部按钮 -->
+<view class="anniu">
+  <view class="anniu-left" wx:if="{{cargo1}}">凭证最多支持三张</view>
+  <view class="anniu-right" bindtap="godetails">提交</view>
+</view>

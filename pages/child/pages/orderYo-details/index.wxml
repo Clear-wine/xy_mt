@@ -1,0 +1,196 @@
+<!-- 订单详情 -->
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+<view class='wrap'>
+  <view class='order-status'>
+    <!-- 判断订单状态 -->
+    <!-- 订单已完成 -->
+    <view wx:if="{{status =='3' || status == '4'}}" class='order-status-msg'>
+      <!-- 订单状态 -->
+      <view class='deal-status'>
+        <image src='../images/jiaoyichenggong.png' mode='aspectFit'></image>{{deliveryType == 0? '订单已送达':'交易成功'}}
+      </view>
+    </view>
+    <!-- 订单待支付 -->
+    <view wx:elif="{{status =='0'}}" class='order-status-msg'>
+      <!-- 订单状态 -->
+      <view class='deal-status'>
+        <image src='../images/dengdaifukuan.png' mode='aspectFit'></image>等待买家付款
+      </view>
+      <view class="flex-view">
+        <view>待支付: ￥{{price}}</view>
+        <view>剩余:{{clock}}</view>
+      </view>
+    </view>
+    <!-- 订单待发货 -->
+    <view wx:elif="{{status =='1'}}" class='order-status-msg'>
+      <!-- 订单状态 -->
+      <view class='deal-status'>
+        <image src='../images/yifukuan.png' mode='aspectFit'></image> 商家备货中
+      </view>
+    </view>
+    <!-- 订单待收货 -->
+    <view wx:elif="{{status =='2'}}" class='order-status-msg'>
+      <!-- 订单状态 -->
+      <view class='deal-status'>
+        <image src='../images/yifahuo.png' mode='aspectFit'></image>{{deliveryType == 0? '骑手配送中':'待买家提货'}}
+      </view>
+    </view>
+    <!-- 订单退款中 -->
+    <view wx:elif="{{status =='6'}}" class='order-status-msg'>
+      <!-- 订单状态 -->
+      <view class='deal-status'>
+        <image src='../images/dengdaifukuan.png' mode='aspectFit'></image>退款中
+      </view>
+    </view>
+    <!-- 订单退款通过 -->
+    <view wx:elif="{{status =='7'}}" class='order-status-msg'>
+      <!-- 订单状态 -->
+      <view class='deal-status'>
+        <image src='../images/jiaoyichenggong.png' mode='aspectFit'></image>已退款
+      </view>
+    </view>
+    <!-- 订单已取消 -->
+    <view wx:elif="{{status =='5'}}" class='order-status-msg'>
+      <!-- 订单状态 -->
+      <view class='deal-status'>
+        <image src='../images/quxiaodingdan.png' mode='aspectFit'></image>订单已取消
+      </view>
+      <!-- <view class='explain'>订单已取消 目前版本退款流程走线下,有疑问请联系商家 -->
+    </view>
+    <view class="peisong" wx:if="{{deliveryModeText}}">{{deliveryModeText}}</view>
+  </view>
+</view>
+<!-- 订单店铺信息 -->
+<view class='order-dom '>
+  <view class='shopName'>{{orderDetailData.shopName}}
+    <image src='../images/shangjia_zhengjia.png' mode='aspectFit'></image>
+  </view>
+  <view class='dom-li' wx:for="{{orderDetailList}}" wx:key="{{item.goodsNo}}">
+    <view class='li-left goods-img'>
+      <image src='{{item.goodsImg}}'></image>
+    </view>
+    <view class='li-right goods-msg'>
+      <view class='li-rt-shop'>{{item.goodsName}}</view>
+      <view class='li-rt-size'>
+        <text wx:if="{{item.specValue != null}}">{{item.specValue}}</text>
+        <text>x{{item.num}}</text>
+      </view>
+      <view class='li-rt-price'>￥{{item.price}}</view>
+    </view>
+  </view>
+  <view class='dom-li-shop'>
+    <view>商品总价</view>
+    <view>￥{{orderDetailData.goodsAllPrice}}</view>
+  </view>
+  <view class='dom-li-shop'>
+    <view>包装费</view>
+    <view>￥{{orderDetailData.packFee}}</view>
+  </view>
+    <view class='dom-li-shop'>
+    <view>配送费</view>
+    <view>￥{{orderDetailData.fare}}</view>
+  </view>
+  <view class='dom-li-shop'>
+    <view>优惠减免</view>
+    <view>-￥{{orderDetailData.voucherPrice}}</view>
+  </view>
+  <view class='shop-goods-price'>实付款
+    <text>￥{{orderDetailData.price}}</text>
+  </view>
+</view>
+<!-- 订单来源 -->
+<view class="order-dom" wx:if="{{orderType != 0}}">
+  <view class="order-detail-title">订单来源:{{orderTypeName}}</view>
+</view>
+<!-- 配送信息 -->
+<view class="order-dom" wx:if="{{deliveryType == 0 }}">
+  <view class='order-border'></view>
+  <view class='order-detail-title'>配送信息</view>
+  <view class='clear'></view>
+  <view class='order-detail-li'>配送方式:{{orderDetailData.deliveryModeText}}</view>
+  <view class='order-detail-li'>期望时间:{{orderDetailData.hopeTime}}</view>
+  <view class='order-detail-li'>配送地址:{{orderDetailData.deliveryAddress}}</view>
+  <view class='order-detail-li' wx:if="{{status == 1}}">配送骑手:{{(orderDetailData.deliveryMode ==2) ? '暂无分配骑手' : orderDetailData.distributionRiders}}</view>
+  <view class='order-detail-li' wx:else>配送骑手:{{orderDetailData.distributionRiders}}</view>
+</view>
+<!-- 自提信息 -->
+<view class="order-dom" wx:if="{{deliveryType == 1 }}">
+  <view class='order-border'></view>
+  <view class='order-detail-title'>自提信息</view>
+  <view class='clear'></view>
+  <view class='order-detail-li'>自提时间:{{orderDetailData.pickUpTime}}</view>
+  <view class='order-detail-li'>预留电话:{{orderDetailData.telephone}}</view>
+  <view class='order-detail-li'>商家地址:{{orderDetailData.deliveryAddress}}</view>
+</view>
+<!-- 订单信息 -->
+<view class='order-dom'>
+  <view class='order-border'></view>
+  <view class='order-detail-title'>订单信息</view>
+  <view class='clear'></view>
+  <view class="order-detail-li" wx:if="{{orderDetailData.remark}}">订单备注:{{orderDetailData.remark}}</view>
+  <view class='order-detail-li'>订单编号:{{orderDetailData.orderNo}}</view>
+  <view class='order-detail-li' wx:if="{{status != '0' && orederType == 0 }}">支付方式:在线支付-{{orderDetailData.payTypeText}}支付</view>
+  <view class='order-detail-li' wx:if="{{status != '0' && orederType == 0 }}">支付交易号:{{orderDetailData.tranNo}}</view>
+  <view class='order-detail-li'>下单时间:{{orderDetailData.orderTime}}</view>
+  <view class='order-detail-li' wx:if="{{status != '0' && orederType == 0 }}">付款时间:{{orderDetailData.tranDate}}</view>
+  <view class='order-detail-li' wx:if="{{status != '0' && status != '1' && status != '5' && deliveryType == 0 &&orderDetailData.deliveryDate!=null}}">配送时间:{{orderDetailData.deliveryDate}}</view>
+  <!-- <view class='order-detail-li' wx:if="{{status == '3' || status == '4'}}">完成时间:{{orderDetailData}}</view> -->
+</view>
+<!-- </view> -->
+<!---推荐 猜你喜欢-->
+<view class='recommend'>
+  <view class='recommend-title'>
+    <image class='icon-border icon-left' src='../images/shoppingcar_icon3.png'></image>
+    <view class='icon-img'>
+      <image src='../images/like_help.png'></image>
+    </view>
+    <view>猜你喜欢</view>
+    <image class='icon-border' src='../images/shoppingcar_icon3.png'></image>
+  </view>
+  <view class='rec-ul'>
+    <block wx:for="{{likedata}}" wx:key='index'>
+      <view class='rec-li' bindtap='toGoodsDetails' data-goodsNo='{{item.goodsNo}}'>
+        <view class='help-li-img'>
+          <image src='{{item.imgPath}}'></image>
+        </view>
+        <view class='rec-li-tit'>{{item.goodsName}}</view>
+        <view class='rec-money'>￥{{filters.toFix(item.price - item.profit * vipRate)}}</view>
+        <view class='rec-nomoney'>￥{{item.price}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 状态操作 判断状态显示不同操作 -->
+<view class='handle-bootom'>
+  <view class='btn-gray' wx:if="{{status == 4||status==5}}" bindtap="delHandle">删除订单</view>
+  <view class='btn-gray' wx:if="{{status == 0 && orderType =='0'}}" bindtap="handleCancel">取消订单</view>
+  <view class='btn-gray' wx:if="{{status == 1}}" bindtap="handleRemind">提醒发货</view>
+  <view class='btn-gray btn-color' wx:if="{{status == 3}}" bindtap="evaluate">立即评价</view>
+  <view class='btn-gray btn-color' wx:if="{{status == 0}}" bindtap="handlePay">付款</view>
+  <view class='btn-gray btn-color' wx:if="{{status == 2}}" bindtap="affirm">确认收货</view>
+  <view class='btn-gray' wx:if="{{allowRefunds&&orderType==0}}" bindtap="gorefund">申请退款</view>
+                                                                      <!-- 去退款详情的 -->
+  <view class='btn-gray' wx:if="{{status == 6}}" bindtap="gorefundss">退款进度</view>
+                                                                    <!-- 去退款进度的  -->
+  <view class='btn-gray' wx:if="{{status == 7}}" bindtap="gorefundsss">退款进度</view>
+  <!-- <button open-type="share" class='btn-gray btn-color'>代言返佣</button> -->
+</view>
+<!-- 判断如果订单有多个商品 代言购商品展示和选择 -->
+<view class="shareSP {{ isShareTrue ? 'isShareShow ' :'isShareHide '}}">
+  <view class='shareContent '>
+    <scroll-view scroll-y style='max-height:280px ' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <button open-type='share'>
+        <view class='shareText ' wx:for="{{orderDetailList}}" wx:key="{{item.goodsNo}}">
+          <view class='shareleft '>
+            <image mode='scaleToFill' src='{{item.goodsImg}}'></image>
+          </view>
+          <view class='shareright '>
+            {{item.goodsName}}
+          </view>
+        </view>
+      </button>
+    </scroll-view>
+    <image src='../images/remove.png ' class='shareHide ' bindtap='hideShare'></image>
+  </view>
+</view>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

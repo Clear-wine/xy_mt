@@ -1,0 +1,19 @@
+<view class="top">
+  <view class="top-yi">{{commission}}</view>
+  <view class="top-er">代言金额</view>
+  <navigator url="/pages/agent-child/pages/drawings/drawings">
+  <view class="top-san">
+    <text>去提现</text>
+  </view>
+</navigator>
+  <view class="top-si"></view>
+</view>
+<view class="biaoti">代言记录</view>
+<view class="list" wx:for="{{recordData}}" wx:key="{{index}}">
+  <image src="{{item.imgPath}}"></image>
+  <view class="list-center">
+    <view class="list-name">{{item.activityName}}</view>
+    <view class="list-time">{{item.endDate}}</view>
+  </view>
+  <view class="list-right">+{{item.brokeragePrice}}</view>
+</view>

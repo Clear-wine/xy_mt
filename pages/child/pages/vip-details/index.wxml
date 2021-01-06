@@ -1,0 +1,59 @@
+<scroll-view scroll-y class='tupian'>
+  <view class="top">
+    <image wx:if='{{code==1}}' src="../images/putong.png"></image>
+    <image wx:if='{{code==2}}' src="../images/huangjin.png"></image>
+    <image wx:if='{{code==3}}' src="../images/bajin.png"></image>
+    <image wx:if='{{code==4}}' src="../images/heijin.png"></image>
+    <view class="top2">
+      <view class="yi {{code==4?'yi2':''}}">
+        <image wx:if='{{code==1}}' src="../images/vip1.png"></image>
+        <image wx:if='{{code==2}}' src="../images/vip2.png"></image>
+        <image wx:if='{{code==3}}' src="../images/vip3.png"></image>
+        <image wx:if='{{code==4}}' src="../images/vip4.png"></image>
+        {{gradeText}}
+      </view>
+      <view class="er {{code==4?'yi2':''}}">{{toUpgradeText}}</view>
+      <view class="san">
+        <text>{{obj.rule*100}}%</text>
+        <image src="../images/zhixian.png"></image>
+        <text>会员分佣</text>
+      </view>
+      <view class="san san2">
+        <text>{{obj.rule*100}}%</text>
+        <image src="../images/zhixian.png"></image>
+        <text>分享可得首单分佣</text>
+      </view>
+      <view class="san san3">
+        <text>无限次</text>
+        <image src="../images/zhixian.png"></image>
+        <text>包邮特权</text>
+      </view>
+        <!-- 按钮 -->
+      <button class="fxtp" open-type='share' data-like="1">分享小程序</button>
+      <button class="fxtp fxlj" open-type='share' data-like="2">分享好友</button>
+    </view>
+  </view>
+  <view class="center">
+    <image src="../images/lv1.png"></image>
+    <image src="../images/lv2.png"></image>
+    <image src="../images/lv3.png"></image>
+    <image src="../images/lv4.png"></image>
+  </view>
+  <view class="bottom-yi">会员级别介绍</view>
+  <view class="bottom-er">普通会员: 注册账号即为普通会员</view>
+  <view class="bottom-san">
+    <text>黄金会员:累积邀请({{obj2.number}}人)</text>
+    <image src="../images/zhixian.png"></image>
+    <text>分佣金额{{obj2.rule*100}}%</text>
+  </view>
+  <view class="bottom-san">
+    <text>白金会员:累积邀请({{obj3.number}}人)</text>
+    <image src="../images/zhixian.png"></image>
+    <text>分佣金额{{obj3.rule*100}}%</text>
+  </view>
+  <view class="bottom-san bottom-san2">
+    <text>黑金会员:累积邀请({{obj4.number}}人)</text>
+    <image src="../images/zhixian.png"></image>
+    <text>分佣金额{{obj4.rule*100}}%</text>
+  </view>
+</scroll-view>

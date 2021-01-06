@@ -1,0 +1,53 @@
+<!--pages/child/pages/refund/refund.wxml-->
+<view class='refund'>
+  <view class='refund-list'>
+    <view class='list-head'>
+      <image src='../images/store_entrance.png'> </image>
+      鲜果时光水果店
+      <image class='toshop' src='../images/shoppingcar_icon1.png'></image>
+    </view>
+    <view class='list-center'>
+      <view class='list-center-l'>
+        <image src='../images/cp-banner.jpg'></image>
+      </view>
+      <view class='list-center-r'>
+        <view class='title'>鲜榨哈密瓜鲜榨哈密瓜和斤斤计较军军军军军军军哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+        <view class='ident'>颜色分类:便携款-黑色</view>
+        <view class='num'>x1</view>
+      </view>
+    </view>
+    <view class='list-bottom'>
+      <view class='list-bottom-l'>
+        <image src='../images/refund_1.png'></image>
+        <text>退款退货</text>
+        <text>提款成功</text>
+      </view>
+      <navigator class='list-bottom-r' url=''> 查看详情</navigator>
+    </view>
+  </view>
+  <view class='refund-list'>
+    <view class='list-head'>
+      <image src='../images/store_entrance.png'> </image>
+      鲜果时光水果店
+      <image class='toshop' src='../images/shoppingcar_icon1.png'></image>
+    </view>
+    <view class='list-center'>
+      <view class='list-center-l'>
+        <image src='../images/cp-banner.jpg'></image>
+      </view>
+      <view class='list-center-r'>
+        <view class='title'>鲜榨哈密瓜鲜榨哈密瓜和斤斤计较军军军军军军军哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+        <view class='ident'>颜色分类:便携款-黑色</view>
+        <view class='num'>x1</view>
+      </view>
+    </view>
+    <view class='list-bottom'>
+      <view class='list-bottom-l'>
+        <image src='../images/refund_1.png'></image>
+        <text>退款退货</text>
+        <text>提款成功</text>
+      </view>
+      <navigator class='list-bottom-r' url='../refund-details/refund-details'> 查看详情</navigator>
+    </view>
+  </view>
+</view>

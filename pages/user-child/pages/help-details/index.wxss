@@ -1,0 +1,4 @@
+/* pages/user-child//pages/help-details/index.wxss */
+rich-text{
+  width: 100vw;
+}

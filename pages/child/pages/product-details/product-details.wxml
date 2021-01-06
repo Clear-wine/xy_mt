@@ -1,0 +1,209 @@
+<wxs module="filters" src="../../../../utils/number.wxs">
+</wxs>
+<!-- 导航栏 -->
+<view class='nav' style='height:{{navH}}px'>
+  <view class='title_icon'>
+    <image src='../images/toback.png' mode='aspectFit' class='back' bindtap='navBack'></image>
+<!-- 
+    <view></view>
+    <image src='../images/home.png' mode='aspectFit' class='home' bindtap='navHome'></image> -->
+  </view>
+  <view class='title_text'>
+    商品详情
+  </view>
+</view>
+<!-- 内容 -->
+<view class='detail-cp' style='padding-top:{{navH}}px'>
+  <swiper style="width:{{windowWidth}}px;height:{{windowWidth}}px" class="swiperView" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{data.imgList}}">
+      <swiper-item>
+        <view class='cp-banner'>
+          <image mode="aspectFill" src='{{item}}' data-src="{{item}}" catchtap="previewImg"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class='cp-content' style="padding-bottom:{{height}}px">
+    <view class='cp-dom'>
+      <view class='cp-title'>{{data.goodsName}}</view>
+      <view class='cp-span'>
+        <text>月销{{data.salesNum}}</text>
+        <text>好评率{{data.favorableComment}}%</text>
+        <!-- <text>配送约39分钟</text> -->
+      </view>
+      <view class='cp-money'> ￥{{vipRate != undefined&&vipGrade!=1? filters.toFix(data.price - data.profit * vipRate) : data.price}}</view>
+      <view class='no-cp-money' wx:if="{{vipRate&&vipGrade!=1}}"> ￥{{data.price}}</view>
+      <view class="addCar" bindtap='addToTrolley'>
+        <image src='../images/add_1.png'></image>
+        加入购物车</view>
+      <!-- <view class="food-num {{showView? 'hide':'show'}}">
+        <image class='add' bindtap='addNum' src='../images/add.png'></image>
+        <text>{{fnum}}</text>
+        <image class='remove' bindtap='removeNum' src='../images/reduce.png'></image>
+      </view> -->
+    </view>
+    <!--猜你喜欢-->
+    <view class='cp-dom'>
+      <view class='like-title'>
+        猜你喜欢
+      </view>
+      <view class='like-ul'>
+        <block wx:for="{{data.youLikeList}}">
+          <view class='like-features' catchtap="handlelikeDetail" data-goodsNo="{{item.goodsNo}}">
+            <view class='li-img'>
+              <image mode="aspectFill" src='{{item.imgPath}}'></image>
+            </view>
+
+            <view class='li-title'>{{item.goodsName}}</view>
+            <view class='li-money'>￥{{item.price}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!--产品评价-->
+    <view class='cp-dom'>
+      <view class="disEva">
+        <view class='evaluate'>
+          <text class='eva-pro'>产品评价</text>
+          <text class='eva-num'>(好评率{{data.favorableComment}}%)</text>
+        </view>
+        <view class='eva-all' bindtap="checkEva">
+          {{data.commentList.length}}条评论
+          <image src='../images/index_arrows.png'></image>
+        </view>
+      </view>
+
+      <block wx:for="{{data.commentList}}" wx:if="{{data.commentList.length !=  0}}">
+        <view class='use-list'>
+          <view class='user-img'>
+            <image src='{{item.userHead}}'></image>
+          </view>
+          <view class='user-box'>
+            <view class='user-name'>{{item.nickName}}</view>
+            <view class='user-title'>{{item.content}}</view>
+          </view>
+          <view class='user-time'>{{item.createDate}}</view>
+        </view>
+      </block>
+      <view wx:if="{{data.commentList.length ==0}}" class="noeva">该商品还没有评价!</view>
+    </view>
+  </view>
+  <!--结算-->
+  <view class="footer-wrap">
+    <view class="footer_upto">满{{data.distPrice}}元起送</view>
+    <view class="footer {{cost!=0?'active':''}}" hidden='{{isgift}}'>
+      <view class="howMuch">
+        <view class="img">
+          <image bindtap='handleShow' src="{{ cost!=0 ? '/pages/images/gowuche2.png' : '/pages/images/gowuche1.png'}}" style="width:85rpx;height:86rpx;" ></image>
+          <view class="cartNum" wx:if="{{zznum !== 0}}">
+            {{zznum !== 0 ? zznum : ''}}
+          </view>
+        </view>
+        <view class="cost" hidden="{{cost==0}}">￥{{cost}}</view>
+        <view class="inline-span">
+          <view class="free">{{data.deliveryPrice ==0 ? '免配送费': '配送费' + data.deliveryPrice}}</view>
+          <view class='pickUp' wx:if="{{cost!=0}}">{{data.deliveryType !=0 ? '支持自提':''}}</view>
+        </view>
+
+      </view>
+      <!-- <view class="pay {{cost >= shopGoodsDetail.distPrice ?'pay-active':''}}" bindtap="payOrder">{{cost >= shopGoodsDetail.distPrice ?'选好了':shopGoodsDetail.distPrice+ '元起送'}}</view> -->
+         <view  class="pay {{cost >= data.distPrice ?'pay-active':''}}" bindtap="payOrder">选好了</view>
+    </view>
+  </view>
+</view>
+<!-----弹出层 优店购物车------>
+<view class='mask-layer' wx:if="{{showPop2}}" bindtap='hideModalCart'></view>
+<view class='pop-add-cart pop-common pop-cart' wx:if="{{showPop2}}" animation='{{animationData}}'>
+  <view class='modaHeader row'>
+    <view class='modal-title'>已选商品</view>
+    <view class='modal-img' bindtap="clearCart">
+      <image src='../images/delete_all.png'></image>
+      清空购物车
+    </view>
+  </view>
+  <scroll-view class='scrollBody' scroll-y='true' style='height:50%;'>
+    <view class='modal-body-li' wx:for="{{selectedArr}}" wx:key='{{item}}'>
+      <view class='body-li-title'>{{item.goodsName}}</view>
+      <view class='body-li-money'>￥{{item.price}}</view>
+      <view class='body-li-mun'>
+        <view class="remove" bindtap="removeCartNum" hidden="{{item.num==0}}" data-item="{{item}}">-</view>
+        <text class="text" hidden="{{item.num==0}}">{{item.num}}</text>
+        <view class="add" bindtap="addCartNum" data-item="{{item}}">+</view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 结算 -->
+  <view class="footer-wrap">
+  <view class="footer-pack">包装费:{{packprice}}</view>
+    <view class="footer_upto">满{{shopDeatil.distPrice}}元起送</view>
+    <view class="footer {{cost!=0?'active':''}}">
+      <view class="howMuch">
+        <view class="img" style="background:{{cost!=0?'#FFD161':'#E7E7E7'}};">
+        <image bindtap='handleShow' src="{{ cost!=0 ? '/pages/images/gowuche2.png' : '/pages/images/gowuche1.png'}}" style="width:85rpx;height:86rpx;" ></image>
+            <view class="cartNum" wx:if="{{selectedArr.length !== 0}}">
+            {{selectedArr.length !== 0 ? selectedArr.length : ''}}
+          </view>
+        </view>
+        <view class="cost" hidden="{{cost==0}}">￥{{cost}}</view>
+        <view class="inline-span">
+          <view class="free">{{data.deliveryPrice ==0 ? '免配送费': '配送费'+data.deliveryPrice}}</view>
+          <view class='pickUp' wx:if="{{cost!=0}}">{{data.deliveryType !=0 ? '支持自提':''}}</view>
+        </view>
+
+      </view>
+      <view class="pay {{cost >= shopGoodsDetail.distPrice ?'pay-active':''}}" bindtap="payOrder">{{cost >= data.distPrice ?'选好了':data.distPrice+ '元起送'}}</view>
+    </view>
+  </view>
+</view>
+<!-- 弹出层 优店选规格 -->
+<view class='mask-layer' wx:if="{{showPop}}" bindtap='hideModal'></view>
+<view class='pop-add-cart pop-common' wx:if="{{showPop}}" animation='{{animationData}}'>
+  <view class='spinfo'>
+    <view class='spinfo-img'>
+      <image mode='scaleToFill' src='{{selectedIncludeGroup ? selectedIncludeGroup[0].makeBeanList[0].specImg : imglist[0].imgPath}}' bindtap="handleShowImg"></image>
+    </view>
+    <view class='spinfo-content'>
+      <view class='money'>￥{{selectedIncludeGroup == undefined ? filters.toFix(includeGroup[0].price) :(vipGrade == '1'? filters.toFix(selectedIncludeGroup[0].price) : filters.toFix(selectedIncludeGroup[0].price - selectedIncludeGroup[0].profit *vipRate))}}</view>
+
+      <view class='selected_size' wx:if="{{specValue}}">已选规格:{{selValue}}</view>
+      <view class='selected_size' wx:else>请选择:{{selName}}</view>
+      <view class='spnoNum'>
+        <text>库存:{{includeGroup[0].num == null ?  '999+' : includeGroup[0].num}}</text>
+        <!-- <text>商品编码:{{imglist[0].merchantNo}}</text> -->
+      </view>
+    </view>
+    <view class='spinfo-delete' bindtap='handleHide'>
+      <image mode='aspectFit' src='../images/cha.png'></image>
+    </view>
+  </view>
+  <view class='spinfo-size'>
+    <scroll-view style='height:255px' scroll-y="true">
+      <view class="commodity_attr_list">
+        <!--每组属性-->
+        <view class="attr_box" wx:for="{{specList}}" wx:for-item="attrValueObj" wx:for-index="attrIndex">
+          <!--属性名-->
+          <view class="attr_name">{{attrValueObj.specName}}</view>
+          <!--属性值-->
+          <view class="attr_value_box">
+            <!--每个属性值-->
+            <view class="attr_value {{attrIndex== firstIndex || attrValueObj.attrValueStatus[valueIndex] ? (item.specValue == attrValueObj.selectedValue ?'attr_value_active':''):'attr_value_disabled'}}" bindtap="selectAttrValue" data-key="{{attrValueObj.specName}}"
+              data-index="{{attrIndex}}" wx:for="{{attrValueObj.specAttrList}}" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}" data-selectedvalue="{{attrValueObj.selectedValue}}" data-value="{{item.specValue}}" wx:for-index="valueIndex">{{item.specValue}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="selectCount">
+        <view class="countname">数量</view>
+        <view class="countright">
+          <text class="{{minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
+          <input type='number' bindchange="bindManual" value='{{chenum}}'></input>
+          <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='showFooter toolbar'>
+    <view class="chosen" bindtap="handleChosen">选好了</view>
+  </view>
+</view>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

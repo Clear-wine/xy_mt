@@ -1,0 +1,168 @@
+/* pages/coupon/coupon.wxss */
+
+/* 
+优惠卷头部导航
+ */
+.couponNav{
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+}
+.title {
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 3%;
+}
+
+.titleSel {
+  color: #999;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleSel-show {
+  color: #ffa729;
+}
+
+.titleUnsel {
+  color: #ffa729;
+  font-size: 30rpx;
+}
+
+.headerLineSel {
+  background: #ffa729;
+  height: 6rpx;
+  width: 100%;
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.headerLineUnsel {
+  background: #fff;
+  height: 6rpx;
+  width: 40rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+/* 
+ swiper
+ */
+ swiper{
+   height: 100vh;
+ }
+/*
+优惠卷内容 
+ */
+
+.coupon {
+  width: 100%;
+  margin-top: 2%;
+}
+
+.coupon-ul {
+  width: 100%;
+}
+
+.coupon-li {
+  margin: auto;
+  width: 95%;
+  position: relative;
+}
+
+.coupon-img {
+  width: 100%;
+  height: 240rpx;
+}
+
+.coupon-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.coupon-con {
+  position: absolute;
+  top: 14%;
+  left: 6%;
+  width: 100%;
+}
+
+.con-li {
+  float: left;
+  margin: 0 4%;
+  font-size: 26rpx;
+}
+
+.coupon-money {
+  font-size: 42rpx;
+  color: #ff5543;
+}
+
+.coupon-title {
+  color: #ff5543;
+}
+
+.con-span {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+}
+
+.coupon-day {
+  font-size: 22rpx;
+  text-align: center;
+  margin: 2% 0;
+  color: #f80;
+}
+
+.con-btn {
+  position: absolute;
+  right: 10%;
+  top: 25%;
+}
+
+.coupon-btn {
+  color: #fff;
+  background: #f80;
+  border-radius: 50rpx;
+}
+
+.coupon-btn::after {
+  border: none;
+}
+
+.coupon-request {
+  position: absolute;
+  bottom: 12%;
+  left: 6%;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.lose {
+  margin-left: 4%;
+  font-size: 28rpx;
+}
+
+.lose-img {
+  width: 27rpx;
+  height: 14rpx;
+}
+
+.con-btn image {
+  width: 168rpx;
+  height: 133rpx;
+}
+/* 已使用 */
+.coupon-hide{
+  color: #000000;
+}
+.coupon-btn-used{
+  background-color: #cccccc;
+}

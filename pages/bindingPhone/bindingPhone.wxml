@@ -1,0 +1,28 @@
+<!--pages/bindingPhone/bindingPhone.wxml-->
+<!--绑定用户电话-->
+
+<view class='content'>
+  <view class='login-img'>
+    <image mode='aspectFit'  src='../images/banner.png'></image>
+  </view>
+  <view class='user-form'>
+    <view class='userInput'>
+      <view class='icon'>
+        <image src='../images/shoujihao.png'></image>
+        <text>手机号:</text>
+      </view>
+      <input placeholder='请输入手机号' bindinput='getPhoneValue' value='{{phone}}' type='number' maxlength='11'></input>
+    </view>
+    <view class='userInput'>
+      <view class='icon'>
+        <image src='../images/yanzhengma.png'></image>
+        <text>验证码:</text>
+      </view>
+      <input class='code' placeholder='请输入验证码' bindinput='getCodeValue' value='{{code}}' type='number'></input>
+      <button class='codeBtn' bindtap='getVerificationCode' disabled="{{isDisabled}}">{{codename}}</button>
+    </view>
+    <view class='btn'>
+      <button loading="{{loading}}" disabled='{{disableds}}' bindtap='userBind' class='suc-btn'>下一步</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<template name="search">
+  <view class='swiper-tab-list' bindtap='tabFun'>
+    <!-- 综合 -->
+    <view class="tab-item {{tabArr.curHdIndex == '1' ? 'selectItem' :''}}" data-id='1' id='tab-hd01' data-sortType="1">综合排序</view>
+    <!-- 价格 -->
+    <view class="tab-item {{tabArr.curHdIndex == '2' ? 'selectItem' :''}}" data-id='2' id='tab-hd01' data-sortType="2">价格
+      <!-- 向上的三角形 -->
+      <view class="triangle-up {{tabArr.ab == '4' ? 'san' :''}}"></view>
+      <!-- 向下的三角形 -->
+      <view class="triangle-down {{tabArr.ab == '5' ? 'san' :''}}"></view>
+    </view>
+    <!-- 销量 -->
+    <view class="tab-item {{tabArr.curHdIndex == '3' ? 'selectItem' :''}}" data-id='3' id='tab-hd02' data-sortType="3">销量优先
+    </view>
+  </view>
+</template>

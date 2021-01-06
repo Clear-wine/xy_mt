@@ -1,0 +1,146 @@
+<wxs module="filters" src="../../utils/number.wxs"></wxs>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>
+<image src="../images/userbj.png" class="bj"></image>
+<view class="body" style="top:{{height}}px">
+  <!-- 用户信息 -->
+  <view class="top">
+    <image wx:if="{{userInfo.headImg == null}}" src='../images/default_head_portrait.png' class="touxiang"></image>
+    <image wx:else src='{{userInfo.headImg}}' class="touxiang"></image>
+    <view class="top-yi">
+      <view>{{userInfo.nickName}}</view>
+      <image wx:if="{{userInfo.grade==1}}" src="../images/huiyuan1.png" bindtap="govip"></image>
+      <image wx:if="{{userInfo.grade==2}}" src="../images/huiyuan2.png" bindtap="govip"></image>
+      <image wx:if="{{userInfo.grade==3}}" src="../images/huiyuan3.png" bindtap="govip"></image>
+      <image wx:if="{{userInfo.grade==4}}" src="../images/huiyuan4.png" bindtap="govip"></image>
+    </view>
+    <navigator url='/pages/user-child/pages/browsing-history/index'>
+    <view class="top-er zuji">
+      <view class="top-er-top">{{userInfo.viewNum}}</view>
+      <view class="top-er-bottom">我的足迹</view>
+    </view>
+    </navigator>
+    <navigator url='/pages/user-child/pages/enshrine/index'>
+    <view class="top-er shoucang">
+      <view class="top-er-top">{{userInfo.collectionNum}}</view>
+      <view class="top-er-bottom">商品收藏</view>
+    </view>
+    </navigator>
+  </view>
+  <!-- 账户金额 -->
+  <view class="jine">
+    <navigator url="/pages/user-child/pages/agent/agent">
+      <image src="/pages/images/zhanghu.png" class="jine-tu"></image>
+      <view class="jine-yi">
+        {{filters.toFix(account.total)}}
+        <text>元</text>
+      </view>
+      <view class="jine-er">账户余额</view>
+    </navigator>
+    <navigator url="/pages/agent-child/pages/drawings/drawings">
+      <image src="/pages/images/ketixian.png" class="jine-tu"></image>
+      <view class="jine-yi">
+        {{filters.toFix(account.available)}}
+        <text>元</text>
+      </view>
+      <view class="jine-er">可提现金额</view>
+    </navigator>
+    <navigator url="/pages/user-child/pages/mycommission/index?commission={{account.commission}}">
+      <image src="/pages/images/daiyan.png" class="jine-tu"></image>
+      <view class="jine-yi">
+        {{filters.toFix(account.commission)}}
+        <text>元</text>
+      </view>
+      <view class="jine-er">代言佣金</view>
+    </navigator>
+    <navigator url='/pages/coupon/coupon'>
+      <image src="/pages/images/youhuiquan.png" class="jine-tu"></image>
+      <view class="jine-yi">
+        {{account.coupon}}
+        <text>张</text>
+      </view>
+      <view class="jine-er">优惠券</view>
+    </navigator>
+  </view>
+  <!-- 我的订单 -->
+  <view class="dingd">
+    <navigator class="dingd-top" url='../order/order?index=0&status=-1'>
+      我的订单
+      <text>全部订单</text>
+      <image src="../images/index_arrows.png"></image>
+    </navigator>
+    <view class='user-order'>
+      <navigator class='user-order-li' url='../order/order?index=2&status=0'>
+        <image class='order-img' mode='widthFix' src='../images/obligation.png'></image>
+        <view class='order-title'>待付款</view>
+        <view class="{{orderNum.waitPay===0 ?'':'orderNum'}}">{{orderNum.waitPay===0 ?'':orderNum.waitPay}}</view>
+      </navigator>
+      <navigator class='user-order-li' url='../order/order?index=3&status=1'>
+        <image class='order-img' mode='widthFix' src='../images/daifahuo.png'></image>
+        <view class='order-title'>待发货</view>
+        <view class="{{orderNum.waitSendGoods===0 ? '' : 'orderNum'}}">{{orderNum.waitSendGoods===0 ? '' : orderNum.waitSendGoods}}</view>
+      </navigator>
+      <navigator class='user-order-li' url='../order/order?index=4&status=2'>
+        <image class='order-img' id="order-img1" mode='widthFix' src='../images/daishouhuo.png'></image>
+        <view class='order-title'>待收货</view>
+        <view class="{{orderNum.waitReceiveGoods === 0 ?  '':'orderNum'}}">{{orderNum.waitReceiveGoods === 0 ? '':orderNum.waitReceiveGoods}}</view>
+      </navigator>
+      <navigator class='user-order-li' url="/pages/user-child/pages/evaluate/evalute">
+        <image class='order-img' mode='widthFix' src='../images/daipingjia.png'></image>
+        <view class='order-title'>评价</view>
+        <view class="{{orderNum.waitEvaluateGoods ===0 ? '': 'orderNum'}}">{{orderNum.waitEvaluateGoods ===0 ? '':orderNum.waitEvaluateGoods}}</view>
+      </navigator>
+      <navigator class='user-order-li' url="/pages/refund-child/pages/refund-list/index">
+        <image class='order-img' mode='widthFix' src='../images/my_refund.png'></image>
+        <view class='order-title'>退款</view>
+        <view class="{{orderNum.waitRefundeGoods ===0 ? '' :'orderNum'}}">{{orderNum.waitRefundeGoods ===0 ? '' :orderNum.waitRefundeGoods}}</view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 下方链接 -->
+  <view class="bottom">
+    <navigator url="/pages/user-child/pages/agent/agent">
+    <view class="bottom-list"> 
+      <view class="list-left">我的团队</view>
+      <view class="list-right">
+        明细
+        <image src="../images/index_arrows.png"></image>
+      </view>
+    </view>
+    <view class="bottom-td">
+      <view class="td-left">
+        {{team.totalNum}}
+        <text>人</text>
+      </view>
+      <view class="td-right">
+        <text>
+          <text class="td-right-yi">今日新增:</text>
+          <text class="td-right-er">{{team.todayNum}}</text>
+          <text class="td-right-san"></text>
+        </text>
+        <text>
+          <text class="td-right-yi">昨日新增:</text>
+          <text class="td-right-er">{{team.yesterdayNum}}</text>
+        </text>
+      </view>
+    </view>
+    </navigator>
+  </view>
+  <view class='user-shops'>
+        <view class="user-biaoti">工具与服务</view>
+        <navigator url='/pages/user-child/pages/activity/activity'>
+          <image src='../images/wodehuodong.png' class="user-tu"></image>
+          <view class="user-tux">我的活动</view>
+          <!-- <image class='user-list-add' src='../images/index_arrows.png'></image> -->
+        </navigator>
+        <navigator url='/pages/user-child/pages/help-center/index'>
+          <image src='../images/bangzhuzhongxin.png' class="user-tu"></image>
+          <view class="user-tux">帮助中心</view>
+          <!-- <image class='user-list-add' src='../images/index_arrows.png'></image> -->
+        </navigator>
+        <navigator url='/pages/user-child/pages/setting/setting'>
+          <image src='../images/shezhi.png' class="user-tu"></image>
+          <view class="user-tux">设置</view>
+          <!-- <image class='user-list-add' src='../images/index_arrows.png'></image> -->
+        </navigator>
+  </view>
+</view>

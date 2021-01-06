@@ -1,0 +1,25 @@
+<view class="body">
+  <view class="banner">
+    <image src="{{imgUrl}}"></image>
+  </view>
+  <view class="wang-center">
+    <view class="wang-shangp" wx:for="{{list}}" bindtap="godetails" data-nonum="{{item.goodsNo}}">
+      <image src="{{item.goodsImg}}"></image>
+      <view class="shangp-right">
+        <view class="right-yi">{{item.goodsName}}</view>
+        <view class="right-er">
+          <text wx:for="{{item.tag}}" wx:for-item="items">{{items}}</text>
+        </view>
+        <view class="right-san">
+          <view class="san-yi">￥{{item.price}}</view>
+          <view class="san-er">
+            <text class="san-er-yi">赚</text>
+            <text class="san-er-er">{{item.earn}}元</text>
+          </view>
+        </view>
+        <view class="right-si">{{item.sales}}人已购买</view>
+      </view>
+    </view>
+  </view>
+  <view class="jiazai">{{jiazai?'加载中......':'加载完毕'}}</view>
+</view>

@@ -1,0 +1,352 @@
+<!--index.wxml-->
+<wxs module="filters" src="../../utils/number.wxs"></wxs>
+<!--选择-->
+<view class='nav-heads'>
+	<view class='head'>
+		<view class='head-dom flex' style='padding-top:{{navHeight}}px;'>
+			<!--搜索框-->
+			<navigator url='/pages/search/pages/search-both/index' class='head-input flex-row-y-center'>
+				<image src='../images/magnifying_glass.png'></image>
+				<input type='text' disabled='disabled' placeholder='请输入商品、店铺、活动名称'></input>
+			</navigator>
+			<!--扫一扫-->
+			<view class='head-r' bindtap="scanCode">
+				<image src='../images/saoyisao.png'></image>
+			</view>
+		</view>
+	</view>
+	<!--导航条-->
+	<view class='nav-scroll' animation="{{ani}}">
+		<scroll-view class='scroll-view_H' scroll-x="true" scroll-left="{{scrollLeft}}" scroll-anchoring="true" overflow="scroll">
+			<block wx:for="{{section}}" wx:key="id">
+				<view class="box-container">
+					<text data-current="{{index}}" data-id='{{item.id}}' catchtap='handleTap' class="nav-name {{index == currentIndex ? 'nav-hover' :''}}">{{item.name}}</text>
+				</view>
+			</block>
+		</scroll-view>
+		<view class='self-add' animation="{{ani}}">
+			<view class='nav-img'>
+				<image src='../images/fenlei.png' bindtap='handleModel'></image>
+			</view>
+		</view>
+	</view>
+	<view class='pop-add-cart pop-common' wx:if="{{showPop}}">
+		<view class='header-list'>
+			<block wx:for="{{section}}" wx:key="section">
+				<view class='li-box' catchtap='handleTap' data-id='{{item.id}}' data-current="{{index}}">
+					{{item.name}}
+				</view>
+			</block>
+		</view>	
+	</view>
+</view>
+<!-----弹出层------>
+<view class='mask-layer' wx:if="{{showPop}}" bindtap='hideModal'></view>
+<swiper class='swiper-container' current="{{currentIndex}}" bindchange='pagechange' circular>
+	<!-- style='padding-top:{{headHeight + 10}}px' -->
+	<block wx:for="{{section}}" wx:key="index">
+		<swiper-item>
+			<scroll-view class="scroll-view_Y" enhanced='true' scroll-y="true" lower-threshold='200' upper-threshold="50" bindscrolltoupper="handleupper" bindscrolltolower="handlelower" bindscroll="gundong">
+				<!--  style="height:{{scrollHeight}}px;" -->
+				<view class="container" hidden="{{!showDialog}}">
+					<!--轮播-->
+					<view class='swiper'>
+						<swiper circular="true" class='swiper-box' current="{{lunboindex}}" indicator-dots="true" indicator-active-color="#0297ff" autoplay="true" interval="5000" duration="500">
+							<block wx:for="{{bannerList}}" wx:index="{{index}}" wx:key="index">
+								<swiper-item catchtap="bannerDetail" data-goodsNo="{{item.goodsNo}}" data-type="{{item.type}}" data-relation="{{item.relation}}" data-shopNo="{{item.shopNo}}" data-isDetail="{{item.isDetail}}" data-id="{{item.id}}">
+									<image mode='aspectFill' src="{{item.imgPath}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" lazy-load="true" />
+								</swiper-item>
+							</block>
+						</swiper>
+					</view>
+					<!-- 轮播 end-->
+					<view class='content' wx:if="{{activityMenuList}}">
+						<view class='cont-li' wx:for="{{activityMenuList}}" wx:key="index">
+							<view class='cont-img'>
+								<image src="{{item.icon}}" bindtap='handleProductlist' data-type='{{item.type}}'></image>
+							</view>
+							<view class='cont-tit'>{{item.name}}</view>
+						</view>
+					</view>
+					<!--壹叁头条 start-->
+					<view class='headline'>
+						<view class='headline-top'>
+							<view class='headline-l'>
+								<image src='../images/yisan_toutiao.png' mode='aspectFit'></image>
+							</view>
+							<swiper class='swiper-wrap' autoplay='{{true}}' interval='2000' vertical='{{true}}' circular='{{true}}'>
+								<swiper-item class='headline-c' wx:for="{{noticeList}}" wx:key="index" bindtap="handleitem" data-id="{{item.id}}">{{item.title}}</swiper-item>
+							</swiper>
+							<!-- <view class='headline-r'>
+                <image src='../images/icon2.png'></image>
+              </view> -->
+						</view>
+					</view>
+					<!-- 人气推荐 -->
+					<view class='helpShop' wx:if="{{popularList.length != 0&currentIndex==0}}">
+						<view class='help-img'>
+							<view class='help-left'>
+								<image src="../images/renqituijian.png"></image>
+							</view>
+							<view class='help-right' bindtap='goPopularity'>
+								<view class="gengduo gengduo1">
+									<view>每日更新</view>
+									<image src="../images/quanbu.png"></image>
+								</view>
+							</view>
+						</view>
+						<view class='wang-renqi'>
+							<scroll-view scroll-x="true">
+								<view class="renqi-shangp" wx:for="{{popularList}}" wx:key="popularlist" catchtap='toDetails' data-nonum="{{item.goodsNo}}">
+									<view class="renqi-shangp-top">
+										<image src="{{item.goodsImg}}" mode="aspectFill"></image>
+									</view>
+									<view class="shangp-bottom1-left">{{item.goodsName}}</view>
+									<view class="shangp-jiage">
+										<view class="shangp-bottom2">¥{{item.price}}</view>
+										<view class="shangp-bottom1-right">
+											<text class="bottom1-right1">赚</text>
+											<text class="bottom1-right2">{{item.earn}}元</text>
+										</view>
+									</view>
+								</view>
+							</scroll-view>
+						</view>
+					</view>
+					<!-- 附近活动 -->
+					<view class='helpShop' wx:if="{{activitylist.length != 0}}">
+						<view class='help-img'>
+							<view class='help-left'>
+								<image src="../images/fujinhuodong.png"></image>
+							</view>
+							<view class='help-right' bindtap='toNearby' data-type='-1'>
+								<view class="gengduo gengduo1">
+									<view>精选商家</view>
+									<image src="../images/quanbu.png"></image>
+								</view>
+							</view>
+						</view>
+						<view class="huodong">
+							<view class="wang-huodong" wx:for="{{activitylist}}" wx:key="activitylist" bindtap='handleDetail' data-activityType="{{item.activityType}}" data-activityNo="{{item.activityNo}}" data-type="{{item.shopType}}" data-goodsNo="{{item.goodsNo}}">
+								<image src="{{item.goodsImgPath}}" lazy-load="true" mode="aspectFill"></image>
+								<view class="huodong-center">
+									<view class="huodong-name">{{item.goodsName}}</view>
+									<view class="huodong-jiage">¥{{item.price}}</view>
+								</view>
+								<view class="huodong-jielong" wx:if='{{item.activityType==1}}'>助力价:￥{{item.lowPrice}}元</view>
+								<view class="huodong-jielong" wx:elif='{{item.activityType==2}}'>礼包价:￥{{item.giftPacksPrice}}元</view>
+								<view class="huodong-jielong" wx:elif='{{item.activityType==3}}'>代言佣金:￥{{item.commission}}元</view>
+								<view class="huodong-jielong" wx:elif='{{item.activityType==4}}'>接龙价:￥{{item.chainsHeadPrice}}元</view>
+								<view class="huodong-jielong" wx:elif='{{item.activityType==5}}'>拼团价:￥{{item.collagePrice}}元</view>
+							</view>
+						</view>
+					</view>
+					<!-- 热卖top3 -->
+					<view class="wang-remai" wx:if="{{hotBuyList.length!=0&currentIndex==0}}">
+						<view class="wang-remai-top">
+							<view class="wang-remai-top-left">
+								<image src="../images/remai.png"></image>
+							</view>
+							<view class="gengduo wang-remai-top-right" wx:if="{{hotBuyList.length>=3}}" bindtap='gohotsale'>
+								<view>抢更多好货</view>
+								<image src="../images/quanbu1.png"></image>
+							</view>
+						</view>
+						<view class="wang-remai-bottom" wx:for="{{hotBuyList}}" wx:key="hotBuyList" catchtap="handleDetail" data-type="{{item.type}}" data-activityNo="{{item.activityNo}}">
+							<view class="wang-shangping">
+								<view class="wang-shangping-left">
+									<image src="{{item.imgPath}}" mode="aspectFill"></image>
+								</view>
+								<view class="wang-shangping-right">
+									<view class="wang-name">
+										<view class="wang-name-left">{{item.activityName}}</view>
+										<view class="wang-name-right">NO.{{index+1}}</view>
+									</view>
+									<view class="wang-jiage">
+										<view class="wang-jiage-left">¥{{item.activityPrice}}</view>
+										<view class="wang-jiage-right">
+											<text class="jiage-right1">{{item.type==3?'赚':'省'}}</text>
+											<text class="jiage-right2">{{item.savePrice}}元</text>
+										</view>
+									</view>
+									<view class="rec-nomoney1" hidden='{{item.type==3}}'>原价{{item.price}}元</view>
+									<view class="wang-goumairen">{{item.sales}}人已购买</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<!--助力购-->
+					<view class='helpShop' wx:if="{{helpActivityList.length != 0}}">
+						<view class='help-img'>
+							<view class='help-left'>
+								<image src="../images/zhuligou.png"></image>
+							</view>
+							<view class='help-right' bindtap='zlhandleProductlist'>
+								<view class="gengduo">
+									<view>抢更多好货</view>
+									<image src="../images/quanbu.png"></image>
+								</view>
+							</view>
+						</view>
+						<view class='help-ul'>
+							<view class='help-li' wx:for="{{helpActivityList}}" wx:key="index" bindtap='zlhandleDetail' data-activityNo="{{item.activityNo}}">
+								<view class='help-li-img'>
+									<image src='{{item.imgPath}}' lazy-load="true" mode="aspectFill"></image>
+								</view>
+								<view class='help-li-tit'>{{item.name}}</view>
+								<view class='help-li-sum'>
+									<text>￥{{item.helpPrice}}</text>
+									<text class='help-li-nosum'>￥{{item.originalPrice}}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<!--大礼包-->
+					<view class='helpShop' wx:if="{{giftPacksActivityList.length != 0}}">
+						<view class='help-img'>
+							<view class='help-left'>
+								<image src="../images/dalibao.png"></image>
+							</view>
+							<view class='help-right' bindtap='lbhandleProductlist'>
+								<view class="gengduo">
+									<view>抢更多好货</view>
+									<image src="../images/quanbu.png"></image>
+								</view>
+							</view>
+						</view>
+						<view class='help-ul'>
+							<view class='help-li' wx:for="{{giftPacksActivityList}}" wx:key="index" bindtap='lbhandleDetail' data-activityNo="{{item.activityNo}}">
+								<view class='help-li-img'>
+									<image src='{{item.imgPath}}' lazy-load="true" mode="aspectFill"></image>
+								</view>
+								<view class='help-li-tit'>{{item.name}}</view>
+								<view class='help-li-sum'>
+									<text>￥{{item.price}}</text>
+									<text class='help-li-nosum'>￥{{item.originalPrice}}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<!--代言购-->
+					<view class='helpShop' wx:if="{{advertiseActivityList.length != 0}}">
+						<view class='help-img'>
+							<view class='help-left'>
+								<image src="../images/daiyangou.png"></image>
+							</view>
+							<view class='help-right' bindtap='dyhandleProductlist'>
+								<view class="gengduo">
+									<view>抢更多好货</view>
+									<image src="../images/quanbu.png"></image>
+								</view>
+							</view>
+						</view>
+						<view class='help-ul'>
+							<view class='help-li' wx:for="{{advertiseActivityList}}" wx:key="index" bindtap='dyhandleDetail' data-activityNo="{{item.activityNo}}">
+								<view class='help-li-img'>
+									<image src='{{item.imgPath}}' lazy-load="true" mode="aspectFill"></image>
+								</view>
+								<view class='help-li-tit'>{{item.name}}</view>
+								<view class='help-li-sum'>
+									<text>￥{{item.originalPrice}}</text>
+									<text class='help-li-nosum daiyan-jiage'>赚￥{{item.brokeragePrice}}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<!--拼团购-->
+					<view class='helpShop' wx:if="{{collageActivityList.length != 0}}">
+						<view class='help-img'>
+							<view class='help-left'>
+								<image src="../images/pintuangou.png"></image>
+							</view>
+							<view class='help-right' bindtap='pthandleProductlist'>
+								<view class="gengduo">
+									<view>抢更多好货</view>
+									<image src="../images/quanbu.png"></image>
+								</view>
+							</view>
+						</view>
+						<view class='help-ul'>
+							<view class='help-li' wx:for="{{collageActivityList}}" wx:key="index" bindtap='pthandleDetail' data-activityNo="{{item.activityNo}}">
+								<view class='help-li-img'>
+									<image src='{{item.imgPath}}' lazy-load="true" mode="aspectFill"></image>
+								</view>
+								<view class='help-li-tit'>{{item.name}}</view>
+								<view class='help-li-sum'>
+									<text>￥{{item.price}}</text>
+									<text class='help-li-nosum'>￥{{item.originalPrice}}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<!--接龙价-->
+					<view class='helpShop' wx:if="{{chainsActivityList.length != 0}}">
+						<view class='help-img'>
+							<view class='help-left'>
+								<image src="../images/jielonggou.png"></image>
+							</view>
+							<view class='help-right' bindtap='jlhandleProductlist'>
+								<view class="gengduo">
+									<view>抢更多好货</view>
+									<image src="../images/quanbu.png"></image>
+								</view>
+							</view>
+						</view>
+						<view class='help-ul'>
+							<view class='help-li' wx:for="{{chainsActivityList}}" wx:key="index" bindtap='jlhandleDetail' data-activityNo="{{item.activityNo}}">
+								<view class='help-li-img'>
+									<image src='{{item.imgPath}}' lazy-load="true" mode="aspectFill"></image>
+								</view>
+								<view class='help-li-tit'>{{item.name}}</view>
+								<view class='help-li-sum'>
+									<text>￥{{item.price}}</text>
+									<text class='help-li-nosum'>￥{{item.originalPrice}}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<!---推荐-->
+					<view class='helpShop' wx:if="{{recommendlist.length != 0&& recommendlist[0].length!=0}}">
+						<view class='help-img'>
+							<view class='help-left'>
+								<image src="../images/weinituijian.png"></image>
+							</view>
+						</view>
+						<view class='help-ul li-left' id="page{{dataArrayIndex}}" wx:for="{{recommendlist}}" wx:for-item="articles" wx:for-index="dataArrayIndex" wx:key="dataArrayIndex">
+							<view class='help-li li-left' wx:if="{{show_1}}" wx:for="{{articles}}" wx:for-item="item" wx:key="index" catchtap='toDetails' data-nonum='{{item.goodsNo}}'>
+								<view class='help-li-img'>
+									<image src='{{item.goodsImgPath}}' lazy-load="true" mode="aspectFill"></image>
+								</view>
+								<view class='rec-li-tit'>{{item.goodsName}}</view>
+								 <!-- 标签 -->
+								<view class="kp-biao">
+									<text class="kp-biao-xin" wx:if="{{item.newProduct==1}}">新品</text>
+									<text class="kp-biao-bao" wx:if="{{item.explosive==1}}">爆款</text>
+									<!--包邮的字段判断,但是我们最多显示两个标签 item.freeShipping==1 -->
+									<text class="kp-biao-you" wx:if="{{item.newProduct==0||item.explosive==0}}">包邮</text>
+									<view class="kp-xiaoliang">{{item.goodsSaleNum?item.goodsSaleNum:'0'}}人购买</view>
+								</view>
+								<view class="kp-vip" wx:if="{{vipRate&&vipGrade>1}}">
+									<text>VIP</text>
+									￥{{(vipRate != undefined && vipGrade>1)? filters.toFix((item.price - item.profit * vipRate)) : item.price}}
+								</view>
+								<view class='rec-money'>￥{{item.price}}</view>
+								<!-- <view class="rec-nomoney" wx:if="{{vipRate&&vipGrade>1}}">￥{{item.price}}</view> -->
+							</view>
+						</view>
+					</view>
+				</view>
+				<!-- 暂无数据 -->
+				<show-page showDialog="{{showDialog}}"></show-page>
+				<view class="jiazai1">
+					<view wx:if="{{jiazai}}">
+						<image src="../images/jiazai.gif"></image>
+						<view class="wenzi">加载中.....</view>
+					</view>
+					<view class="wenzi1" wx:if="{{!jiazai}}">暂无更多数据</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+	</block>
+</swiper>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

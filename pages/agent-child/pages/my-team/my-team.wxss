@@ -1,0 +1,102 @@
+.partner {
+  width: 100%;
+}
+
+.partner-ul {
+  width: 100%;
+  position: relative;
+}
+
+.partner-li {
+  background: #fff;
+  width: 95%;
+  border-radius: 20rpx;
+  margin: 4% auto;
+  position: relative;
+  font-size: 28rpx;
+}
+
+.partner-l {
+  padding: 4%;
+}
+
+.partner-top {
+  margin-bottom: 2%;
+  position: relative;
+}
+
+.partner-name {
+  display:inline-block;
+position:absolute;
+top:0;
+left:65rpx;
+font-weight:600;
+font-size:32rpx;
+
+}
+
+.partner-img {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+}
+
+.partner-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.vip-logo {
+
+	font-family: PingFang-SC-Medium;
+	font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #666666;
+  padding: .5% 0;
+}
+
+.partner-num {
+  display: inline-block;
+  margin-left: 10%;
+}
+.partner-r{
+ position:absolute;
+width:14rpx;
+height:26rpx;
+top:65rpx;
+right:50rpx;
+
+
+}
+.partner-r image{
+  width: 100%;
+  height: 100%;
+}
+
+/**/
+
+.nolist {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 650rpx;
+}
+
+.no-img {
+  width: 45%;
+  height: 255rpx;
+}
+
+.no-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.no-title {
+  color: #999;
+  padding-top: 4%;
+}

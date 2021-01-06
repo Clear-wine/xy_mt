@@ -1,0 +1,148 @@
+/* pages/child/pages/merchant-details/merchant-details.wxss */
+
+/********************商家*****************************/
+
+.restaurantPage-header {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin: 2% 0;
+}
+
+.header-top {
+  width: 90%;
+  margin: auto;
+  padding: 4% 0;
+  font-size: 28rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.top-left {
+  float: left;
+  width: 30%;
+  height: 135rpx;
+}
+
+.top-left image {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+
+.top-center {
+  width: 40%;
+  float: left;
+  margin-left: 3%;
+}
+
+.top-center-title {
+  font-weight: bold;
+}
+
+.top-center-star {
+  width: 25rpx;
+  height: 25rpx;
+  display: inline-block;
+}
+
+.top-center-star image {
+  width: 100%;
+  height: 100%;
+}
+
+.top-right {
+  width: 25%;
+  float: right;
+  text-align: center;
+}
+
+.top-right-num {
+  font-size: 53rpx;
+  color: #ffa729;
+}
+
+.top-right-title {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.header-bot {
+  width: 90%;
+  margin: 2% auto;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-bot-li {
+  width: 30%;
+  text-align: center;
+}
+
+.bot-li-num {
+  color: #ffb001;
+}
+
+.bot-li-title {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.restaurantPage-content {
+  width: 100%;
+  overflow: hidden;
+  font-size: 26rpx;
+  color: #999;
+  background: #fff;
+  margin-bottom: 2%;
+}
+
+
+.content-ul {
+  width: 90%;
+  margin: auto;
+}
+
+.content-li {
+  font-size: 26rpx;
+  padding: 3% 0%;
+  overflow: hidden;
+}
+
+.content-li .textleft {
+  float: left;
+  color: #353b56;
+  font-family: PingFang-SC-Bold;
+}
+
+.content-li .textright {
+  float: right;
+  font-family: PingFang-SC-Medium;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rpx;
+  color: #666;
+}
+
+.textimg {
+  width: 14rpx;
+  height: 24rpx;
+  position: relative;
+  top: 5rpx;
+}
+
+.hd-title {
+  float: left;
+  line-height: 45rpx;
+  height: 45rpx;
+  color: #000;
+}
+
+.hd-content {
+  float: right;
+}
+
+/*******************商家活动 :end*******************************/

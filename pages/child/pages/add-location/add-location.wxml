@@ -1,0 +1,59 @@
+<!--pages/child/pages/add-loation/add-location.wxml-->
+
+  <view class='realname'>
+    <view class='realname-list'>
+      <view>收货人:</view>
+      <view>
+        <input bindinput="bindNameInput" type='text' value='{{persion}}' placeholder='请填写收货人的姓名'></input>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>手机号:</view>
+      <view>
+        <input bindinput="bindPhoneInput" type='number' value='{{phone}}' maxlength='11' placeholder='请填写收货手机号码'></input>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>所在地区:</view>
+      <view>
+        <!-- <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker-title">
+            {{province}} {{city}} {{area}}
+            <view class="wang-imghe">
+              <image src='../images/management_site.png'></image>
+            </view>
+          </view>
+        </picker> -->
+         <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker">
+            {{region[0]}} {{region[1]}} {{region[2]}}
+          </view>
+          <view class="wang-imghe">
+            <image src='../images/management_site.png'></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>详细地址:</view>
+      <view>
+        <input bindinput="bindLocationInput" value='{{address}}' type='text' placeholder='如道路,门牌号,小区,楼号,单元等'></input>
+      </view>
+    </view>
+    <view class='realname-list'>
+      <view>标签:</view>
+      <view wx:for="{{radio}}" wx:key="*this"  class="checkbox '{{item.checked?'checkedActive':''}}'" data-id="{{index}}" bindtap='getradio'>
+        <text>{{item.value}}</text>
+      </view>
+    </view>
+      <view class='realname-list'>
+      <view>是否设为默认地址:</view>
+      <view>
+      <switch checked="{{isDefault ?'1':''}}" style='zoom:0.6;'color="#f80" bindchange="switchChange"/>
+      </view>
+    </view>
+  </view>
+  <view class='realname-btn'>
+    <button wx:if="{{itemlist.id}}" class='btn remove' bindtap='handleRemove'>删除</button>
+    <button  class='btn' bindtap='handleSubmit'>保存地址</button>
+  </view>

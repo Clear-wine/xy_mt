@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="bag-black">
+    <image mode="widthFix" src="../images/myvip_bg.png"></image>
+  </view>
+  <view class="member-view">
+    <view class="vip-img">
+      <image class="vip-logo" src="../images/myvip_icon.png"></image>
+      <image class="vip-grade" src="{{blackgold_vip != null ? blackgold_vip : '../images/blackgold_vip.png'}}"></image>
+    </view>
+    <view class="show-grade">
+      <image src="../images/current_level.png"></image>
+      <view class="grade-title">当前等级</view>
+    </view>
+    <view class="member-title">{{data.toUpgradeText}}</view>
+  </view>
+  <view class="content-module">
+    <view class="explain">
+      <view class="explain-title"> 权益说明</view>
+      <view class="table">
+        <view class="tr bg-w">
+          <view class="th">会员等级</view>
+          <view class="th">商品优惠</view>
+          <view class="th">分销佣金</view>
+        </view>
+        <block wx:for="{{rule}}" wx:key="{{index}}">
+          <view class="tr solid-bg">
+            <view class="td">{{item.gradeName}}</view>
+            <view class="td">{{item.isPreferentialText}}</view>
+            <view class="td">{{item.rule}}</view>
+
+          </view>
+        </block>
+      </view>
+
+    </view>
+    <view class="explain">
+      <view class="explain-title">晋升标准</view>
+      <view class="li-view" wx:for="{{rule}}" wx:key="{{index}}">
+        <view class="li-title">
+          <image src="../images/myvip_star.png"></image>
+          {{item.gradeName}}
+          <image src="../images/myvip_star.png"></image>
+        </view>
+        <view class="content">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+</view>

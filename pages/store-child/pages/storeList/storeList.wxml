@@ -1,0 +1,98 @@
+<!--pages/store-index/pages/storeList/storeList.wxml-->
+<import src="/pages/common/screen.wxml" />
+<!--综合排序-->
+<!-- <view class='mask' hidden='{{mask1Hidden}}' bindtap='mask1Cancel'>
+  <template is="screen" data="{{jingshu,sortSelected,allType}}" />
+  <view class='type-li'>
+    <view class='type-li-left'>
+      <view class="l-list {{selected == index? 'active': ''}}" catchtap="handleSelect" wx:for="{{typelist}}" data-current="{{index}}">
+        <view class='type-li-title'>{{item.typeName}}</view>
+        <view class='type-li-img'>
+          {{item.typeNum}}
+          <image src='../images/index_arrows.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='type-li-right'>
+      <swiper current="{{selected}}" duration="300">
+        <swiper-item>
+          <view class='l-list' bindtap='typeSelected'>
+            <view class='type-li-title'>净菜</view>
+            <view class='type-li-img'>0</view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view> -->
+<!--综合排序-->
+<view class='mask' hidden='{{mask2Hidden}}' bindtap='mask2Cancel'>
+  <template is="screen" data="{{jingshu,sortSelected,allType}}" />
+  <view class="overall-sort-list">
+    <block wx:for="{{sortList}}" wx:key="">
+      <view class="overall-sort" data-index="{{item.sort}}" data-sortType='{{item.sortType}}' bindtap="sortSelected">{{item.sort}}</view>
+    </block>
+  </view>
+</view>
+<!--全部类型-->
+<view class='mask' hidden='{{mask3Hidden}}' bindtap='mask3Cancel'>
+  <template is="screen" data="{{jingshu,sortSelected,allType}}" />
+  <view class="overall-sort-list">
+    <block wx:for="{{allTypelist}}" wx:key="">
+      <view class="overall-sort" data-index="{{item.name}}" data-id='{{item.id}}' bindtap="allSelected">{{item.name}}</view>
+    </block>
+  </view>
+</view>
+<view class='head'>
+  <!--定位选择-->
+  <view class='head-dom'>
+    <!--搜索框-->
+    <view class='head-input'>
+      <image src='../images/magnifying_glass.png'></image>
+      <input  bindinput='getSearchName' value='{{content}}' type='text'  placeholder='请输入商店名或商品名'></input>
+    </view>
+    <!--扫一扫-->
+    <!-- <view class='head-r'  bindtap="toLocationSearch">
+      <image src='../images/loction.png'></image>
+      {{city}}
+    </view> -->
+    <view class="quxiao">取消</view>
+  </view>
+</view>
+<!--筛选店铺-->
+<view class='storeList'>
+  <template is="screen" data="{{jingshu,sortSelected,allType}}" />
+  <!--店铺-->
+  <view class='nearby-shops'>
+    <block wx:for="{{shoplist}}">
+      <view class='nearby-list' bindtap='handleStoreHome' data-shopNo='{{item.shopNo}}'>
+        <view class='nearby-l'>
+          <image mode="aspectFill" src='{{item.headImg}}'></image>
+        </view>
+        <view class='nearby-c'>
+          <view class='c-title'>{{item.shopName}}</view>
+          <block wx:for="{{one_1}}" wx:key="item">
+            <view class='li-xing'>
+              <image src='../images/star1.png'></image>
+            </view>
+          </block>
+          <block wx:for="{{tow_1}}" wx:key="item">
+            <view class='li-xing'>
+              <image src='../images/star2.png'></image>
+            </view>
+          </block>
+          <view class='xing-title'>销量:{{item.shopSales}}</view>
+        </view>
+        <view class='nearby-t'>
+          <!-- <text>30分钟</text> -->
+          <text>配送费:{{item.distPrice}}</text>
+          <text>| 起送价:{{item.deliveryPrice}}</text>
+        </view>
+        <view class='nearby-r'>
+          <image src='../images/coordinate.png'></image>{{item.distance}}km
+        </view>
+      </view>
+    </block>
+
+  </view>
+</view>

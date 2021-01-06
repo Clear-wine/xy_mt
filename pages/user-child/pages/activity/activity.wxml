@@ -1,0 +1,126 @@
+<!-- 我的活动 -->
+<view class='wrap'>
+  <!-- tab头 -->
+  <view class='title'>
+    <view wx:for="{{orderteb}}" wx:key="index0" class="titleSel {{currentIndex == index ? 'titleUnsel' : ''}} " bindtap='titleClick' data-current='{{index}}' data-type="{{item.type}}">
+      <text>{{item.tebtitle}}</text>
+      <hr class="{{currentIndex == index ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+  </view>
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+    <block wx:for="{{orderteb}}" wx:key="index">
+      <swiper-item class='swiper' catchtouchmove='catchTouchMove' wx:if="{{item.index ==0}}">
+        <!--我发起的-->
+        <scroll-view scroll-y="true" upper-threshold="100" lower-threshold="100" bindscrolltoupper="handleupper" bindscrolltolower="handlelower" style="height:{{scrollHeight}}px">
+          <block wx:for="{{activityData}}" wx:key="index1">
+            <view class='swiper-li'>
+              <view class='swiper-top'>
+                <view class='top-title' wx:if="{{item.activityType==4}}">接龙购</view>
+                <view class='top-title' wx:if="{{item.activityType==1}}">助力购</view>
+                <view class='top-title' wx:if="{{item.activityType==5}}">拼团购</view>
+                <view class='top-time overtime' wx:if="{{item.status == 3}}">活动失败</view>
+                <view class='top-time overtime' wx:if="{{item.status == 2}}">活动成功</view>
+                <view class='top-time' wx:if="{{item.status === 0||item.status === 1}}">活动{{item.obj.day}}:{{item.obj.hou}}:{{item.obj.min}}:{{item.obj.sec}}后结束</view>
+              </view>
+              <view class='order-list' catchtap='handleActivity' data-userId='{{item.userId}}' data-activitytype="{{item.activityType}}" data-cartNo="{{item.activityOrderNo}}" data-activityNo='{{item.activityNo}}'>
+                <view class='swiper-l'>
+                  <image src='{{item.imgPath}}'></image>
+                </view>
+                <view class='swiper-list'>
+                  <view class='list-title'>{{item.activityName}}</view>
+                  <view class='list-li' wx:if="{{item.specValue != null}}">
+                    <text>规格</text>
+                    <text>{{item.specValue}}</text>
+
+                  </view>
+                  <view class='list-money'>￥{{item.price}}</view>
+                  <button wx:if="{{item.status ==1}}" open-type='share' class='list-btn' data-goodsName="{{item.activityName}}" data-imgPath="{{item.imgPath}}" data-activitytype="{{item.activityType}}" data-cartNo="{{item.activityOrderNo}}" data-activityNo='{{item.activityNo}}'
+                    data-shoptype="{{item.shopType}}" catchtap="share">去分享</button>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="wanbi" wx:if="{{activityData.length==0}}">暂无数据~</view>
+          <view class="wanbi" wx:if="{{activityData.length>0}}">加载完毕~</view>
+        </scroll-view>
+      </swiper-item>
+      <!-- 我参与的 -->
+      <swiper-item wx:if="{{item.index==1}}" class='swiper' catchtouchmove='catchTouchMove'>
+          <scroll-view scroll-y="true" upper-threshold="100" lower-threshold="100" bindscrolltoupper="handleupper" bindscrolltolower="handlelower" style="height:{{scrollHeight}}px">
+          <block wx:for="{{activityData}}" wx:key="index1">
+            <view class='swiper-li'>
+              <view class='swiper-top'>
+                <view class='top-title' wx:if="{{item.activityType==4}}">接龙购</view>
+                <view class='top-title' wx:if="{{item.activityType==1}}">助力购</view>
+                <view class='top-title' wx:if="{{item.activityType==5}}">拼团购</view>
+                <view class='top-time overtime' wx:if="{{item.status == 3}}">活动失败</view>
+                <view class='top-time overtime' wx:if="{{item.status == 2}}">活动成功</view>
+                <view class='top-time' wx:if="{{item.status === 0||item.status === 1}}">活动{{item.obj.day}}:{{item.obj.hou}}:{{item.obj.min}}:{{item.obj.sec}}后结束</view>
+              </view>
+              <view class='order-list' catchtap='handleActivity' data-activitytype="{{item.activityType}}" data-cartNo="{{item.activityOrderNo}}" data-activityNo='{{item.activityNo}}'>
+                <view class='swiper-l'>
+                  <image src='{{item.imgPath}}'></image>
+                </view>
+                <view class='swiper-list'>
+                  <view class='list-title'>{{item.activityName}}</view>
+                  <view class='list-li' wx:if="{{item.specValue != null}}">
+                    <text>规格</text>
+                    <text>{{item.specValue}}</text>
+                  </view>
+                  <view class='list-money'>￥{{item.price}}</view>
+                  <button wx:if="{{item.status == 1}}" open-type='share' class='list-btn' data-goodsName="{{item.activityName}}" data-imgPath="{{item.imgPath}}" data-activitytype="{{item.activityType}}" data-cartNo="{{item.activityOrderNo}}" data-activityNo='{{item.activityNo}}'
+                    data-shoptype="{{item.shopType}}" catchtap="share">去分享</button>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="wanbi" wx:if="{{activityData.length==0}}">暂无数据~</view>
+          <view class="wanbi" wx:if="{{activityData.length>0}}">加载完毕~</view>
+        </scroll-view>
+      </swiper-item>
+      <!-- 我的佣金 -->
+      <swiper-item wx:if="{{item.index==2}}" class='swiper' catchtouchmove='catchTouchMove'>
+        <scroll-view scroll-y="true" upper-threshold="100" lower-threshold="100" bindscrolltoupper="handleupper" bindscrolltolower="handlelower" style="height:{{scrollHeight}}px">
+          <block wx:for="{{activityData}}" wx:key="index3">
+            <view class='swiper-li'>
+              <view class='swiper-top'>
+                <view class='top-title'>
+                  代言购
+                </view>
+                <!-- <!-- <view class='top-time overtime' wx:if="{{item.statusText == '活动失败'}}">活动失败</view> -->
+                <view class='top-time overtime' wx:if="{{item.isactivity == true}}">活动结束</view> 
+                <view class='top-time' wx:if="{{item.isactivity == false}}">活动{{item.obj.day}}:{{item.obj.hou}}:{{item.obj.min}}:{{item.obj.sec}}后结束</view>
+              </view>
+              <view class='order-list' catchtap='handleActivity' data-activitytype="{{item.activityType}}" data-cartNo="{{item.cartNo}}" data-activityNo='{{item.activityNo}}'>
+                <view class='swiper-l'>
+                  <image src='{{item.imgPath}}'></image>
+                </view>
+                <view class='swiper-list'>
+                  <view class='list-title'>{{item.activityName}}</view>
+                  <view class='list-li' wx:if="{{item.specValue != null}}">
+                    <text>规格</text>
+                    <text>{{item.specValue}}</text>
+                  </view>
+                  <view class='list-money'>￥{{item.price}}</view>
+                  <view class="li-commission">代言佣金:¥{{item.brokeragePrice}}</view>
+                  <!-- <button wx:if="{{item.isactivity == false}}" open-type='share' class='list-btn' data-goodsName="{{item.goodsName}}" data-imgPath="{{item.imgPath}}" data-activitytype="{{item.activityType}}" data-cartNo="{{item.cartNo}}" data-activityNo='{{item.activityNo}}' data-shoptype="{{item.shopType}}"
+                    catchtap="share">去分享</button> -->
+                </view>
+              </view>
+              <view class='swiper-bot'>
+                <view class='top-title toup' wx:if="{{item.isSettle==0}}">待结算佣金:
+                  <text class='toupMoney'>{{item.brokeragePrice}}</text> </view>
+                <view class='top-title toup'  wx:if="{{item.isSettle==1}}">已结算佣金:
+                  <text class='toupMoney'>{{item.brokeragePrice}}</text> </view>
+              </view>
+            </view>
+          </block>
+          <view class="wanbi" wx:if="{{activityData.length==0}}">暂无数据~</view>
+          <view class="wanbi" wx:if="{{activityData.length>0}}">加载完毕~</view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

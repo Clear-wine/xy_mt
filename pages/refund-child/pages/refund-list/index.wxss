@@ -1,0 +1,194 @@
+page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.navbar{
+  flex: none;
+  display: flex;
+  background: #fff;
+  font-size: 30rpx;
+  color: #bbbbbb;
+}
+.navbar .item{
+  width: 33%;
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 90rpx;
+}
+.navbar .item.active{
+  color: #FF7D26;
+}
+.navbar .item.active:after{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 32%;
+  right: 0;
+  height: 8rpx;
+  width: 80rpx;
+  background: #FF7D26;
+}
+.swiper{
+  height: 100%
+}
+scroll-view{
+  height: 90vh;
+}
+.info{
+ display:flex;
+ margin-top: 250rpx;
+ justify-content: center;
+ align-items:center;
+ flex-direction: column;
+}
+/*订单列表*/
+.list{
+  width:702rpx;
+  height:275rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  margin-top: 20rpx;
+  margin-left: 24rpx;
+}
+.list-yi{
+  height: 34rpx;
+  padding-top: 12rpx;
+  margin-left: 32rpx;
+}
+.list-yi>image{
+  width: 28rpx;
+  height: 28rpx;
+  float: left;
+  margin-top: 4rpx;
+}
+.list-yi-left{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  float: left;
+  margin-left: 14rpx;
+}
+.list-yi-right{
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  float: right;
+  margin-right: 26rpx;
+}
+.status1{
+  color:rgba(153,153,153,1) !important;
+}
+.status2{
+  color:rgba(255,48,0,1) !important;
+}
+.status5{
+  color:rgba(75,179,253,1) !important;
+}
+.status6{
+  color:rgba(255,125,38,1) !important;
+}
+.list-er{
+  width:648rpx;
+  height:0rpx;
+  border:2rpx solid rgba(241,241,241,1);
+  margin-top: 12rpx;
+  margin-left: 32rpx;
+}
+.list-san{
+  height: 200rpx;
+  margin-top: 6rpx;
+  margin-left: 32rpx;
+}
+.list-san>image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  float: left;
+}
+.list-san>view{
+  margin-top: 18rpx;
+  margin-left: 16rpx;
+  float: left;
+}
+.list-san-yi{
+  height: 34rpx;
+  width: 454rpx;
+}
+.name{
+  width: 260rpx;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  float: left;
+  margin-top: 5rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.jiage{
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  float: right;
+  margin-right: 26rpx;
+}
+.list-san-er{
+  width: 454rpx;
+  height: 34rpx;
+  margin-top: 10rpx;
+}
+.biaoqian{
+  width: 260rpx;
+  float: left;
+}
+.shuliang{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(102,102,102,1);
+  float: right;
+  margin-right: 24rpx;
+}
+.biaoqian>text{
+  display: inline-block;
+  height:36rpx;
+  background:rgba(225,225,225,1);
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  line-height:34rpx;
+  color:rgba(51,51,51,1);
+  border-radius: 18rpx;
+  text-align: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.list-san-san{
+  width: 430rpx;
+  height: 34rpx;
+  margin-right: 24rpx;
+  margin-top: 50rpx;
+  text-align: right;
+}
+.list-san-san>text{
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+.list-san-sant{
+  font-size:30rpx !important;
+  font-family:PingFang SC !important;
+  font-weight:bold !important;
+  color:rgba(51,51,51,1) !important;
+}
+

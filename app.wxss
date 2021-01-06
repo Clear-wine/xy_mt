@@ -1,0 +1,140 @@
+/**app.wxss**/
+
+page {
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+
+/***************店铺 背景色 start***************/
+#shop {
+  background: -webkit-linear-gradient(left, #f2994a, #f2c94c); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #f2994a, #f2c94c); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #f2994a, #f2c94c); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #f2994a, #f2c94c); /* 标准的语法 */
+  position: relative;
+  width: 100%;
+  height: 200rpx;
+  /* filter: blur(3px) contrast(0.8) brightness(0.8);  模糊 */
+}
+/***************店铺 背景色 end***************/
+
+
+
+/******************** flex样式 start *********************/
+.flex {display: -webkit-box!important; display: -webkit-flex!important; display: -ms-flexbox!important; display: flex!important;}
+.flex-1{-webkit-box-flex: 1;-webkit-flex: 1;-ms-flex: 1;flex: 1;}
+.flex-align-center{-webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;}
+.flex-pack-center{-webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;}
+.flex-pack-end{-webkit-box-pack: flex-end;-webkit-justify-content: flex-end;-ms-flex-pack: flex-end;justify-content:flex-end;}
+.flex-pack-justify {-webkit-box-pack: justify;-webkit-justify-content: space-between;-ms-flex-pack: justify;justify-content: space-between;}
+.flex-column_a{flex-direction: column;-webkit-flex-direction: column;}
+/*换行*/
+.flex-wrap{
+    display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+    flex-wrap: wrap;-webkit-flex-wrap: wrap;
+}
+/*横向布局*/
+.flex-row{
+    display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+    flex-direction: row;-webkit-flex-direction: row;
+}
+/*纵向布局*/
+.flex-cloumn{
+    display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+    flex-direction: column;-webkit-flex-direction: column;
+}
+/*水平居中*/
+.flex-row-center{
+    display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+    -webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;
+}
+.flex-row-bottom{
+  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  align-items: flex-end;-ms-flex-align:flex-end;-webkit-align-items:flex-end;
+}
+.flex-row-y-center{
+  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  -webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;
+}
+/*垂直居中*/
+.flex-cloumn-center{
+    display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+   -webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;
+}
+.flex-cloumn-x-center{
+  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  flex-direction: column;-webkit-flex-direction: column;-webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;
+}
+.flex-cloumn-x-end{
+    display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  flex-direction: column;-webkit-flex-direction: column;
+  -webkit-box-align: flex-end;-webkit-align-items: flex-end;-ms-flex-align: flex-end;align-items: flex-end;
+}
+.flex-cloumn-y-center{
+  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  flex-direction: column;-webkit-flex-direction: column;
+  -webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;
+  /* -webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center; */
+}
+/*水平居右*/
+.flex-row-right{
+    display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+   -webkit-box-pack: flex-end;-webkit-justify-content: flex-end;-ms-flex-pack: flex-end;justify-content:flex-end;
+}
+
+.flex-cloumn-right{
+  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  flex-direction: column;-webkit-flex-direction: column;
+   -webkit-box-pack: flex-end;-webkit-justify-content: flex-end;-ms-flex-pack: flex-end;justify-content:flex-end;
+}
+
+.flex-row-start-c{display: flex;display: -webkit-flex;justify-content:flex-start;align-items: center;}
+.flex-row-right-y-c{
+  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  -webkit-box-pack: flex-end;-webkit-justify-content: flex-end;-ms-flex-pack: flex-end;justify-content:flex-end;
+  -webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;
+}
+/*两端对齐，项目之间的间隔相等*/
+.flex-row-between{display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+   -webkit-box-pack: justify;-webkit-justify-content: space-between;-ms-flex-pack: justify;justify-content: space-between;
+   align-items: flex-start;-webkit-align-items: flex-start;-ms-flex-align: flex-start;
+}
+.flex-row-between-c{display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+   -webkit-box-pack: justify;-webkit-justify-content: space-between;-ms-flex-pack: justify;justify-content: space-between;
+   -webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;
+}
+.flex-cloumn-between{display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  flex-direction: column;-webkit-flex-direction: column;
+  -webkit-box-pack: justify;-webkit-justify-content: space-between;-ms-flex-pack: justify;justify-content: space-between;
+  align-items: flex-start;-webkit-align-items: flex-start;-ms-flex-align: flex-start;
+}
+.flex-cloumn-around{
+  display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;
+  flex-direction: column;-webkit-flex-direction: column;
+  -webkit-box-pack: justify;-webkit-justify-content: space-around;-ms-flex-pack: justify;justify-content: space-around;
+}
+
+/*水平、垂直居中*/
+.center{display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;
+-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+
+.over_h{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}/*需要定义宽和高*/
+.over_more_line3{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3/*行数*/;overflow: hidden;}/*需要定义宽和高*/
+.over_more_line2{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2/*行数*/;overflow: hidden;}/*需要定义宽和高*/
+.over_more_line4{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4/*行数*/;overflow: hidden;}/*需要定义宽和高*/
+
+.clearfix:after {
+    content: "/20";
+    display: block;
+    visibility: hidden;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+}
+
+/******************** flex样式 end ***********************/

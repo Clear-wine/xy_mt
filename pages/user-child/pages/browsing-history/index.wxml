@@ -1,0 +1,65 @@
+<!-- 暂无浏览记录 -->
+<view class="no-container" wx:if="{{recordData.length == 0}}">
+  <view class="no-view-img">
+    <image mode="aspectFit" src="../images/no_browsing_history.png"></image>
+    <view class="no-title">暂无浏览记录~</view>
+  </view>
+</view>
+<!-- 浏览记录 -->
+<view class="container" wx:else="{{recordData.length !== 0}}">
+  <!-- 操作按钮 -->
+  <view class="view-btn">
+    <!-- <view class="item-btn" bindtap="handleEmpty">清空</view> -->
+    <view class="item-btn" bindtap="handleEdit">编辑</view>
+  </view>
+  <!-- 浏览商品模块 -->
+  <!-- <view class="{{isCheckBox == true?'checkModule':''}}"> -->
+    <!-- <view class="checkModule" wx:for="{{recordData}}" wx:key="{{item.index}}" wx:for-index="groupIndex">  -->
+    <view class="logging-module" wx:for="{{recordData}}" wx:key="{{item.index}}" wx:for-index="groupIndex">
+      <view class="module-date">{{item.dateTxt}}</view>
+      <block wx:if="{{isCheckBox}}">
+        <checkbox-group class="hot-div hot-checked" data-groupIndex="{{groupIndex}}" wx:for="{{item.list}}" wx:key="{{index}}" data-index="{{index}}" bindchange="Checks1" data-goodsno="{{item.goodsNo}}">
+          <!-- <checkbox checked='{{item.checkedAll}}'></checkbox> -->
+          <checkbox checked="{{item.checked}}"></checkbox>
+          <image class="Hot-div-img" mode="aspectFill" src="{{item.goodsImg}}"></image>
+          <view class="no-img-title" wx:if="{{item.status === '0'}}">已失效</view>
+          <view class="Hot-div-shop" catchtap="handleDetails" data-status="{{item.status}}" data-goodsno="{{item.goodsNo}}">
+            <view class="{{item.status === '0' ? 'no-gray': 'hot-price-title'}}">{{item.goodsName}}</view>
+            <view class="{{item.status === '0' ?'no-gray-price' :'order-red-price'}}">
+              <text>¥{{item.price}}</text>
+            </view>
+            <!-- <view class="cart-img" wx:if="{{item.status !== '0'}}" catchtap="handleAddCart">
+          <image mode="aspectFit" src="../images/lljl_add_shopping.png"></image>
+        </view> -->
+          </view>
+        </checkbox-group>
+      </block>
+      <block wx:else>
+        <view class="list-view" wx:for="{{item.list}}" wx:key="{{index}}">
+          <image class="Hot-div-img" mode="aspectFill" src="{{item.goodsImg}}"></image>
+          <view class="no-img-title {{isCheckBox == true? '':'no-img-title-left'}}" wx:if="{{item.status === '0'}}">已失效</view>
+          <view class="Hot-div-shop" catchtap="handleDetails" data-status="{{item.status}}" data-goodsno="{{item.goodsNo}}">
+            <view class="{{item.status === '0' ? 'no-gray': 'hot-price-title'}}">{{item.goodsName}}</view>
+            <view class="{{item.status === '0' ?'no-gray-price' :'order-red-price'}}">
+              <text>¥{{item.price}}</text>
+            </view>
+            <!-- <view class="cart-img" wx:if="{{item.status !== '0'}}" catchtap="handleAddCart">
+          <image mode="aspectFit" src="../images/lljl_add_shopping.png"></image>
+        </view> -->
+          </view>
+        </view>
+      </block>
+    </view>
+  <!-- </view> -->
+  <view class='placeholder-view'></view>
+  <!-- 底部模块 -->
+  <view class="botton-view" wx:if="{{isCheckBox}}">
+    <view class="left-view">
+      <checkbox-group bindchange="AllTap" data-index="{{index}}">
+        <checkbox checked='{{checkedAll}}'></checkbox>
+      </checkbox-group>
+      <text class="shop-check-text">全选</text>
+    </view>
+    <view class='shop-check-jie' bindtap='handleRemove' data-index="{{index}}" data-groupIndex="{{groupIndex}}"> 删除商品</view>
+  </view>
+</view>

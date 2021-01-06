@@ -1,0 +1,222 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/live/live",
+    "pages/auth/auth",
+    "pages/login/login",
+    "pages/setPassword/setPassword",
+    "pages/bindingPhone/bindingPhone",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/found/found",
+    "pages/order/order",
+    "pages/user/user",
+    "pages/store/store",
+    "pages/coupon/coupon",
+    "pages/shoppingCart/shoppingCart",
+    "components/logins/logins",
+    "pages/mode/mode",
+
+    "pages/custom_navbar/index/index",
+    "pages/custom_navbar/commodity/commodity",
+    "pages/custom_navbar/classification/classification",
+    "pages/custom_navbar/member/member"
+  ],
+  "subpackages": [
+    {
+      "root": "pages/search/",
+      "pages": [
+        "pages/search-both/index",
+        "pages/search-cont/search"
+      ]
+    },
+    {
+      "root": "pages/index-child/",
+      "pages": [
+        "pages/gift-packs/gift-packs",
+        "pages/recommend/recommend",
+        "pages/bannerDetail/index",
+        "pages/notice/index",
+        "pages/zllist/index",
+        "pages/jllist/index",
+        "pages/ptlist/index",
+        "pages/dylist/index",
+        "pages/lblist/index",
+        "pages/playmethod/index",
+        "pages/activitypt-details/index",
+        "pages/activityzl-details/index",
+        "pages/activityjl-details/index",
+        "pages/activitydy-details/index",
+        "pages/activitylb-details/index",
+        "pages/activitypt-order/index",
+        "pages/activityzl-order/index",
+        "pages/activityjl-order/index",
+        "pages/activitydy-order/index",
+        "pages/activitylb-order/index",
+        "pages/classification/classification"
+      ]
+    },
+    {
+      "root": "pages/agent-child/",
+      "pages": [
+        "pages/drawings/drawings",
+        "pages/generalize/generalize",
+        "pages/share/share",
+        "pages/my-team/my-team",
+        "pages/share-both/index",
+        "pages/sucpage/index",
+        "pages/traders-password/index",
+        "pages/modification-traderspassword/index"
+      ]
+    },
+    { 
+      "root": "pages/child",
+      "pages": [
+        "pages/product-details/product-details",
+        "pages/submit-order/submit-order",
+        "pages/order-details/order-details",
+        "pages/shopping-details/shopping-details",
+        "pages/shop/shop",
+        "pages/refund/refund",
+        "pages/refund-details/refund-details",
+        "pages/location/location",
+        "pages/add-location/add-location",
+        "pages/all-evaluate/all-evaluate",
+        "pages/comment/comment",
+        "pages/merchant-details/merchant-details",
+        "pages/activity-introduce/activity-introduce",
+        "pages/activityzl/activityzl",
+        "pages/activitypt/activitypt",
+        "pages/activityjl/activityjl",
+        "pages/nearbyActivity/nearbyActivity",
+        "pages/ydmerchant-details/ydmerchant-details",
+        "pages/activity-details/activity-details",
+        "pages/order-success/order-success",
+        "pages/order-pay/order-pay",
+        "pages/submitYo-order/submitYo-order",
+        "pages/activity-introduce-jl/index",
+        "pages/product-act-details/product-act-details",
+        "pages/use-coupon/use-coupon",
+        "pages/bankList/bankList",
+        "pages/bank-card/bank-card",
+        "pages/addbankCard/addbankCard",
+        "pages/logistics/logistics",
+        "pages/orderYo-details/index",
+        "pages/shop-evaluate/index",
+        "pages/merchant-img/merchant-img",
+        "pages/scan-code/scan-code",
+        "pages/cart/index",
+        "pages/popularity/index",
+        "pages/hot-sale/index",
+        "pages/vip-details/index"
+      ]
+    },
+    {
+      "root": "pages/store-child/",
+      "pages": [
+        "pages/storeList/storeList",
+        "pages/storeHome/storeHome",
+        "pages/location-search/index",
+        "pages/location-city/location-city",
+        "pages/store-sreach/index"
+      ]
+    },
+    {
+      "root": "pages/user-child/",
+      "pages": [
+        "pages/generalize/generalize",
+        "pages/setting/setting",
+        "pages/evaluate/evalute",
+        "pages/activity/activity",
+        "pages/members/members",
+        "pages/agent/agent",
+        "pages/browsing-history/index",
+        "pages/lose-details/lose-details",
+        "pages/member-upgrade/index",
+        "pages/enshrine/index",
+        "pages/help-center/index",
+        "pages/help-details/index",
+        "pages/feedback/index",
+        "pages/mycommission/index"
+      ]
+    },
+    {
+      "root": "pages/refund-child/",
+      "pages": [
+        "pages/refund-application/index",
+        "pages/refund-details/index",
+        "pages/refund-progress/index",
+        "pages/refund-list/index",
+        "pages/logistics/index",
+        "pages/refund-type/index"
+      ]
+    }
+  ],
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#ff9736",
+    "color": "#999",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/images/1a.png",
+        "selectedIconPath": "pages/images/1b.png"
+      },
+      {
+        "pagePath": "pages/store/store",
+        "text": "优店",
+        "iconPath": "pages/images/2a.png",
+        "selectedIconPath": "pages/images/2b.png"
+      },
+      {
+        "pagePath": "pages/live/live",
+        "text": "直播",
+        "iconPath": "pages/images/22a.png",
+        "selectedIconPath": "pages/images/22b.png"
+      },
+      {
+        "pagePath": "pages/shoppingCart/shoppingCart",
+        "text": "购物车",
+        "iconPath": "pages/images/4a.png",
+        "selectedIconPath": "pages/images/4b.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "pages/images/3a.png",
+        "selectedIconPath": "pages/images/3b.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "壹叁新消费",
+    "navigationBarTextStyle": "black"
+    
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于设备定位"
+    }
+  },
+  "networkTimeout": {
+    "request": 1000000,
+    "connectSocket": 1000000,
+    "uploadFile": 1000000,
+    "downloadFile": 1000000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "logins": "/components/logins/logins"
+  },
+  "plugins": {
+    "live-player-plugin": {
+      "version": "1.2.0",
+      "provider": "wx2b03c6e691cd7370"
+    }
+  }
+}

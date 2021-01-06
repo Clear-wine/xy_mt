@@ -1,0 +1,136 @@
+<!--pages/child/pages/activitypt/activitypt.wxml-->
+<view class='bg-wrap'>
+  <image mode='widthFix' src='../images/bg-pt.png'></image>
+  <view class="hdjieshao" bindtap="gojieshao"> 
+    活动介绍
+    <image src="../images/wenhao.png"></image>
+  </view>
+  <view class='bg-container'>
+    <view class='bg-detail'>
+      <view class='detail-img'>
+        <image src='{{collageData.imgPath}}'></image>
+      </view>
+      <view class='bg-content'>
+        <view class='bg-title'>{{collageData.activityName}}</view>
+        <view class='bg-span' wx:if="{{collageData.specValue != null}}">
+          <text>规格</text>
+          <text>{{collageData.specValue}}</text>
+        </view>
+        <view class="yuanjia">原价：{{collageData.originalPrice}}</view>
+        <view class="activity-logo">
+         <image src="../images/price_tag.png" mode="aspectFit"></image>
+         <text>拼团价</text>
+        </view>
+        <view class='bg-money'>
+          ￥{{collageData.price}}</view>
+      </view>
+      <image src="../images/ptchenggong.png" class="ptcg" wx:if="{{orderStatus==2}}"></image>
+      <image src="../images/ptshibai.png" class="ptcg" wx:if="{{orderStatus==3}}"></image>
+    </view>
+    <view class='uplist-wrap'>
+      <view class="chengtuan">{{collageData.collagePersonNum}}人成团，当前已有{{collageData.joinList.length}}人参团</view>
+      <view class='uplist'>
+        <view class='list-span' wx:for="{{collageData.joinList}}">
+          <image mode="aspectFit" src='{{item.userHead}}'></image>
+        </view>
+        <!-- <view class='list-span' wx:if="{{join}}">
+          <image src='../images/joinmore.png'></image>
+        </view>
+        <view class='list-span' wx:if="{{join}}">
+          <image src='../images/joinac.png' bindtap="handlejoinActivity"></image>
+        </view> -->
+      </view>
+     <!-- <view class='bg-time'>活动倒计时 {{countdown}}</view> -->
+      <view class="tiem" wx:if="{{status==1}}">
+        <text>剩余</text>
+        <text>{{d}}</text>
+        <text>天</text>
+        <text>{{h}}</text>
+        <text>:</text>
+        <text>{{m}}</text>
+        <text>:</text>
+        <text>{{s}}</text>
+        <text>结束</text>
+      </view>
+      <!-- 活动进行中-未参团人员 -->
+      <block wx:if="{{join==true&&orderStatus==1&&status==1}}">
+        <view class='btn-share check' bindtap="handlejoinActivity">立即参团</view>
+      </block>
+      <!-- 活动进行中-已参团人员 -->
+      <block wx:if="{{join==false&&orderStatus==1&&status==1}}">
+        <button open-type="share" class='btn-share'>参团成功,立即分享</button>
+      </block>
+      <!-- 拼团成功-未参团人员 -->
+      <block wx:if="{{join==true&&orderStatus==2&&status==1}}">
+        <view class="zhe"></view>
+        <view class="tankuang">
+          <image src="/images/activity.png"></image>
+          <view class="tankuang-yi">手速太慢了</view>
+          <view class="tankuang-er">这个团已经满员了</view>
+          <view class="tankuang-san">去看看别的团</view>
+          <view class="tankuang-si" bindtap="gocantuan">去参团</view>
+        </view>
+      </block>
+      <!-- 拼团成功-已参团人员 -->
+      <block wx:if="{{join==false&&orderStatus==2&&status==1}}">
+        <view class='btn-share check' bindtap="toOrder">拼团成功,查看订单</view>
+      </block>
+      <!-- 拼团失败-未参团人员 -->
+      <block wx:if="{{join==true&&orderStatus==3&&status==1}}">
+        <view class='btn-share check'  bindtap="gocantuan">我也想拼团</view>
+      </block>
+      <!-- 拼团失败-已参团人员 -->
+      <block wx:if="{{join==false&&orderStatus==3&&status==1}}">
+        <view class='btn-share check'  bindtap="gocantuan">重新发起拼团</view>
+      </block>
+      <!-- 活动结束-未参团人员 -->
+      <block wx:if="{{join==true&&status==2}}">
+        <view class="zhe"></view>
+        <view class="tankuang">
+          <image src="/images/activity.png"></image>
+          <view class="tankuang-yi">你来晚了</view>
+          <view class="tankuang-er">活动已结束</view>
+          <view class="tankuang-san">去看看别的活动</view>
+          <view class="tankuang-si" bindtap="gohuodong">去参加活动</view>
+        </view>
+      </block>
+      <!-- 活动结束-已参团人员 -->
+      <block wx:if="{{join==false&&status==2}}">
+        <view class="zhe"></view>
+        <view class="tankuang">
+          <image src="/images/activity.png"></image>
+          <view class="tankuang-er">活动已结束</view>
+          <view class="tankuang-si" wx:if="{{orderStatus==2}}" bindtap="toOrder">查看订单</view>
+          <view class="tankuang-si" wx:if="{{orderStatus==3}}" bindtap="gohuodong">去参加活动</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 猜你喜欢 -->
+  <!-- <view class='like'>
+    <view class='like-title'>
+      <image src='../images/recommend_bai.png'></image>猜你喜欢
+    </view>
+    <view class='like-list'>
+      <block wx:for="{{activityFootList}}">
+        <view class='like-li' catchtap="handleActivityDetail" data-activityNo="{{item.activityNo}}" data-shoptype="{{item.shopType}}" data-goodsno="{{item.goodsNo}}" >
+          <view class='li-img'>
+            <image src='{{item.imgPath}}'></image>
+          </view>
+          <view class='li-title'>{{item.goodsName}}</view>
+          <view class='li-money'>拼团价:
+            <text>￥{{item.collagePrice}}</text>
+          </view>
+          <view class='li-nomoney'>市场价: ￥{{item.price}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </view> -->
+    <!-- 弹出活动状态 -->
+  <!-- <dialog id="dialog" conut_down="{{conut_down}}" iscomplete="{{iscomplete}}" showDialog="{{showDialog}}" title="{{statusTitle}}" bind:handleStatus="checkOrder"></dialog> -->
+</view>
+<!-- 回到首页(分享的时候显示) -->
+<image wx:if="{{isshare}}" bindtap='backHome' class='d-back-home' src='http://cdn.xcx.pemarket.com.cn/icon-Return%20to%20the%20home%20page.png' lazy-load></image>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>

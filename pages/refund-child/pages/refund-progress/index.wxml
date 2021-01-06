@@ -1,0 +1,46 @@
+<view class="top">
+  <view class="top-yi">{{statusText}}</view>
+  <view class="top-er" wx:if="{{passDate}}">{{passDate}}</view>
+</view>
+<view class="center">
+  <view class="jindu">
+    <view class="jindu-yuan"></view>
+    <view class="jindu-xian"></view>
+    <view class="jindu-yuan"></view>
+    <view class="jindu-xian"></view>
+    <view class="jindu-yuan"></view> 
+    <!-- 空进度的class为jindu-yuan1 -->
+  </view>
+  <view class="center-er">
+    <view class="center-er-yi yescolor">商家同意退款</view>
+    <view class="center-er-yi yescolor">银行受理</view>
+    <view class="center-er-san yescolor">到账成功</view>
+    <!-- 空进度class为nocolor -->
+  </view>
+  <view class="center-san"></view>
+  <view class="center-si">
+    <view class="center-si-yi">退款金额</view>
+    <view class="center-si-er">￥{{refundAmount}}</view>
+  </view>
+  <view class="center-si">
+    <view class="center-si-yi">退款到</view>
+    <view class="center-wu-er">
+      <image src="{{zhanghu==1?'../../images/wx.png':'../../images/zfb.png'}}"></image>
+      <view>{{zhanghu==1?'微信账户':'支付宝'}}</view>
+    </view>
+  </view>
+</view>
+<view class="bottom">
+  <view class="bottom-yi">商品信息</view>
+  <view class="bottom-er" wx:for="{{goodsList}}">
+    <image src="{{item.img}}"></image>
+    <view>
+      <view class="right-yi">{{item.goodsName}}</view>
+      <view class="right-san">
+        <text wx:if="{{item.specValue}}">{{item.specValue}}</text>
+      </view>
+      <view class="right-si">x{{item.num}}</view>
+    </view>
+  </view>
+</view>
+

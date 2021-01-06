@@ -1,0 +1,32 @@
+<view class="body">
+  <view class="banner">
+    <image src="{{imgUrl}}"></image>
+  </view>
+  <view class="wang-center">
+    <view class="wang-shangp" wx:for="{{list}}" bindtap="godetails" data-type="{{item.type}}" data-activityNo="{{item.activityNo}}">
+      <image src="{{item.imgPath}}"></image>
+      <view class="shangp-right">
+        <view class="right-yi">{{item.activityName}}</view>
+        <view class="right-san">
+          <text class="right-san-yi" wx:if="{{item.type==1}}">助力购</text>
+          <text class="right-san-yi" wx:if="{{item.type==2}}">大礼包</text>
+          <text class="right-san-yi" wx:if="{{item.type==3}}">代言购</text>
+          <text class="right-san-yi" wx:if="{{item.type==4}}">接龙购</text>
+          <text class="right-san-yi" wx:if="{{item.type==5}}">拼团购</text>
+          <text class="san-yi">￥{{item.activityPrice}}</text>
+        </view>
+        <view class="right-wu">
+          <view class="san-yi1">原价:{{item.price}}</view>
+          <view class="san-er">
+            <text class="san-er-yi">省</text>
+            <text class="san-er-er">{{item.savePrice}}元</text>
+          </view>
+        </view>
+        <view class="right-si">
+          <view class="si-left">NO.{{index+1}}</view>
+          <view class="si-right">{{item.sales}}人已购买</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

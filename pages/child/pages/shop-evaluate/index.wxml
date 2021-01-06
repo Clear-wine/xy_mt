@@ -1,0 +1,35 @@
+<view class='wrap'>
+  <block wx:for="{{evadata}}">
+    <view class='wrap-list'>
+      <view class='list-dom'>
+        <view class='user-msg'>
+          <image wx:if="{{item.userHead==null}}" src="/pages/images/default_head_portrait.png"></image>
+          <image wx:else src='{{item.userHead}}'></image>
+          {{item.nickName}}
+        </view>
+        <view class='product-msg'>
+          <text>{{item.createDate}}</text>
+          <!-- <text>颜色:灰色</text>
+          <text>尺寸:L</text> -->
+        </view>
+        <view class='eva-content'>
+          {{item.content}}
+        </view>
+        <view class='eva-img'>
+          <view class='eva-item' wx:for="{{item.fileList}}" wx:for-item="file" wx:key>
+            <image src='{{file.filePath}}'></image>
+          </view>
+        </view>
+        <!-- <view class='product-content'>
+          <view class='cont-left'>
+            <image src='../images/cp-banner.jpg'></image>
+          </view>
+          <view class='cont-right'>
+            <view class='cont-r-title'>URSDA/有兰 秋季上升到开始放假鼎折覆餗单鹄寡凫蓝色大海格拉苏蒂hahahhhahahah复合弓</view>
+            <view class='cont-r-money'>88.88</view>
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </block>
+</view>

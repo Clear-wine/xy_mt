@@ -1,0 +1,47 @@
+<!--pages/child/pages/refund-details/refund-details.wxml-->
+<view class='refund-head'>
+  <view class='refund-status'>
+    <view class='title'>退款成功</view>
+    <view class='time'>2019年4月10日</view>
+  </view>
+</view>
+<!--详情-->
+<view class='refund-details'>
+  <view class='refund-list'>
+    <view class='list-li'>
+      <view class='li-left'>协商结果</view>
+      <view class='li-right'>同意退款</view>
+    </view>
+     <view class='list-li'>
+      <view class='li-left'>退款总金额</view>
+      <view class='li-right color'>34.00</view>
+    </view>
+     <view class='list-li'>
+      <view class='li-left'>退回账户余额</view>
+      <view class='li-right'>34.00</view>
+    </view>
+  </view>
+  <view class='refund-list'>
+    <view class='list-head'>
+
+      退款信息
+    </view>
+    <view class='list-center'>
+      <view class='list-center-l'>
+        <image src='../images/cp-banner.jpg'></image>
+      </view>
+      <view class='list-center-r'>
+        <view class='title'>鲜榨哈密瓜鲜榨哈密瓜和斤斤计较军军军军军军军哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</view>
+        <view class='ident'>颜色分类:便携款-黑色</view>
+        <view class='num'>x1</view>
+      </view>
+    </view>
+    <view class='list-bottom'>
+      <view>退款原因:质量问题</view>
+      <view>退款金额:34.00</view>
+      <view>申请时间:2019-4-10</view>
+      <view>退款编号:112454554545</view>
+    </view>
+
+  </view>
+  </view>

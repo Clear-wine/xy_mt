@@ -1,0 +1,32 @@
+<!--pages/index-child/pages/recommend/recommend.wxml-->
+<!---推荐-->
+<view class='recommend'>
+  <view class='rec-ul'>
+    <view class='rec-li'>
+      <view class='help-li-img'>
+        <image src='../images/timg.jpg'></image>
+      </view>
+      <view class='rec-li-tit'>螺滋螺味南宁雪媚海鸭蛋马hahahahahahahhhhhh树树树55g*6枚</view>
+      <view class='ticket-img'>
+        <image src='../images/index_ticket.png'></image>
+        <view class='ticket-money'>￥99</view>
+      </view>
+
+      <view class='rec-money'>￥99</view>
+      <view class='rec-nomoney'>￥99s</view>
+    </view>
+    <view class='rec-li'>
+      <view class='help-li-img'>
+        <image src='../images/timg.jpg'></image>
+      </view>
+      <view class='rec-li-tit'>螺滋螺味南宁雪媚海鸭蛋马hahahahahahahhhhhh树树树55g*6枚</view>
+      <view class='ticket-img'>
+        <image src='../images/index_ticket.png'></image>
+        <view class='ticket-money'>￥99</view>
+      </view>
+
+      <view class='rec-money'>￥99</view>
+      <view class='rec-nomoney'>￥99s</view>
+    </view>
+  </view>
+</view>

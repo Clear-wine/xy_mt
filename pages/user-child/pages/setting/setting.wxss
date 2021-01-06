@@ -1,0 +1,33 @@
+/* pages/user-child/pages/setting/setting.wxss */
+
+.setuothe {
+  width: 100%;
+  margin-top: 2%;
+}
+
+.setuothe-list {
+  width: 100%;
+  background-color: #fff;
+  font-size: 28rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+  position: relative;
+  margin-top: 3%;
+  /*box-shadow: 0 0 5px rgba(9, 9, 9, 0.2);*/
+}
+
+.setuothe-li {
+  padding: 4% 3%;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.setuothe-li image {
+  width: 13rpx;
+  height: 22rpx;
+  float: right;
+  position: relative;
+  top: 10rpx;
+}
+.setuothe-li:last-child{
+  border: none;
+}

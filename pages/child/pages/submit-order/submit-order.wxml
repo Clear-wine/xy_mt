@@ -1,0 +1,152 @@
+<!--pages/child/pages/submit-order/submit-order.wxml-->
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+<view class='home-top'>
+  <!-- 选择是自提/商家配送 -->
+  <!-- <view class='top-list' wx:if="{{shopType == 2}}">
+    <view class="switch-type">
+      <block wx:for="{{typelist}}" wx:key="{{item.name}}">
+        <view class="btn {{currentSelectTripType == item.name ? 'active' : ''}}" catchtap="selectedType" data-name="{{item.name}}" data-type="{{item.type}}">{{item.name}}</view>
+      </block>
+    </view>
+  </view> -->
+</view>
+<!--订单-->
+<view class='sub-order'>
+  <!-- 一键获取微信共享地址 -->
+  <view class='sub-dom dom-address'>
+    <view class='sub-top' wx:if="{{addressData.isDefault == null}}"  bindtap='getWxaddress'>
+      <view class="sub-tops">
+        <view class='sub-top-left'>
+          <!-- <view class='dz-top '>收货地址</view>
+          <view class='dz-title noaddress'>还未添加收货地址</view> -->
+          <image src="../images/weixin.png"></image>
+          <view class='dz-title noaddress'>一键获取收货地址</view>
+        </view>
+        <view class='sub-top-right'>
+          <image src='../images/index_arrows.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='sub-dom dom-address'>
+    <!-- 判断如果是商家配送 -->
+    <view class='sub-top' wx:if="{{addressData.isDefault != null &&deliveryType == 0}}"  bindtap='selectAddress'>
+      <view class='sub-top-left'>
+        <view class='dz-top'>收货地址</view>
+        <view class='dz-user'>
+          <text>{{addressData.persion}}</text>
+          <text>{{addressData.phone}}</text>
+        </view>
+        <view class='dz-title'>{{addressData.province}} {{addressData.city}} {{addressData.area}} {{addressData.address}}</view>
+      </view>
+      <view class='sub-top-right'>
+        <image src='../images/index_arrows.png'></image>
+      </view>
+    </view>
+    <!-- 如果是没有默认地址 -->
+    <view class='sub-top' wx:if="{{addressData.isDefault == null}}"  bindtap='selectAddress'>
+      <view class='sub-top-left'>
+        <!-- <view class='dz-top '>收货地址</view>
+        <view class='dz-title noaddress'>还未添加收货地址</view> -->
+        <image src="../images/tianjia.png"></image>
+        <view class='dz-title noaddress'>手动添加收货地址</view>
+      </view>
+      <view class='sub-top-right'>
+        <image src='../images/index_arrows.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 普通商品订单 -->
+  <view class='sub-dom'>
+    <view class='sub-content' wx:for="{{data.shopDataList}}" wx:key="index">
+      <view class='df-title'>{{item.shopName}}
+        <image mode='aspectFit' src='../images/shangjia_zhengjia.png'></image>
+      </view>
+      <view class='sub-li' wx:for="{{item.goodsList}}" wx:for-item="arr" wx:key="index1">
+        <view class='sub-li-left'>
+          <image src='{{arr.imgPath}}'></image>
+        </view>
+        <view class='sub-li-right'>
+          <view class='li-title'>{{arr.goodsName}}</view>
+          <view class='li-num'>
+            <text wx:if="{{arr.specValue != null}}">{{arr.specValue}}</text>
+            <text> x{{arr.num}}</text>
+          </view>
+          <view class='li-sum'>￥{{vipGrade=='1'? arr.price : filters.toFix(arr.price)}}</view>
+        </view>
+      </view>
+      <view class='cost-ul'>
+        <view class='cost-li'>
+          <view class='cost-title'>配送方式</view>
+          <view class='cost-sum'>{{item.freeShippingTypeText}}</view>
+        </view>
+        <view class='cost-li'>
+          <view class='cost-title'>邮费</view>
+          <view class='cost-sum'>¥{{filters.toFix(item.postage)}}</view>
+        </view>
+        <view class='cost-li' bindtap="handleCoupon" data-shopGoodsPriceAll="{{item.shopGoodsPriceAll}}" data-shopOriginGoodsPriceAll="{{item.shopOriginGoodsPriceAll}}" data-price="{{item.price}}" data-shopOriginalAll="{{item.price}}" data-shopNo="{{item.shopNo}}">
+          <view class='cost-title'>优惠劵</view>
+          <view class='cost-sum' wx:if="{{item.voucherPrice}}">
+            {{item.voucherPrice}}元
+            <image src='../images/index_arrows.png'></image>
+          </view>
+          <view class='cost-sum sumColor' wx:else>
+            选择优惠劵
+            <image src='../images/index_arrows.png'></image>
+          </view>
+        </view>
+        <view class='cost-li'>
+          <view class='cost-title'>填写备注</view>
+          <view class='cost-sum'>
+            <input placeholder='选填,请确认是否需要提前与卖家协商' type="text" value="{{remark}}" bindinput="handlebindinput"></input>
+          </view>
+        </view>
+      </view>
+      <!-- 店铺结算 -->
+      <view class='cost-ul cost-right'>
+        <view class='cost-span'>
+          共
+          <text>{{item.totalNum}}</text>件
+        </view>
+        <view class='cost-span'>
+          小计
+          <text class='cost-price'>￥{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 总计 -->
+  <view class="zongji">
+    <view class='cost-li zongji-yi'>
+      <view class='cost-title'>商品金额</view>
+      <view class='cost-sum'>￥{{data.originalPrice}}</view>
+    </view>
+    <view class='cost-li zongji-yi' style="border-bottom: 2rpx solid #E9E9E9;">
+      <view class='cost-title'>会员优惠</view>
+      <view class='cost-sum zhongji-yi-er'>-￥{{filters.toFix(data.discountPrice)}}</view>
+    </view>
+    <view class="zhongji-san">
+      <text class="zhongji-san-yi">实付金额:</text>
+      <text class="zhongji-san-er">￥{{data.price}}</text>
+    </view>
+  </view>
+</view>
+<!--付款-->
+<view class='payOrder'>
+  <view class='pay-l'>
+    <view class='pay-span'>
+      共{{data.totalNum}}件
+    </view>
+    <view class='pay-span'>
+      合计
+      <text class='pay-sum'>￥{{data.price}}</text>
+    </view>
+    <!-- <view class='pay-span pay-saner'>
+      已赚
+      <text class='pay-sum'>￥{{filters.toFix(data.discountPrice)}}</text>
+    </view> -->
+  </view>
+  <view class='pay-r' bindtap='submitOrders'>
+    提交订单
+  </view>
+</view>

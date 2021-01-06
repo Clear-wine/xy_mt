@@ -1,0 +1,28 @@
+
+  <view class='share-ul'>
+    <view class='share-li' wx:for='{{contentlist}}'> 
+      <view class='list-img'>
+        <image src='../images/shar.png'></image>
+      </view>
+      <view class='list-text'>
+        <view class='upSum'>+{{item.profitAmount}}</view>
+        <view class='upSum'>订单总金额:{{item.orderAmount}}</view>
+        <view class='rate'>分润费率:{{item.profitRate}}%</view>
+        <view class='rate'>用户名:{{item.payName}}</view>
+      </view>
+      <view class='lits-tit'>
+       <view class='title'>{{item.profitSorce}}</view>
+       <view class='time'>{{item.createDate}}</view>
+       <view class='status'>{{item.type}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!--暂无数据-->
+  <view class='nolist' wx:if='{{isShow}}'>
+    <view class='no-img'>
+      <image src='/pages/images/on_order.png'></image>
+    </view>
+    <view class='no-title'>暂无分润数据</view>
+  </view>
+

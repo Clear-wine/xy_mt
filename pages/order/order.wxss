@@ -1,0 +1,265 @@
+/* pages/order/order.wxss */
+
+.order {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.title {
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 3%;
+}
+
+.titleSel {
+  color: #999;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleSel-show {
+  color: #ffa729;
+}
+
+.titleUnsel {
+  color: #ffa729;
+  font-size: 30rpx;
+}
+
+.headerLineSel {
+  background: #ffa729;
+  height: 6rpx;
+  width: 100%;
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.headerLineUnsel {
+  background: #fff;
+  height: 6rpx;
+  width: 40rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.order-img {
+  background: #fff;
+  width: 100%;
+  font-size: 26rpx;
+  color: #ffa729;
+  padding: 2% 6%;
+}
+
+.order-img image {
+  width: 27rpx;
+  height: 26rpx;
+}
+
+.swiper {
+  width: 100%;
+  flex: 1;
+  height: 92.6vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+  }
+.swiper-li {
+  width: 90%;
+  margin: 3% auto;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  padding: 2%;
+  box-shadow: 0 0 10px rgba(9, 9, 9, 0.2);
+  position: relative;
+}
+
+.swiper-top {
+  position: relative;
+  margin-bottom: 4%;
+}
+
+.top-img {
+  font-size: 28rpx;
+}
+
+.top-img image {
+  width: 25rpx;
+  height: 24rpx;
+}
+
+.top-title {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #ff3000;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.top-fahuo{
+  display: inline-block;
+  background:rgba(225,239,255,1);
+  border-radius:4rpx;
+  padding: 0 8rpx 0 8rpx;
+  font-size:22rpx;
+  color:rgba(27,133,255,1);
+}
+.swiper-l {
+  width: 175rpx;
+  height: 175rpx;
+  float: left;
+  overflow: hidden;
+}
+
+.swiper-l image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.swiper-list {
+  width: 68%;
+  float: left;
+  overflow: hidden;
+  text-align: left;
+  margin-left: 2%;
+  position: relative;
+  padding-bottom: 2%;
+}
+
+.list-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  width: 78%;
+  /* height: 120rpx; */
+  font-size: 26rpx;
+  margin-bottom: 5%;
+}
+.gaoxiao{
+  position: absolute;
+  left: 30rpx;
+  bottom:95rpx;
+  font-size:24rpx;
+  color:rgba(153,153,153,1);
+}
+.swiper-r {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  font-size: 26rpx;
+}
+
+.r-num {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.swiper-t {
+  right: 0;
+  font-size: 28rpx;
+}
+
+.swiper-t .t-sum {
+  text-align: right;
+}
+
+.swiper order-bottom {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 4%;
+}
+
+.t-handle {
+  display: inline-block;
+  border: 1px solid #ffa729;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  color: #ffa729;
+  margin: 3% 2% 0;
+  width: 130rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  text-align: center;
+}
+
+.btn-handel {
+  border: 1px solid #ccc;
+  color: #999;
+}
+
+.order-list {
+  overflow: hidden;
+  width: 100%;
+  padding: 2% 0;
+}
+
+.order-bottom {
+  overflow: hidden;
+  width: 100%;
+  height: 100rpx;
+}
+
+.order-bottom .order-activity {
+  color: #ff3000;
+  font-size: 30rpx;
+  position: absolute;
+  left: 28rpx;
+  bottom: 24rpx;
+}
+
+.order-activity image {
+  width: 34rpx;
+  height: 38rpx;
+  position: relative;
+  top: 8rpx;
+}
+
+.order-bottom .order-btn {
+  float: right;
+  width: 100%;
+  height: 80rpx;
+  text-align: right;
+  border-top: 2rpx solid #ccc;
+  margin-top: 30rpx;
+}
+.zanwu{
+  width: 100%;
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  margin: 20rpx 0;
+} 
+.daojishi{
+  font-size:24rpx;
+  float: left;
+  margin-top: 26rpx;
+}
+.daojishi>image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: top;
+  padding: 1rpx 10rpx 0 0;
+}
+.daojishi>text:nth-child(2){
+  color:rgba(51,51,51,1);
+}
+.daojishi>text:nth-child(3){
+  color:rgba(255,48,0,1);
+}

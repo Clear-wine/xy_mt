@@ -1,0 +1,4 @@
+<!-- 暂无入驻店铺 -->
+<view class='my-dialog' hidden='{{showDialog}}'>
+  <image mode="aspectFit" src="/images/default_page3.png"></image>
+</view>

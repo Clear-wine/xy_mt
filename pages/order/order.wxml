@@ -1,0 +1,80 @@
+<!--pages/order/order.wxml-->
+<!---订单-->
+<view class='order'>
+  <!--tab布局-->
+  <view class='title'>
+    <view wx:for="{{orderteb}}" class="titleSel {{currentIndex == index ? 'titleUnsel' : ''}} " bindtap='titleClick' data-status='{{item.status}}' data-current='{{index}}'>
+      <text>{{item.tebtitle}}</text>
+      <hr class="{{currentIndex == index ? 'headerLineSel' : 'headerLineUnsel'}}" />
+    </view>
+  </view>
+  <!-- <view class='order-img'>
+    <image src='../images/notice.png'></image>
+    发货3小时内不处理,系统自动完成订单处理
+  </view> -->
+  <!--内容布局-->
+  <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}' circular>
+    <block wx:for="{{orderteb}}">
+      <!--全部-->
+      <swiper-item class='swiper' catchtouchmove='catchTouchMove'>
+        <scroll-view scroll-y="true" style='height:{{scrollHeight}}px' upper-threshold="100" lower-threshold="100" bindscrolltolower="updatalower" bindscrolltoupper="updatatop">
+          <block wx:for="{{orderList}}" wx:key="{{item.orderNo}}">
+            <view class='swiper-li'>
+              <view class='swiper-top'>
+                <view class='top-img'>
+                  <image  src='../images/shop.png'></image>
+                  {{item.shopName}}
+                </view>
+                <view class='top-title'>{{ item.shopType == '1' ? item.statusName : (item.deliveryType == '0' ? item.statusNameDelivery: item.statusNameUp)}}</view>
+                <!-- {{item.status==6||item.status==7?item.statusText:''}} 这是上面的-->
+              </view>
+              <view class='order-list' bindtap='handleOrderDetails' data-orderType="{{item.orderType}}" data-status="{{item.status}}" data-orderNo="{{item.orderNo}}" data-shopNo="{{item.shopNo}}" wx:for="{{item.goodsList}}" data-merchantno="{{item.merchantNo}}" wx:key="{{index}}" wx:for-item='goods'>
+                <view class='swiper-l'>
+                  <image mode="aspectFill" src='{{goods.goodsImg}}'></image>
+                </view>
+                <view class='swiper-list'>
+                  <view class='list-title'>{{goods.goodsName}}</view>
+                  <view class='list-standard' wx:if="{{goods.specValue !=null}}">{{goods.specValue}}</view>
+                   <view class="top-fahuo" wx:if="{{status!=-2}}" wx:if="{{goods.deliveryTime}}">{{goods.deliveryTime*24}}小时内发货</view>
+                  <view class='swiper-r'>
+                    <view>¥{{goods.price}}</view>
+                    <view class='r-num'> x{{goods.num}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class='swiper-t'>
+                <view class='t-sum'>共{{item.allNum}}件商品,共计{{item.orderPrice}}元</view>
+                <view class="gaoxiao" wx:if="{{status!=-2}}">
+                  <view>总价:¥{{item.originalPrice}}</view>
+                  <view>优惠:¥{{item.discountPrice}}</view>
+                </view>
+                <view class='order-bottom'>
+                  <!-- 如果是活动订单-->
+                  <view class='order-activity' wx:if="{{item.orderType != 0}}">
+                    <image mode="aspectFill" src="{{item.orderIcon}}"></image>
+                    {{item.orderTypeName}}
+                  </view>
+                  <view class='order-btn'>
+                    <view class="daojishi" wx:if="{{item.status===0}}">
+                      <image src="../images/daojishi.png"></image>
+                      <text>等待买家付款</text>
+                      <text>剩余{{item.m}}分钟</text>
+                    </view>
+                    <view class='t-handle btn-handel' wx:if="{{item.status===0}}" catchtap='handleCancel' data-status="{{item.status}}" data-orderno="{{item.orderNo}}" data-shopno='{{item.shopNo}}' data-shoptype="{{item.shopType}}">取消订单</view>
+                    <view class='t-handle' wx:if="{{item.status===0}}" bindtap="handlePay" data-orderPrice="{{item.orderPrice}}" data-orderNo="{{item.orderNo}}" data-shopType="{{item.shopType}}">付款</view>
+                    <view class='t-handle btn-handel' wx:if="{{item.status === 1}}" bindtap="remind"  data-orderNo="{{item.orderNo}}" data-shoptype="{{item.shopType}}">提醒发货</view>
+                    <view class='t-handle btn-handel' wx:if="{{(item.status === 2 || item.status === 3 ) && status != -2 }}" bindtap="checklogistics" data-orderno="{{item.orderNo}}" data-shopno='{{item.shopNo}}'>查看物流</view>
+                    <view class='t-handle' wx:if="{{item.status === 2}}" data-orderNo="{{item.orderNo}}" data-shopNo="{{item.shopNo}}" bindtap="affirm" data-shoptype="{{item.shopType}}">确认收货 </view>
+                    <view class='t-handle btn-handel' wx:if="{{item.status === 4 || item.status === 5}}" catchtap='delHandle' data-status="{{item.status}}" data-orderno="{{item.orderNo}}" data-shopno='{{item.shopNo}}' data-shoptype="{{item.shopType}}">删除订单</view>
+                    <view class='t-handle' wx:if="{{item.status === 3}}" data-orderNo="{{item.orderNo}}" data-shopNo="{{item.shopNo}}" data-merchantNo="{{item.merchantNo}}" data-orderType="{{item.orderType}}" data-activityNo="{{item.activityNo}}" data-orderGoodsList="{{item.goodsList}}" data-shoptype="{{item.shopType}}"  bindtap="evaluate">评价 </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="zanwu">{{orderList.length>0?'暂无更多订单':'暂无订单'}}</view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

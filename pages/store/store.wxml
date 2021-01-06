@@ -1,0 +1,118 @@
+<!--pages/store/store.wxml-->
+<view class="{{(choiceShop.length !==0 && nearShop.length !==0)?'container':'no-container'}}">
+
+
+	<view class='head' style="padding-top:{{navHeight}}px">
+		<view class='head-dom'>
+			<!--搜索框-->
+			<view class='head-input'>
+				<image src='../images/sousuo.png' bindtap="handleStoreList"></image>
+				<image src='../images/saoyisaohei.png' class="wang-top-tu"></image>
+			</view>
+			<!--扫一扫-->
+			<view class='head-r'>
+				<view class='head-li-img' bindtap="toLocationSearch">
+					<image mode="aspectFit" src='../images/loction.png'></image>
+					{{city}}
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='yd-type' style="padding-top:{{headHeight}}px">
+		<!-- 轮播图 -->
+		<swiper class="swiper" circular="true" autoplay>
+			<swiper-item wx:for="{{bannerList}}" wx:key="index">
+				<image class="swiper-img" src="{{item.imgPath}}" mode="aspectFill" lazy-load="true"></image>
+			</swiper-item>
+		</swiper>
+		<!--优店分类-->
+		<view class='type-ul'>
+			<block wx:for="{{sectionlist}}" wx:key="id">
+				<view class='type-li' bindtap="stroeList" data-id='{{item.id}}'>
+					<view class='type-img'>
+						<image mode="aspectFit" src='{{item.icon}}' lazy-load="true"></image>
+					</view>
+					<view class='type-name'>{{item.name}}</view>
+				</view>
+			</block>
+		</view>
+		<view class="no-isshow" wx:if="{{choiceShop.length ==0 && nearShop.length ==0}}">
+			<image src="../images/default_page3.png"></image>
+			<view>抱歉!该地区暂无商家</view>
+		</view>
+		<view class="wang-xrdlp">
+			<!-- <image src="../images/xrdlp.png"></image> -->
+			<image src="{{newcomerAdv.url}}" lazy-load="true" mode="aspectFill"></image>
+		</view>
+
+		<!--精选店铺-->
+			<view class='selected-shops' wx:if="{{choiceShop.length !==0}}">
+				<view class='select-img'>
+					<view class="meishi-biaoti">精选店铺</view>
+				</view>
+				<view class="dianpu">
+					<view class="wang-dianpu" wx:for="{{choiceShop}}" wx:key="index7" catchtap='toShop' data-nonum="{{item.shopNo}}">
+						<image src="{{item.shopImg}}" mode="aspectFill" lazy-load="true"></image>
+						<view class="dianpu-name">{{item.shopName}}</view>
+						<view>
+							<view class='top-center-star' wx:for="{{item.score}}" wx:key="index1">
+								<image src='../images/star1.png'></image>
+							</view>
+							<view class='top-center-star' wx:for="{{item.tow_1}}" wx:key="index2">
+								<image src='../images/star2.png'></image>
+							</view>
+							<view class="dianpu-fen">{{item.score==0?5:item.score}}分</view>
+						</view>
+						<view class="dianpu-juli">{{item.distance}}km</view>
+						<view class="dianpu-xiaoliang">{{item.shopSales}}人吃过</view>
+					</view>
+				</view>
+			</view>
+			<view class="wang-meishi" wx:if="{{nearShop.length !==0}}">
+				<view class="meishi-biaoti">附近美食</view>
+				<view class="meishi-fenlei">
+					<view bindtap="zonghe">综合排序</view>
+					<view class="fenlei-yi" bindtap="juli">
+						距离排序
+						<image src="{{xuanze?'../images/xuanze.png':'../images/xuanze2.png'}}"></image>
+					</view>
+					<view class="fenlei-yi" bindtap="xiaoliang">
+						销量排序
+						<image src="{{xuanze2?'../images/xuanze.png':'../images/xuanze2.png'}}"></image>
+					</view>
+				</view>
+				<view class="xiangqing-zhu" wx:for="{{nearShop}}" catchtap='toShop' data-nonum="{{item.shopNo}}" wx:key="index3">
+					<view class="xiangqing-a">
+						<view class="a-name">{{item.shopName}}</view>
+						<view class="a-juli">{{item.distance}}km</view>
+					</view>
+					<view class="xiangqing-b">
+						<view class='top-center-star' wx:for="{{item.score}}" wx:key="index4">
+							<image src='../images/star1.png'></image>
+						</view>
+						<view class='top-center-star' wx:for="{{item.tow_1}}" wx:key="index5">
+							<image src='../images/star2.png'></image>
+						</view>
+						<view class="dianpu-fen">{{item.score}}分</view>
+						<view class="b-yuexiao">月销:{{item.shopSales}}</view>
+					</view>
+					<view class="xiangqing-b">
+						<view class="c-left">{{item.deliveryPrice==0?'免费配送':'配送费:'+item.deliveryPrice}}</view>
+						<view class="c-right">起送价:{{item.distPrice}}</view>
+					</view>
+					<view class="xiangqing-d">
+						<view class="d-zhu" wx:for="{{item.goodsList}}" wx:for-item="list" wx:key="index6">
+							<image src="{{list.goodsImg}}" mode="aspectFill" lazy-load="true"></image>
+							<view>
+								<text class="d-jiage">￥{{vipRate != undefined&&vipGrade!=1? list.discountprice : list.price}}</text>
+								<view class="d-jiage1" wx:if="{{vipRate&&vipGrade!=1}}">¥{{list.price}}</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+	</view>
+</view>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>
+<!-- <view class='no-more' wx:if="{{hasMoreData}}">加载中...</view>
+<view class='no-more' wx:else>已经到底了...</view> -->

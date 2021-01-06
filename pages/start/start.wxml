@@ -1,0 +1,6 @@
+<!--pages/start/start.wxml-->
+<view class='start'>
+  <image mode="aspectFit" src='../images/zhutu12.png'></image>
+  <!-- <image bindload="imageLoad" src='../images/boot_page.png' style="width:{{ images.width }}rpx; height:{{ images.height }}rpx;"></image> -->
+
+</view>

@@ -1,0 +1,46 @@
+<scroll-view scroll-y="true">
+<!-- 商品 -->
+<view class="shangp" wx:for="{{goodsList}}" wx:if="{{index<shangpsl}}">
+  <image src="{{item.img}}"></image>
+  <view class="shangp-right">
+    <view class="shangp-right-yi">{{item.goodsName}}</view>
+    <view class="shangp-right-san">
+      <text wx:if="{{item.specValue}}">{{item.specValue}}</text>
+    </view>
+    <view class="right-si">x{{item.num}}</view>
+  </view>
+</view>
+<view class="shangp-bottom" wx:if="{{goodsList.length>3}}" bindtap="gengduosp">{{shangpsl>3?'收起':'展示更多'}}</view>
+<!-- 物流信息填写 -->
+<view class="wuliu">
+  <view class="wuliu-yi">
+    <view>物流单号</view>
+    <input bindblur="setorderCode"></input>
+  </view>
+  <view class="wuliu-yi">
+    <view>联系方式</view>
+    <input bindblur="setcontactTel" maxlength="11"></input>
+  </view>
+  <view class="wuliu-yi">
+    <view>物流公司名称:</view>
+    <view>{{loginsticsName}}</view>
+    <button class="wuliu-cx" bindtap="cxwuliuname">查询</button>
+  </view>
+</view>
+<!-- 退款说明 -->
+<view class="shuom">
+  <view class="shuom-san">
+    <view class="shuom-san-yi">上传凭证</view>
+    <block wx:for="{{annerList}}">
+      <image bindlongpress='longPress' src="https://www.yisanmall.com/{{item}}" class="shuom-san-er" mode="aspectFit" data-img="{{item}}"></image>
+    </block>
+    <image src="../../images/shangchuan.png" class="shuom-san-er" bindtap="shangchuantu" wx:if="{{tupianhide}}"></image>
+  </view>
+  <view class="shoum-si">照片上传最多支持三张</view>
+</view>
+</scroll-view>
+<!-- 底部按钮 -->
+<view class="anniu">
+  <view class="anniu-left">{{handleSubTimes}}</view>
+  <view class="anniu-right" bindtap="setlogistics">提交</view>
+</view>

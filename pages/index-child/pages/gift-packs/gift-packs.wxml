@@ -1,0 +1,19 @@
+<!--pages/index-child/pages/gift-packs/gift-packs.wxml-->
+<!--大礼包-->
+<view class='helpShop'>
+  <view class='help-ul'>
+    <view class='help-li' wx:for="{{activityList}}" bindtap='toActivityDetail' data-type="{{item.shopType}}" data-activityType='{{item.activityType}}' data-activityNo="{{item.activityNo}}" data-goodsNo='{{item.goodsNo}}'>
+      <view class='help-li-img'>
+        <image src='{{item.goodsImgPath}}'></image>
+      </view>
+      <view class='help-li-tit'>{{item.goodsName}}</view>
+      <view class='help-li-sum'>{{item.activityTitle}}:
+        <text>￥{{item.actPrice}}</text>
+      </view>
+      <view class='help-li-nosum'>市场价:￥{{item.price}}</view>
+    </view>
+  </view>
+</view>
+<!-- 加载提示 -->
+<!-- <view class='no-more' wx:if="{{hasMore}}">加载中...</view>
+        <view class='no-more' wx:else>已经到底了...</view> -->

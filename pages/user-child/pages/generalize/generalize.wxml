@@ -1,0 +1,36 @@
+<!--pages/user-child/pages/generalize/generalize.wxml-->
+<view class='tg-head'>
+ <view class='tg-head-content'>
+  <view class='head-left '>累计收益:21.21</view>
+  <view class='head-right '>推广人数:9
+    <image src='../images/skip.png '></image>
+  </view>
+  </view>
+</view>
+<!--推广列表-->
+<view class='tg-list '>
+  <view class='list-head '>
+    <view class='list-head-l '>订单号：13243433434</view>
+    <view class='list-head-r '>09-22 115：41：26</view>
+  </view>
+  <view class='list-content '>
+    <view class='list-content-l '>
+      <text>19526562222</text>
+      <text>订单金额:20.00</text>
+    </view>
+    <view class='list-content-r '>+1.21</view>
+  </view>
+</view>
+<view class='tg-list '>
+  <view class='list-head '>
+    <view class='list-head-l '>订单号：13243433434</view>
+    <view class='list-head-r '>09-22 115：41：26</view>
+  </view>
+  <view class='list-content '>
+    <view class='list-content-l '>
+      <text>19526562222</text>
+      <text>订单金额:20.00</text>
+    </view>
+    <view class='list-content-r '>+1.21</view>
+  </view>
+</view>

@@ -1,0 +1,113 @@
+/* pages/index-child/pages/gift-packs/gift-packs.wxss */
+/**********助力购 star*********/
+
+.helpShop {
+  width: 100%;
+}
+
+.help-img {
+  width: 339rpx;
+  height: 29rpx;
+  margin: auto;
+}
+
+.help-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.help-ul {
+  text-align: center;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;*/
+  overflow: hidden;
+}
+
+.help-li {
+  width: 44%;
+  background: #fff;
+  text-align: center;
+  padding: 2%;
+  border-radius: 20rpx;
+  margin: 1%;
+  float: left;
+}
+
+.help-li-img {
+  /* width: 250rpx; */
+  height: 300rpx;
+  margin: auto;
+}
+
+.help-li-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.help-li-tit {
+  font-size: 26rpx;
+  color: #999;
+  margin: 2% 0;
+  height: 40rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.help-li-sum {
+  font-size: 28rpx;
+  color: #000;
+  font-weight: 600;
+  margin: 2% 0;
+}
+
+.help-li-sum text {
+  color: #ff5543;
+}
+
+.help-li-nosum {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.help-icon {
+  font-size: 25rpx;
+  color: #ff5543;
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+
+.icon-tit {
+  margin: 0 2%;
+}
+
+.icon-img {
+  width: 22rpx;
+  height: 20rpx;
+  margin: 0 2%;
+}
+
+.icon-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.share-num {
+  font-size: 22rpx;
+  color: #ff5543;
+  margin: 2% 0;
+}
+
+/**********助力购 :end*********/
+/**加载**/
+.no-more {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 24rpx;
+}

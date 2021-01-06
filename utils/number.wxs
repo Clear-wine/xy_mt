@@ -1,0 +1,21 @@
+var filters = {    
+  toFix: function (value) {       
+      return value.toFixed(2) // 此处2为保留两位小数，保留几位小数    
+  },
+  toStr: function (value) {       
+      return value.toString()
+  },
+  toNum: function (value) {       
+      return value.toNumber()
+  },
+  toZheng:function(value){
+    return Math.round(value)//取整
+  }
+}
+
+module.exports = {   
+  toFix: filters.toFix,
+  toStr: filters.toStr,
+  toNum: filters.toNum,//暴露接口调用
+  toZheng:filters.toZheng
+}

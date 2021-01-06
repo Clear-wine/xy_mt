@@ -1,0 +1,86 @@
+.card {
+  background-color: #29a7ff;
+  margin: 3%;
+  padding: 3%;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  color: #fff;
+}
+
+.card-img {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  float: left;
+  margin-right: 3%;
+}
+
+.card-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.card-text {
+  float: left;
+}
+
+.card-text text {
+  display: block;
+}
+
+.card-c {
+  font-size: 24rpx;
+  color: #95dbff;
+}
+
+.card-n {
+  font-size: 55rpx;
+}
+
+.add-card {
+  margin: 3%;
+  padding: 3%;
+  text-align: center;
+  background-color: #fff;
+  color: #999;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.add-card image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.add-card-title {
+  font-family: PingFang-SC-Bold;
+  font-size: 30rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #353b56;
+}
+
+.add-card-msg {
+  font-family: PingFang-SC-Medium;
+  font-size: 24rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #999;
+}
+.gowx{
+  height: 120rpx;
+  background-color: #fff;
+  color: #111;
+  line-height: 120rpx;
+}
+.gowx>image{
+  width: 104rpx;
+  height: 88rpx;
+  float: left;
+  margin-top: 13rpx;
+  margin-right: 22rpx;
+  font-size: 34rpx;
+}

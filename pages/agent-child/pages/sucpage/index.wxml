@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="center-view">
+    <image src="../images/succeed_ty.png"></image>
+    <view class="center-title">提现申请已提交</view>
+    <view class="center-time">预计到账时间:48小时内</view>
+  </view>
+  <view class="bank-view">
+    <view class="row-view">
+      <view class="col-title">提现方式</view>
+      <view class="col-val">{{bankName}} 
+        <!-- <text wx:if="{{bankNo=='undefined'}}">
+          尾号{{bankNo}}
+        </text> -->
+      </view>
+    </view>
+    <view class="row-view">
+      <view class="col-title">金额</view>
+      <view class="col-val">¥{{price}} </view>
+    </view>
+  </view>
+  <view class="up-btn" bindtap="handleOver">完成</view>
+</view>

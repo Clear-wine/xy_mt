@@ -1,0 +1,193 @@
+<!-- 内容 -->
+<wxs module="filters" src="../../../../utils/number.wxs"></wxs>
+<view class='detail-cp'>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" style="width:{{windowWidth}}px;height:{{windowWidth}}px;">
+    <block wx:for="{{imglist}}">
+      <swiper-item>
+        <!-- <view class='cp-banner'> -->
+          <image mode="aspectFill" src='{{item.imgPath}}' data-src="{{item.imgPath}}" catchtap="previewImg" style="width:100%;height:100%"></image>
+        <!-- </view> -->
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 活动展示 -->
+  <view class="act-head">
+    <view class="li-span">
+      <view class="li-span-icon">
+        <image src="{{acturl}}" mode="aspectFit"></image>
+      </view>
+      <view class="li-span-show">
+        <image src="../images/hdxqy_hot.png" mode="aspectFit"></image>
+        {{activityDetailBean.status}}
+      </view>
+    </view>
+    <view class="li-span">
+      <view class="li-span-title">活动结束时间:{{activityDetailBean.endDate}}</view>
+      <view class="li-span-val">{{activityType != '3'? '已有' + activityDetailBean.joinNum+'人'+activityTitle : '已有' +activityDetailBean.joinNum + '人代言此商品'}}</view>
+    </view>
+  </view>
+
+  <view class='cp-content'>
+    <view class='cp-dom'>
+      <view class='cp-title'>{{goodsBean.goodsName}}</view>
+      <view class='cp-span'>
+        <text>月销{{goodsBean.monthSaleNum}}</text>
+        <text wx:if="{{activityType !='2'}}">好评{{goodsBean.goodScoreRate}}%</text>
+        <!-- <text>配送约39分钟</text> -->
+      </view>
+      <!--判断是否是活动显示活动标志-->
+      <view class='activity-logo' wx:if="{{activityType!='3'}}">
+        <image mode='aspectFit' src='../images/price_tag.png'></image>
+        <text class="joinPersonNum" wx:if="{{activityType == '1' || activityType == '4' || activityType == '5'}}">{{activityDetailBean.joinPersonNum}}人{{activityTypeName}}</text>
+        <text class="activityTypeName" wx:else>{{activityTypeName}}价</text>
+      </view>
+      <view class='head-money'>￥{{actPrice}}</view>
+      <view class="head-commission" wx:if="{{activityType=='3'}}">代言佣金:￥{{activityDetailBean.commission}}</view>
+      <view wx:if="{{activityType!='3' && activityType!='2'}}" class='noMoney'>￥{{activityDetailBean.price}}</view>
+      <view wx:if="{{activityType ==='2'}}" class='noMoney'>￥{{goodsBean.price}}</view>
+      <view class='head-select' bindtap='handleSelect' wx:if="{{specList.length != 0}}">选择
+        <text>请选择</text>
+        <text>{{selName}}</text>
+        <image src='../images/index_arrows.png'></image>
+      </view>
+    </view>
+    <!-- 礼包包含的商品 -->
+    <view class="cp-dom" wx:if="{{activityType == '2'}}">
+      <view class='like-title'>
+        礼包包含的商品
+      </view>
+      <view class='like-ul'>
+        <view class='like-features' wx:for="{{giftGoodsList}}" catchtap="toGiftDetail" data-goodsno="{{item.goodsNo}}">
+          <view class='li-img'>
+            <image src='{{item.imgPath}}'></image>
+          </view>
+          <view class='li-title'>{{item.goodsName}}</view>
+          <view class='li-money'>￥{{item.price}}</view>
+          <view class="li-span-num">x{{item.num}}</view>
+        </view>
+      </view>
+    </view>
+    <!--猜你喜欢-->
+    <view class='cp-dom'>
+      <view class='like-title'>
+        猜你喜欢
+      </view>
+      <view class='like-ul'>
+        <block wx:for="{{footPrintGoodsList}}" wx:key>
+          <view class='like-features' catchtap="handlelikeDetail" data-goodsNo="{{item.goodsNo}}">
+            <view class='li-img'>
+              <image src='{{item.imgPath}}'></image>
+            </view>
+
+            <view class='li-title'>{{item.goodsName}}</view>
+            <view class='li-money'>￥{{item.price}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!--产品评价-->
+    <view class='cp-dom' wx:if="{{activityType !='2'}}">
+    <view class="disEva">
+      <view class='evaluate'>
+        <text class='eva-pro'>产品评价</text>
+        <text class='eva-num'>(好评率{{goodsBean.goodScoreRate || 100}}%)</text>
+      </view>
+      <view class='eva-all' bindtap="checkEva">
+        {{allEvaNum}}条评论
+        <image src='../images/index_arrows.png'></image>
+      </view>
+      </view>
+      <block wx:for="{{gradelist}}" wx:if="{{gradelist.length != 0}}">
+        <view class='use-list'>
+          <view class='user-img'>
+            <image src='{{item.userHead}}'></image>
+          </view>
+          <view class='user-box'>
+            <view class='user-name'>{{item.nickName}}</view>
+            <view class='user-title'>{{item.content}}</view>
+          </view>
+          <view class='user-time'>{{item.createDate}}</view>
+        </view>
+      </block>
+      <view wx:if="{{gradelist.length == 0}}" class="noeva">该商品还没有评价!</view>
+    </view>
+  </view>
+  <!--结算-->
+  <view class='pay activity-pay'>
+    <view wx:if="{{activityDetailBean.activityType === '1' || activityDetailBean.activityType === '4'}}" bindtap='toIntrodeuce' class='recommend'>
+      <image mode='aspectFit' src='../images/activity-js.png'></image>
+      活动介绍
+    </view>
+    <view bindtap='handlePay' class='activity-title'>
+      <block wx:if="{{activityDetailBean.activityType === '1'}}">
+        <view>￥{{actPrice}}</view>
+        <view>{{activityTypeName}}购</view>
+      </block>
+      <block wx:if="{{activityDetailBean.activityType === '5'}}">
+        <view>￥{{actPrice}}</view>
+        <view>{{activityTypeName}}购</view>
+      </block>
+      <block wx:if="{{activityDetailBean.activityType === '4'}}">
+        <view class="jielong">{{activityTypeName}}购</view>
+      </block>
+      <block wx:if="{{activityType == '2' || activityType == '3'}}">
+        <view class="jielong">立即购买</view>
+      </block>
+    </view>
+  </view>
+
+</view>
+<!-- 弹出层 优店选规格 -->
+<view class='mask-layer' wx:if="{{showPop}}" bindtap='hideModal'></view>
+<view class='pop-add-cart pop-common' wx:if="{{showPop}}" animation='{{animationData}}'>
+  <view class='spinfo'>
+    <view class='spinfo-img'>
+      <!-- <image mode='scaleToFill' src='{{imglist[0].imgPath}}'></image> -->
+      <image mode='scaleToFill' src='{{includeGroup[0].makeBeanList[0].specImg}}' bindtap="handleShowImg"></image>
+    </view>
+    <view class='spinfo-content'>
+      <view class='money' wx:if="{{activityType != '2' && activityType != '3'}}">￥{{filters.toFix(actmoney)}}</view>
+      <view class='money' wx:else>￥{{selectPrice}}</view>
+      <view class='selected_size' wx:if="{{specValue}}">已选规格:{{selValue}}</view>
+      <view class='selected_size' wx:else>请选择:{{selName}}</view>
+      <view class='spnoNum'>
+        <text>库存:{{includeGroup[0].num}}</text>
+        <text>商品编码:{{imglist[0].merchantNo}}</text>
+      </view>
+    </view>
+    <view class='spinfo-delete' bindtap='handleHide'>
+      <image mode='aspectFit' src='../images/cha.png'></image>
+    </view>
+  </view>
+  <view class='spinfo-size'>
+    <scroll-view style='height:255px' scroll-y="true">
+      <view class="commodity_attr_list">
+        <!--每组属性-->
+        <view class="attr_box" wx:for="{{specList}}" wx:for-item="attrValueObj" wx:for-index="attrIndex">
+          <!--属性名-->
+          <view class="attr_name">{{attrValueObj.specName}}</view>
+          <!--属性值-->
+          <view class="attr_value_box">
+            <!--每个属性值-->
+            <view class="attr_value {{attrIndex== firstIndex || attrValueObj.attrValueStatus[valueIndex] ? (item.specValue == attrValueObj.selectedValue ?'attr_value_active':''):'attr_value_disabled'}}" bindtap="selectAttrValue" data-key="{{attrValueObj.specName}}"
+              data-index="{{attrIndex}}" wx:for="{{attrValueObj.specAttrList}}" data-status="{{attrValueObj.attrValueStatus[valueIndex]}}" data-selectedvalue="{{attrValueObj.selectedValue}}" data-value="{{item.specValue}}" wx:for-index="valueIndex">{{item.specValue}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="selectCount">
+        <view class="countname">数量</view>
+        <view class="countright">
+          <text class="{{minusStatus}}" bindtap="bindMinus" data-index="{{index}}">-</text>
+          <input type='number' bindchange="bindManual" value='{{num}}'></input>
+          <text class="normal" bindtap="bindPlus" data-index="{{index}}">+</text>
+        </view>
+      </view> -->
+    </scroll-view>
+  </view>
+  <view class='showFooter toolbar'>
+    <view class="chosen" bindtap="handleChosen">选好了</view>
+  </view>
+</view>
+<!-- 弹出分享按钮 -->
+<share id="dialog" showDialog="{{showDialog}}"></share>
+<logins id="logins" bind:callSomeFun="callSomeFun"></logins>
